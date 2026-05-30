@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>存在问题 · 中国制博会调研</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="section">
+    <span class="tag warn">第二部分</span>
+    <h2 style="margin-top:8px;">存在问题</h2>
+    <div class="lead">中国制博会的问题不是运行不足，而是从"规模型展会"向"平台型、服务型、数字型、国际型展会"升级过程中要解决的结构性矛盾。下文九大问题逐条诊断，并给出综合优先级评估。</div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>九大问题优先级雷达</h3>
+      <p class="sub">图F5 · 影响程度 × 改进紧迫性双维度评估，越靠外越关键</p>
+      <div id="chart-f5" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">问题逐条诊断</h2>
+    <div class="grid-2">
+
+      <div class="card">
+        <span class="tag danger">高优先级</span>
+        <h3 style="margin-top:8px;">① 战略定位表达仍需聚焦</h3>
+        <p>主题"智能新装备·新质生产力"宏观恰当，但对参展商、专业观众、政府园区、高校等不同主体的<b>价值表达不够具体</b>，参展与参观理由不够突出。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag danger">高优先级</span>
+        <h3 style="margin-top:8px;">② 专业观众组织和供需匹配效率有待提升</h3>
+        <p>注册信息以基础字段为主，<b>采购需求、预算周期、决策角色采集不足</b>；展前预约机制弱，现场仍主要靠浏览寻展商，影响有效线索转化。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag danger">高优先级</span>
+        <h3 style="margin-top:8px;">③ 数字化服务尚未形成完整闭环</h3>
+        <p>线上云展具备基础，但展前需求识别、展中智能推荐、展后线索管理之间<b>缺少数据闭环</b>，难以沉淀长期数据资产。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag warn">中高</span>
+        <h3 style="margin-top:8px;">④ 宣传推广与品牌传播分层不足</h3>
+        <p>政府新闻和展会信息发布充分，但面向参展商、专业观众、城市公众、高校青年的<b>差异化传播</b>仍需提升，新媒体内容潜力未释放。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag warn">中高</span>
+        <h3 style="margin-top:8px;">⑤ 展览内容、活动内容与城市资源联动不够</h3>
+        <p>同期活动较丰富但<b>缺少主题链条</b>，展区与论坛、发布、考察之间联动有限；沈阳工业博物馆、产业园区等城市资源尚未充分组合。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">中</span>
+        <h3 style="margin-top:8px;">⑥ 国际化深度有待提升</h3>
+        <p>国际企业参展已有基础，但<b>国际采购商组织、国际行业机构合作、跨境供应链对接和多语种服务</b>仍需深化，国际资源链接深度不够。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">中</span>
+        <h3 style="margin-top:8px;">⑦ 现场服务和观展体验精细化不够</h3>
+        <p>现场<b>导览效率、洽谈环境、餐饮交通、商务服务</b>等细节仍可优化，工业展会容易出现"信息密度高但导航效率低"的问题。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag danger">高优先级</span>
+        <h3 style="margin-top:8px;">⑧ 展后服务与成果转化机制需强化</h3>
+        <p>装备采购周期长，意向线索缺少持续跟踪，<b>展后回访、成交跟踪、复盘评估</b>机制尚未制度化，展会长期价值难以量化。</p>
+      </div>
+
+      <div class="card">
+        <span class="tag">中</span>
+        <h3 style="margin-top:8px;">⑨ 高校与青年群体参与深度不足</h3>
+        <p>沈阳高校资源丰富，但参与多停留在组织参观、志愿服务层面，<b>产学研合作机制</b>尚未充分形成，青年传播力未释放。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>表5 · 问题诊断汇总</h3>
+      <table class="tbl">
+        <thead><tr><th>问题类别</th><th>主要表现</th><th>影响结果</th><th>优先级</th></tr></thead>
+        <tbody>
+          <tr><td>定位表达</td><td>主题宏观，面向不同主体的价值表达不够具体</td><td>参展与参观理由不够突出</td><td><span class="tag danger">高</span></td></tr>
+          <tr><td>供需匹配</td><td>专业观众需求采集不足，预约洽谈机制不强</td><td>有效线索转化效率受限</td><td><span class="tag danger">高</span></td></tr>
+          <tr><td>数字化服务</td><td>线上线下联动不足，展后数据沉淀不足</td><td>难以形成全周期数据资产</td><td><span class="tag danger">高</span></td></tr>
+          <tr><td>宣传推广</td><td>传播对象分层不足，新媒体开发不充分</td><td>品牌传播触达效率不足</td><td><span class="tag warn">中高</span></td></tr>
+          <tr><td>活动联动</td><td>展区、论坛、发布、考察联动可增强</td><td>展会内容价值释放不足</td><td><span class="tag warn">中高</span></td></tr>
+          <tr><td>国际化</td><td>国际采购商组织和多语种服务深化</td><td>国际合作潜力释放不足</td><td><span class="tag">中</span></td></tr>
+          <tr><td>现场体验</td><td>导览、洽谈、交通、休息等细节可优化</td><td>满意度和停留时间受影响</td><td><span class="tag">中</span></td></tr>
+          <tr><td>展后转化</td><td>线索回访、成交跟踪、复盘机制需完善</td><td>展会长期价值难以量化</td><td><span class="tag danger">高</span></td></tr>
+          <tr><td>高校参与</td><td>产学研与青年人才参与机制不足</td><td>创新与人才资源利用不足</td><td><span class="tag">中</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+  renderChart('chart-f5', 'F5');
+</script>
+</body>
+</html>

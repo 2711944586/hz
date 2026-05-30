@@ -1,0 +1,12 @@
+{
+  "name": "hz-zhibohui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "中国制博会调研报告 - 网站与图表导出工具",
+  "scripts": {
+    "export": "node scripts/export_charts.js"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0"
+  }
+}
