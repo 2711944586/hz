@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>数据看板 · 中国制博会调研</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="section">
+    <span class="tag">数据看板</span>
+    <h2 style="margin-top:8px;">中国制博会综合数据看板</h2>
+    <div class="lead">将本届展会与历届对比、与同类展会对比、与城市经济效应交叉分析，呈现一个可一眼看懂的整体状况。所有图表数据来自公开资料整理与调研判断；满意度与 KPI 部分为示例数据，待问卷调研结果回填。</div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>规模演进信息图</h3>
+      <p class="sub">图F1 · 展览面积、参展企业、开幕日意向成交额三十年趋势</p>
+      <div id="chart-f1" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-2">
+      <div class="card">
+        <h3>同类展会对比</h3>
+        <p class="sub">图F15 · 与 CIIF、CIMT、CHTF 八维度对比</p>
+        <div id="chart-f15" class="chart"></div>
+      </div>
+      <div class="card">
+        <h3>核心 KPI 仪表盘</h3>
+        <p class="sub">图F19 · 当前值与目标值（示例数据）</p>
+        <div id="chart-f19" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>展会经济乘数效应</h3>
+      <p class="sub">图F17 · 直接价值 / 间接拉动 / 诱发效应分解（基于公开测算的相对单位）</p>
+      <div id="chart-f17" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>满意度模拟分布</h3>
+      <p class="sub">图F18 · 示例数据，按真实问卷回收数据替换后即可使用</p>
+      <div id="chart-f18" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>沈阳工业文旅联动路线</h3>
+      <p class="sub">图F20 · 展馆 - 工厂 - 高校 - 文化场所组合体验</p>
+      <div id="chart-f20" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>沈阳产业链辐射网络</h3>
+      <p class="sub">图F13 · 展会服务半径与全国制造业重点区域的链接</p>
+      <div id="chart-f13" class="chart tall"></div>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+  ['F1','F13','F15','F17','F18','F19','F20'].forEach(c => renderChart('chart-' + c.toLowerCase(), c));
+</script>
+</body>
+</html>

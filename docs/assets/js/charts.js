@@ -525,3 +525,477 @@ window.renderChart = function (id, code) {
   window.addEventListener('resize', () => chart.resize());
   return chart;
 };
+
+
+/* =========================================================
+ * F1  历届展会规模演进信息图（首页 KPI 单独可导出版）
+ * ========================================================= */
+const CHART_F1 = () => {
+  const years = ['2002', '2005', '2010', '2015', '2020', '2023', '2025'];
+  const area = [3, 5, 6.5, 8, 7, 8.5, 9];          // 万㎡
+  const exhib = [320, 480, 620, 780, 720, 850, 912];// 家
+  const intent = [3.2, 5.8, 8.4, 11.6, 9.2, 13.5, 15.8]; // 亿元开幕日意向
+  return {
+    ...baseOption('图F1  中国制博会规模演进信息图', '展览面积 / 参展企业 / 开幕日意向成交额 三十年趋势'),
+    legend: { top: 56, textStyle: { fontSize: 12 } },
+    grid: { left: 70, right: 70, top: 100, bottom: 60 },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+    xAxis: {
+      type: 'category', data: years,
+      axisLabel: { color: PALETTE.ink, fontSize: 12 },
+      axisLine: { lineStyle: { color: PALETTE.line } }
+    },
+    yAxis: [
+      { type: 'value', name: '面积(万㎡) / 意向(亿元)', position: 'left', nameTextStyle: { color: PALETTE.muted }, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } } },
+      { type: 'value', name: '参展企业(家)', position: 'right', nameTextStyle: { color: PALETTE.muted }, splitLine: { show: false } }
+    ],
+    series: [
+      { name: '展览面积(万㎡)', type: 'bar', data: area, itemStyle: { color: PALETTE.primary, borderRadius: [6, 6, 0, 0] }, barWidth: 18, label: { show: true, position: 'top', fontSize: 11, color: PALETTE.primary, formatter: '{c}' } },
+      { name: '开幕日意向成交额(亿元)', type: 'line', data: intent, smooth: true, symbol: 'circle', symbolSize: 8, lineStyle: { color: PALETTE.accent, width: 3 }, itemStyle: { color: PALETTE.accent }, label: { show: true, position: 'top', fontSize: 11, color: PALETTE.accent, formatter: '{c}' } },
+      { name: '参展企业(家)', type: 'line', yAxisIndex: 1, data: exhib, smooth: true, symbol: 'rect', symbolSize: 8, lineStyle: { color: PALETTE.success, width: 3 }, itemStyle: { color: PALETTE.success }, label: { show: true, position: 'bottom', fontSize: 11, color: PALETTE.success, formatter: '{c}' } }
+    ]
+  };
+};
+
+/* =========================================================
+ * F13  沈阳装备制造产业链辐射地图
+ * ========================================================= */
+const CHART_F13 = () => {
+  // 不依赖外部 GeoJSON，用散点连线模拟辐射网络
+  const cities = [
+    { name: '沈阳', value: [123.43, 41.81, 100], type: 'core' },
+    { name: '大连', value: [121.62, 38.91, 80] },
+    { name: '长春', value: [125.32, 43.82, 75] },
+    { name: '哈尔滨', value: [126.63, 45.75, 70] },
+    { name: '北京', value: [116.40, 39.90, 85] },
+    { name: '天津', value: [117.20, 39.10, 70] },
+    { name: '青岛', value: [120.38, 36.07, 65] },
+    { name: '上海', value: [121.47, 31.23, 90] },
+    { name: '苏州', value: [120.62, 31.32, 75] },
+    { name: '无锡', value: [120.30, 31.57, 65] },
+    { name: '杭州', value: [120.16, 30.27, 70] },
+    { name: '宁波', value: [121.55, 29.88, 60] },
+    { name: '广州', value: [113.27, 23.13, 70] },
+    { name: '深圳', value: [114.06, 22.55, 75] },
+    { name: '佛山', value: [113.13, 23.03, 60] },
+    { name: '成都', value: [104.07, 30.67, 70] },
+    { name: '重庆', value: [106.55, 29.57, 70] },
+    { name: '武汉', value: [114.31, 30.59, 70] },
+    { name: '长沙', value: [112.94, 28.23, 60] },
+    { name: '西安', value: [108.95, 34.27, 70] },
+    { name: '郑州', value: [113.65, 34.76, 60] },
+    { name: '合肥', value: [117.27, 31.86, 60] }
+  ];
+  const center = cities[0].value;
+  const lines = cities.slice(1).map(c => ({
+    coords: [center.slice(0, 2), c.value.slice(0, 2)],
+    lineStyle: { color: PALETTE.accent, width: 1.2, opacity: 0.55, curveness: 0.25 }
+  }));
+  return {
+    ...baseOption('图F13  沈阳装备制造产业链辐射网络示意', '以沈阳为核心，向东北、京津冀、长三角、珠三角、成渝等装备制造重点区域辐射'),
+    tooltip: { trigger: 'item', formatter: p => p.data && p.data.name ? p.data.name : '' },
+    grid: { left: 0, right: 0, top: 80, bottom: 30, containLabel: false },
+    xAxis: { min: 95, max: 135, show: false, type: 'value' },
+    yAxis: { min: 18, max: 50, show: false, type: 'value' },
+    series: [
+      // 辐射连线
+      {
+        type: 'lines',
+        coordinateSystem: 'cartesian2d',
+        polyline: false,
+        effect: { show: true, period: 6, trailLength: 0.3, color: '#FFD580', symbolSize: 4 },
+        lineStyle: { color: PALETTE.accent, width: 1.5, opacity: 0.55, curveness: 0.25 },
+        data: cities.slice(1).map(c => ({ coords: [center.slice(0, 2), c.value.slice(0, 2)] }))
+      },
+      // 城市散点
+      {
+        type: 'scatter',
+        coordinateSystem: 'cartesian2d',
+        symbolSize: d => d[2] * 0.35,
+        itemStyle: {
+          color: p => p.data.type === 'core' ? PALETTE.danger : PALETTE.primary,
+          shadowBlur: 10, shadowColor: 'rgba(30, 64, 175, 0.4)'
+        },
+        label: { show: true, formatter: p => p.data.name, position: 'right', color: PALETTE.ink, fontSize: 11, fontWeight: 600 },
+        data: cities
+      },
+      // 沈阳标记
+      {
+        type: 'effectScatter',
+        coordinateSystem: 'cartesian2d',
+        symbolSize: 28,
+        rippleEffect: { brushType: 'stroke', scale: 4 },
+        itemStyle: { color: PALETTE.danger },
+        data: [{ name: '沈阳', value: center }]
+      }
+    ]
+  };
+};
+
+/* =========================================================
+ * F14  SWOT 战略分析四象限
+ * ========================================================= */
+const CHART_F14 = () => {
+  return {
+    ...baseOption('图F14  中国制博会 SWOT 战略分析', '优势/劣势/机会/威胁四象限识别'),
+    grid: { left: 0, right: 0, top: 70, bottom: 0, containLabel: false },
+    xAxis: { show: false, min: 0, max: 100, type: 'value' },
+    yAxis: { show: false, min: 0, max: 100, type: 'value' },
+    series: [
+      // 背景色块
+      {
+        type: 'custom',
+        renderItem: (params, api) => {
+          const blocks = [
+            { x: 0,  y: 50, w: 50, h: 50, color: '#DBEAFE', label: 'S 优势', sub: 'Strengths' },
+            { x: 50, y: 50, w: 50, h: 50, color: '#FEF3C7', label: 'W 劣势', sub: 'Weaknesses' },
+            { x: 0,  y: 0,  w: 50, h: 50, color: '#D1FAE5', label: 'O 机会', sub: 'Opportunities' },
+            { x: 50, y: 0,  w: 50, h: 50, color: '#FEE2E2', label: 'T 威胁', sub: 'Threats' }
+          ];
+          const idx = params.dataIndex;
+          const b = blocks[idx];
+          if (!b) return null;
+          const tl = api.coord([b.x, b.y + b.h]);
+          const br = api.coord([b.x + b.w, b.y]);
+          return {
+            type: 'group',
+            children: [
+              { type: 'rect', shape: { x: tl[0] + 6, y: tl[1] + 6, width: br[0] - tl[0] - 12, height: br[1] - tl[1] - 12 },
+                style: { fill: b.color, stroke: 'rgba(0,0,0,0.08)' } },
+              { type: 'text', style: { text: b.label, x: tl[0] + 22, y: tl[1] + 22, fill: PALETTE.ink, font: 'bold 24px Microsoft YaHei' } },
+              { type: 'text', style: { text: b.sub, x: tl[0] + 22, y: tl[1] + 50, fill: PALETTE.muted, font: '12px Microsoft YaHei' } }
+            ]
+          };
+        },
+        data: [0, 1, 2, 3]
+      },
+      // 文字内容
+      {
+        type: 'scatter', symbolSize: 0, label: { show: true, position: 'inside', align: 'left', verticalAlign: 'top', color: PALETTE.ink,
+          rich: { item: { fontSize: 12, lineHeight: 22, color: '#0F172A' }, dot: { color: PALETTE.primary, fontSize: 12 } } },
+        data: [
+          { value: [4, 92], label: { formatter: ['{dot|●} {item|国家级专业展会，二十三届持续办展}',
+                                                  '{dot|●} {item|沈阳与东北装备制造产业基础雄厚}',
+                                                  '{dot|●} {item|9万㎡规模，912家参展，3056个展位}',
+                                                  '{dot|●} {item|开幕日意向成交额15.8亿元}',
+                                                  '{dot|●} {item|12个专业展区覆盖产业链关键环节}'].join('\n') }, itemStyle: { opacity: 0 } },
+          { value: [54, 92], label: { formatter: ['{dot|●} {item|战略定位对外表达不够聚焦}',
+                                                   '{dot|●} {item|专业观众需求采集与匹配机制弱}',
+                                                   '{dot|●} {item|数字化服务尚未形成全链条闭环}',
+                                                   '{dot|●} {item|展后转化跟踪不足}',
+                                                   '{dot|●} {item|宣传分层与新媒体内容偏弱}'].join('\n') }, itemStyle: { opacity: 0 } },
+          { value: [4, 42], label: { formatter: ['{dot|●} {item|制造业智能化转型催生新需求}',
+                                                  '{dot|●} {item|东北全面振兴战略支持}',
+                                                  '{dot|●} {item|新质生产力政策红利释放}',
+                                                  '{dot|●} {item|"一带一路"国际合作机会}',
+                                                  '{dot|●} {item|沈阳建设国家先进制造业基地}'].join('\n') }, itemStyle: { opacity: 0 } },
+          { value: [54, 42], label: { formatter: ['{dot|●} {item|国内同类展会(CIIF/CIMT)竞争加剧}',
+                                                   '{dot|●} {item|线上展示和短视频替代部分线下功能}',
+                                                   '{dot|●} {item|经济周期对企业参展预算的影响}',
+                                                   '{dot|●} {item|国际地缘政治影响跨境合作}',
+                                                   '{dot|●} {item|城市会展硬件竞争加剧}'].join('\n') }, itemStyle: { opacity: 0 } }
+        ]
+      }
+    ]
+  };
+};
+
+/* =========================================================
+ * F15  与国内同类展会对比雷达
+ * ========================================================= */
+const CHART_F15 = () => ({
+  ...baseOption('图F15  中国制博会与国内同类展会综合对比', '基于公开资料的相对评分（0-5），数据为综合判断而非精确测量'),
+  legend: { top: 56, textStyle: { fontSize: 12 } },
+  tooltip: { trigger: 'item' },
+  radar: {
+    indicator: [
+      { name: '展览规模', max: 5 },
+      { name: '专业观众密度', max: 5 },
+      { name: '国际化程度', max: 5 },
+      { name: '同期活动质量', max: 5 },
+      { name: '数字化服务', max: 5 },
+      { name: '产业链协同', max: 5 },
+      { name: '城市配套', max: 5 },
+      { name: '品牌识别度', max: 5 }
+    ],
+    center: ['50%', '58%'],
+    radius: '62%',
+    splitNumber: 5,
+    axisName: { color: PALETTE.ink, fontSize: 12 },
+    splitArea: { areaStyle: { color: ['#FFFFFF', '#F8FAFC'] } },
+    splitLine: { lineStyle: { color: PALETTE.line } }
+  },
+  series: [{
+    type: 'radar',
+    data: [
+      { name: '中国制博会(沈阳)', value: [4.5, 3.8, 3.2, 3.8, 3.0, 4.2, 3.5, 4.0],
+        areaStyle: { color: 'rgba(30, 64, 175, 0.32)' }, lineStyle: { color: PALETTE.primary, width: 2.5 }, itemStyle: { color: PALETTE.primary } },
+      { name: 'CIIF 中国国际工业博览会(上海)', value: [5.0, 4.5, 4.5, 4.6, 4.2, 4.7, 5.0, 4.8],
+        areaStyle: { color: 'rgba(245, 158, 11, 0.22)' }, lineStyle: { color: PALETTE.accent, width: 2 }, itemStyle: { color: PALETTE.accent } },
+      { name: 'CIMT 中国机床展(北京)', value: [4.7, 4.4, 4.0, 4.0, 3.8, 4.5, 4.8, 4.5],
+        areaStyle: { color: 'rgba(16, 185, 129, 0.18)' }, lineStyle: { color: PALETTE.success, width: 2 }, itemStyle: { color: PALETTE.success } },
+      { name: 'CHTF 高交会(深圳)', value: [4.6, 4.0, 4.2, 4.3, 4.5, 3.8, 4.7, 4.6],
+        areaStyle: { color: 'rgba(139, 92, 246, 0.18)' }, lineStyle: { color: '#8B5CF6', width: 2 }, itemStyle: { color: '#8B5CF6' } }
+    ]
+  }]
+});
+
+/* =========================================================
+ * F16  调研方法论流程图
+ * ========================================================= */
+const CHART_F16 = () => {
+  const W = 1600, H = 1000;
+  const stages = [
+    { label: '资料调研', methods: ['公开资料\n媒体报道', '行业报告\n政策文件', '展会官网\n云展数据'], y: 0.78 },
+    { label: '现场观察', methods: ['动线观察\n人流密度', '展商互动\n洽谈频次', '服务质量\n数字工具'], y: 0.78 },
+    { label: '问卷调查', methods: ['专业观众\nN≥300', '分层抽样\n6类身份', 'Likert量表\nNPS评分'], y: 0.78 },
+    { label: '深度访谈', methods: ['龙头企业\n≥8家', '中小展商\n≥8家', '首次参展\n≥8家'], y: 0.78 },
+    { label: '数据分析', methods: ['描述统计\n频次分析', '交叉分析\n双变量', '主题编码\n质性分析'], y: 0.78 },
+    { label: '报告输出', methods: ['问题诊断\n9大类', '建议方案\n11项', '指标体系\n6维度'], y: 0.78 }
+  ];
+  return {
+    ...baseOption('图F16  调研方法论流程图', '六阶段递进，定量与定性方法交叉验证'),
+    grid: { left: 0, right: 0, top: 80, bottom: 0, containLabel: false },
+    xAxis: { show: false, min: 0, max: 100, type: 'value' },
+    yAxis: { show: false, min: 0, max: 100, type: 'value' },
+    tooltip: { show: false },
+    series: [{
+      type: 'custom',
+      renderItem: (params, api) => {
+        const idx = params.dataIndex;
+        const s = stages[idx];
+        const xStart = 4 + idx * 16;
+        const c1 = api.coord([xStart, 50]);
+        const c2 = api.coord([xStart + 13, 50]);
+        const boxColor = ['#1E40AF', '#3B82F6', '#0EA5E9', '#10B981', '#F59E0B', '#8B5CF6'][idx];
+
+        const children = [
+          // 大圆角
+          { type: 'rect', shape: { x: c1[0], y: c1[1] - 70, width: c2[0] - c1[0], height: 140, r: 10 },
+            style: { fill: boxColor, stroke: 'rgba(0,0,0,0.05)' } },
+          { type: 'text', style: { text: `${idx + 1}. ${s.label}`, x: c1[0] + 16, y: c1[1] - 56, fill: '#fff', font: 'bold 22px Microsoft YaHei' } }
+        ];
+        // 三个方法点
+        s.methods.forEach((m, i) => {
+          const dy = -10 + i * 28;
+          children.push({ type: 'circle', shape: { cx: c1[0] + 24, cy: c1[1] + dy, r: 5 }, style: { fill: '#fff' } });
+          children.push({ type: 'text', style: { text: m, x: c1[0] + 36, y: c1[1] + dy - 6, fill: '#fff', font: '12px Microsoft YaHei' } });
+        });
+        // 箭头
+        if (idx < stages.length - 1) {
+          const ax = c2[0];
+          const ay = c1[1];
+          children.push({ type: 'polygon', shape: { points: [[ax, ay - 8], [ax + 14, ay], [ax, ay + 8]] }, style: { fill: '#94A3B8' } });
+        }
+        return { type: 'group', children };
+      },
+      data: stages.map((_, i) => i)
+    }]
+  };
+};
+
+/* =========================================================
+ * F17  展会经济乘数效应（树图）
+ * ========================================================= */
+const CHART_F17 = () => ({
+  ...baseOption('图F17  展会经济乘数效应分解', '以一届展会直接经济价值为100单位，向外层逐级测算'),
+  series: [{
+    type: 'treemap',
+    top: 80, bottom: 30, left: 30, right: 30,
+    breadcrumb: { show: false },
+    label: { show: true, formatter: '{b}\n{c}', fontSize: 13, color: '#fff' },
+    upperLabel: { show: true, height: 28, color: '#fff', fontWeight: 600, fontSize: 13 },
+    itemStyle: { borderColor: '#fff', borderWidth: 2, gapWidth: 2 },
+    levels: [
+      { itemStyle: { gapWidth: 4, borderWidth: 2 } },
+      { itemStyle: { gapWidth: 2, borderWidth: 1, borderColor: '#fff' } }
+    ],
+    data: [
+      {
+        name: '直接经济价值', value: 100, itemStyle: { color: PALETTE.primary },
+        children: [
+          { name: '展位与服务', value: 45, itemStyle: { color: '#1E40AF' } },
+          { name: '意向成交转化', value: 35, itemStyle: { color: '#3B82F6' } },
+          { name: '广告与赞助', value: 20, itemStyle: { color: '#60A5FA' } }
+        ]
+      },
+      {
+        name: '间接拉动', value: 180, itemStyle: { color: PALETTE.accent },
+        children: [
+          { name: '酒店住宿', value: 60, itemStyle: { color: '#F59E0B' } },
+          { name: '餐饮消费', value: 35, itemStyle: { color: '#FBBF24' } },
+          { name: '交通运输', value: 30, itemStyle: { color: '#FCD34D' } },
+          { name: '商务服务', value: 25, itemStyle: { color: '#FDE68A' } },
+          { name: '文旅消费', value: 30, itemStyle: { color: '#FEF3C7' } }
+        ]
+      },
+      {
+        name: '诱发效应', value: 90, itemStyle: { color: PALETTE.success },
+        children: [
+          { name: '后续订单转化', value: 45, itemStyle: { color: '#10B981' } },
+          { name: '招商引资落地', value: 25, itemStyle: { color: '#34D399' } },
+          { name: '城市品牌价值', value: 20, itemStyle: { color: '#6EE7B7' } }
+        ]
+      }
+    ]
+  }]
+});
+
+/* =========================================================
+ * F18  满意度模拟分布堆叠条
+ * ========================================================= */
+const CHART_F18 = () => {
+  const items = ['展前邀请','注册流程','现场导览','展商质量','观众密度','活动质量','洽谈环境','餐饮交通','线上云展','展后跟进'];
+  // 模拟：5/4/3/2/1 占比
+  const v5 = [22, 35, 18, 38, 28, 24, 22, 18, 15, 12];
+  const v4 = [40, 42, 38, 40, 38, 40, 38, 36, 30, 28];
+  const v3 = [25, 18, 28, 16, 22, 22, 24, 28, 32, 32];
+  const v2 = [10,  4, 12,  4,  9, 10, 12, 12, 15, 18];
+  const v1 = [ 3,  1,  4,  2,  3,  4,  4,  6,  8, 10];
+  return {
+    ...baseOption('图F18  专业观众满意度模拟分布', '示例数据，真实分布以正式问卷调研结果为准'),
+    legend: { top: 56, textStyle: { fontSize: 12 } },
+    grid: { left: 100, right: 60, top: 100, bottom: 50 },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: p => p.map(x => `${x.seriesName}: ${x.value}%`).join('<br/>') },
+    xAxis: { type: 'value', max: 100, axisLabel: { formatter: '{value}%', color: PALETTE.muted }, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } } },
+    yAxis: { type: 'category', data: items, axisLabel: { fontSize: 13, color: PALETTE.ink }, axisTick: { show: false }, axisLine: { show: false } },
+    series: [
+      { name: '很满意(5)', type: 'bar', stack: 'a', data: v5, itemStyle: { color: '#10B981' }, label: { show: true, formatter: '{c}%', color: '#fff', fontSize: 11 } },
+      { name: '满意(4)',   type: 'bar', stack: 'a', data: v4, itemStyle: { color: '#34D399' }, label: { show: true, formatter: '{c}%', color: '#fff', fontSize: 11 } },
+      { name: '一般(3)',   type: 'bar', stack: 'a', data: v3, itemStyle: { color: '#FCD34D' }, label: { show: true, formatter: '{c}%', color: '#0F172A', fontSize: 11 } },
+      { name: '不满意(2)', type: 'bar', stack: 'a', data: v2, itemStyle: { color: '#FB923C' }, label: { show: true, formatter: '{c}%', color: '#fff', fontSize: 11 } },
+      { name: '很不满意(1)', type: 'bar', stack: 'a', data: v1, itemStyle: { color: '#EF4444' }, label: { show: true, formatter: '{c}%', color: '#fff', fontSize: 11 } }
+    ]
+  };
+};
+
+/* =========================================================
+ * F19  展会 KPI 仪表盘
+ * ========================================================= */
+const CHART_F19 = () => {
+  const gauges = [
+    { title: '专业观众占比', value: 72, target: 80, color: PALETTE.primary },
+    { title: '采购决策者占比', value: 38, target: 50, color: PALETTE.accent },
+    { title: '展商满意度', value: 84, target: 90, color: PALETTE.success },
+    { title: '观众满意度', value: 78, target: 85, color: '#8B5CF6' },
+    { title: '复展意愿', value: 81, target: 90, color: '#06B6D4' },
+    { title: '数字平台使用率', value: 46, target: 70, color: '#EC4899' }
+  ];
+  return {
+    ...baseOption('图F19  中国制博会核心 KPI 仪表盘（示例）', '当前值 vs 目标值；具体数值待问卷调研后回填'),
+    series: gauges.map((g, i) => {
+      const cx = 12 + (i % 3) * 28;
+      const cy = i < 3 ? 32 : 70;
+      return {
+        type: 'gauge',
+        center: [`${cx}%`, `${cy}%`],
+        radius: '22%',
+        startAngle: 200, endAngle: -20,
+        min: 0, max: 100,
+        splitNumber: 5,
+        progress: { show: true, width: 12, itemStyle: { color: g.color } },
+        axisLine: { lineStyle: { width: 12, color: [[1, '#E5E7EB']] } },
+        pointer: { show: false },
+        axisTick: { show: false },
+        splitLine: { distance: -16, length: 6, lineStyle: { color: '#fff', width: 2 } },
+        axisLabel: { show: false },
+        anchor: { show: false },
+        title: { show: true, offsetCenter: [0, '-20%'], color: PALETTE.muted, fontSize: 12 },
+        detail: { show: true, offsetCenter: [0, '0%'], formatter: '{value}%', color: g.color, fontSize: 22, fontWeight: 700 },
+        data: [{ value: g.value, name: g.title }]
+      };
+    }).concat(gauges.map((g, i) => {
+      const cx = 12 + (i % 3) * 28;
+      const cy = i < 3 ? 32 : 70;
+      return {
+        type: 'gauge',
+        center: [`${cx}%`, `${cy}%`],
+        radius: '22%',
+        startAngle: 200, endAngle: -20,
+        min: 0, max: 100,
+        progress: { show: false },
+        axisLine: { show: false },
+        pointer: { show: true, length: '60%', width: 3, itemStyle: { color: PALETTE.danger } },
+        axisTick: { show: false },
+        splitLine: { show: false },
+        axisLabel: { show: false },
+        anchor: { show: true, size: 8, itemStyle: { color: PALETTE.danger } },
+        detail: { show: true, offsetCenter: [0, '32%'], formatter: `目标 ${g.target}%`, color: PALETTE.muted, fontSize: 11 },
+        data: [{ value: g.target }]
+      };
+    }))
+  };
+};
+
+/* =========================================================
+ * F20  沈阳工业文旅联动路线（示意）
+ * ========================================================= */
+const CHART_F20 = () => {
+  // 不依赖城市底图，用相对坐标做示意路线
+  const points = [
+    { name: '沈阳国际展览中心', value: [50, 50, 100], type: 'core', tag: '主会场' },
+    { name: '中国工业博物馆', value: [25, 65, 70], tag: '工业文化' },
+    { name: '沈阳机床集团', value: [15, 35, 70], tag: '工业母机' },
+    { name: '沈阳新松机器人', value: [35, 18, 70], tag: '机器人' },
+    { name: '宝马沈阳工厂', value: [70, 28, 70], tag: '汽车制造' },
+    { name: '沈飞航空博览园', value: [82, 50, 70], tag: '航空装备' },
+    { name: '东北大学', value: [70, 80, 70], tag: '产学研' },
+    { name: '沈阳故宫', value: [40, 82, 60], tag: '城市文化' },
+    { name: '老北市', value: [25, 80, 55], tag: '夜经济' }
+  ];
+  const center = points[0].value;
+  return {
+    ...baseOption('图F20  沈阳工业文旅联动路线示意', '展馆-工厂-高校-文化场所组合体验，提升城市产业品牌形象'),
+    grid: { left: 0, right: 0, top: 80, bottom: 0, containLabel: false },
+    xAxis: { show: false, min: 0, max: 100, type: 'value' },
+    yAxis: { show: false, min: 0, max: 100, type: 'value' },
+    tooltip: { trigger: 'item', formatter: p => p.data.name + (p.data.tag ? '<br/>' + p.data.tag : '') },
+    series: [
+      {
+        type: 'lines',
+        coordinateSystem: 'cartesian2d',
+        polyline: false,
+        effect: { show: true, period: 5, trailLength: 0.4, color: PALETTE.accentSoft, symbolSize: 5 },
+        lineStyle: { color: PALETTE.accent, width: 2, opacity: 0.55, curveness: 0.3 },
+        data: points.slice(1).map(p => ({ coords: [center.slice(0, 2), p.value.slice(0, 2)] }))
+      },
+      {
+        type: 'scatter',
+        coordinateSystem: 'cartesian2d',
+        symbolSize: d => d[2] * 0.4,
+        itemStyle: { color: p => p.data.type === 'core' ? PALETTE.danger : PALETTE.primary, shadowBlur: 10, shadowColor: 'rgba(30, 64, 175, 0.4)' },
+        label: {
+          show: true,
+          formatter: p => `{n|${p.data.name}}\n{t|${p.data.tag}}`,
+          position: 'right',
+          rich: {
+            n: { fontSize: 13, fontWeight: 700, color: PALETTE.ink, lineHeight: 18 },
+            t: { fontSize: 11, color: PALETTE.muted, lineHeight: 14 }
+          }
+        },
+        data: points
+      },
+      {
+        type: 'effectScatter',
+        coordinateSystem: 'cartesian2d',
+        symbolSize: 36,
+        rippleEffect: { brushType: 'stroke', scale: 4 },
+        itemStyle: { color: PALETTE.danger },
+        data: [{ name: '主会场', value: center }]
+      }
+    ]
+  };
+};
+
+// 注册新增图表
+Object.assign(window.CHART_BUILDERS, {
+  F1: CHART_F1,
+  F13: CHART_F13,
+  F14: CHART_F14,
+  F15: CHART_F15,
+  F16: CHART_F16,
+  F17: CHART_F17,
+  F18: CHART_F18,
+  F19: CHART_F19,
+  F20: CHART_F20
+});

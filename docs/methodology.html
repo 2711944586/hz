@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>调研方法论 · 中国制博会调研</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="section">
+    <span class="tag">调研方法论</span>
+    <h2 style="margin-top:8px;">本报告是怎么做出来的</h2>
+    <div class="lead">报告采用"资料调研 + 现场观察 + 问卷调查 + 深度访谈 + 数据分析 + 报告输出"六阶段方法论，定量与定性方法交叉验证，确保问题诊断的客观性与建议方案的可执行性。</div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>方法论流程</h3>
+      <p class="sub">图F16 · 六阶段递进</p>
+      <div id="chart-f16" class="chart"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-2">
+      <div class="card">
+        <h3>① 资料调研</h3>
+        <p>通过国家政策文件、中国贸促会发布的会展报告、辽宁省与沈阳市制造业政策、展会官网、媒体公开报道等渠道，整理 2002 年首届至 2025 年第二十三届的关键数据与功能演进。</p>
+      </div>
+      <div class="card">
+        <h3>② 现场观察</h3>
+        <p>采用定点 + 动线 + 跟随式观察，覆盖 4 天展期、上午下午两个时段，由两名独立观察员同时记录，详见附录 C 现场观察记录表。</p>
+      </div>
+      <div class="card">
+        <h3>③ 问卷调查</h3>
+        <p>设计 33 题专业观众问卷，分层抽样回收 ≥300 份。问卷采用 Likert 5 级量表与 NPS 评分，覆盖采购决策、满意度、数字化体验、改进意向四个维度，详见附录 A。</p>
+      </div>
+      <div class="card">
+        <h3>④ 深度访谈</h3>
+        <p>对参展商开展半结构化访谈，覆盖龙头企业、中小展商、首次参展三类至少各 8 家，每场 30-45 分钟，访谈提纲见附录 B。</p>
+      </div>
+      <div class="card">
+        <h3>⑤ 数据分析</h3>
+        <p>定量数据采用描述统计、频次分析、交叉分析；定性资料采用主题编码、典型案例归纳；通过两类数据交叉验证，识别关键问题。</p>
+      </div>
+      <div class="card">
+        <h3>⑥ 报告输出</h3>
+        <p>按"会展发展情况—存在问题—优化建议"三段结构输出，配套 11 项建议、5 阶段实施甘特、6 维度指标体系，形成闭环。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>SWOT 战略分析</h3>
+      <p class="sub">图F14 · 把调研发现凝练为四象限战略判断</p>
+      <div id="chart-f14" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>调研伦理与数据使用</h3>
+      <ul style="line-height:2;">
+        <li><b>知情同意</b>：所有问卷填写与访谈均提前告知调研目的与用途</li>
+        <li><b>匿名处理</b>：问卷数据匿名化；访谈纪要中仅以企业类型与岗位描述受访人</li>
+        <li><b>数据用途</b>：仅用于会展项目优化研究与本作品答辩展示，不作商业用途</li>
+        <li><b>结果共享</b>：调研报告将向中国制博会主办方反馈，作为下一届筹办参考</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+  renderChart('chart-f14', 'F14');
+  renderChart('chart-f16', 'F16');
+</script>
+</body>
+</html>

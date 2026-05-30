@@ -2,10 +2,14 @@
 (function () {
   const NAV = [
     { href: 'index.html', label: '首页' },
-    { href: 'overview.html', label: '一·展会发展情况' },
+    { href: 'overview.html', label: '一·展会发展' },
     { href: 'problems.html', label: '二·存在问题' },
     { href: 'solutions.html', label: '三·建议方案' },
-    { href: 'appendix.html', label: '附录·调研工具' }
+    { href: 'dashboard.html', label: '数据看板' },
+    { href: 'methodology.html', label: '方法论' },
+    { href: 'gallery.html', label: '图表画廊' },
+    { href: 'appendix.html', label: '附录工具' },
+    { href: 'references.html', label: '参考资料' }
   ];
 
   const here = (location.pathname.split('/').pop() || 'index.html');
