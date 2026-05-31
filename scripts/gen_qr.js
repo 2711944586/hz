@@ -33,10 +33,10 @@ const pages = [
   for (const p of pages) {
     const file = path.join(OUT, p.name + '.png');
     await QR.toFile(file, p.url, {
-      errorCorrectionLevel: 'H',
-      width: 600,
-      margin: 2,
-      color: { dark: '#0F1F4F', light: '#FFFFFF' }
+      errorCorrectionLevel: 'M',  // M 级容错够用，码图更简洁好扫
+      width: 800,                  // 大尺寸更清晰
+      margin: 4,                   // 标准静默区 4 模块
+      color: { dark: '#000000', light: '#FFFFFF' }  // 纯黑白，扫描器最友好
     });
     const size = fs.statSync(file).size;
     console.log(`✓ QR ${p.name.padEnd(14)} -> ${(size / 1024).toFixed(1)} KB`);
