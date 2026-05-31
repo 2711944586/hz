@@ -270,35 +270,64 @@ const CHART_F6 = () => ({
 
 /* =========================================================
  * F7  优化建议影响×可行性四象限
+ * 横轴 = 可行性 (value[0])
+ * 纵轴 = 影响     (value[1])
+ * 大小 = 综合优先级 (value[2])
  * ========================================================= */
 const CHART_F7 = () => {
+  // [可行性, 影响, 综合优先级]
   const data = [
-    { name: '观众精准组织', value: [4.5, 4.2, 36] },
-    { name: '数字化全流程平台', value: [4.7, 3.6, 40] },
-    { name: '展后转化机制', value: [4.3, 4.4, 30] },
-    { name: '主题活动链条', value: [3.8, 4.5, 24] },
-    { name: '明确平台定位', value: [4.0, 4.6, 28] },
-    { name: '分层传播体系', value: [3.6, 4.3, 22] },
-    { name: '现场服务升级', value: [3.5, 4.4, 26] },
-    { name: '国际采购组织', value: [3.9, 3.2, 24] },
-    { name: '产教融合', value: [3.4, 4.0, 22] },
-    { name: '绿色低碳会展', value: [3.0, 4.1, 18] },
-    { name: '场景分区', value: [3.7, 3.8, 22] }
+    { name: '观众精准组织',     value: [4.2, 4.5, 36] },
+    { name: '数字化全流程平台', value: [3.6, 4.7, 40] },
+    { name: '展后转化机制',     value: [4.4, 4.3, 30] },
+    { name: '主题活动链条',     value: [4.5, 3.8, 24] },
+    { name: '明确平台定位',     value: [4.6, 4.0, 28] },
+    { name: '分层传播体系',     value: [4.3, 3.6, 22] },
+    { name: '现场服务升级',     value: [4.4, 3.5, 26] },
+    { name: '国际采购组织',     value: [3.2, 3.9, 24] },
+    { name: '产教融合',         value: [4.0, 3.4, 22] },
+    { name: '绿色低碳会展',     value: [4.1, 3.0, 18] },
+    { name: '场景分区',         value: [3.8, 3.7, 22] }
   ];
   return {
-    ...baseOption('图F7  优化建议影响×可行性四象限矩阵', '横轴：实施可行性，纵轴：项目影响，气泡大小：综合优先级'),
-    grid: { left: 80, right: 40, top: 90, bottom: 70 },
+    ...baseOption('图F7  优化建议影响×可行性四象限矩阵', '横轴：可行性 1-5；纵轴：影响 1-5；气泡大小：综合优先级（百分制）'),
+    grid: { left: 80, right: 40, top: 96, bottom: 70 },
     xAxis: {
-      name: '可行性 →', nameLocation: 'end', nameGap: 18, nameTextStyle: { color: PALETTE.muted },
-      min: 2.5, max: 5, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } },
+      name: '实施可行性 →', nameLocation: 'end', nameGap: 18,
+      nameTextStyle: { color: PALETTE.muted, fontSize: 12 },
+      min: 2.5, max: 5,
+      splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } },
       axisLabel: { color: PALETTE.muted }
     },
     yAxis: {
-      name: '影响 ↑', nameTextStyle: { color: PALETTE.muted },
-      min: 2.5, max: 5, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } },
+      name: '项目影响 ↑',
+      nameTextStyle: { color: PALETTE.muted, fontSize: 12 },
+      min: 2.5, max: 5,
+      splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } },
       axisLabel: { color: PALETTE.muted }
     },
-    tooltip: { formatter: p => `${p.data.name}<br/>影响: ${p.data.value[0]}<br/>可行性: ${p.data.value[1]}<br/>综合优先级: ${p.data.value[2]}` },
+    tooltip: {
+      formatter: p =>
+        `<b>${p.data.name}</b><br/>` +
+        `可行性: ${p.data.value[0]} / 5<br/>` +
+        `影响:   ${p.data.value[1]} / 5<br/>` +
+        `综合优先级: ${p.data.value[2]}`
+    },
+    graphic: [
+      // 四个象限的标签
+      { type: 'text', right: 60, top: 110,
+        style: { text: '高影响\n高可行 ★', textAlign: 'right',
+                 fill: 'rgba(30,64,175,0.55)', font: 'bold 13px Microsoft YaHei' } },
+      { type: 'text', left: 90, top: 110,
+        style: { text: '高影响\n低可行', textAlign: 'left',
+                 fill: 'rgba(245,158,11,0.55)', font: 'bold 13px Microsoft YaHei' } },
+      { type: 'text', right: 60, bottom: 90,
+        style: { text: '低影响\n高可行', textAlign: 'right',
+                 fill: 'rgba(16,185,129,0.55)', font: 'bold 13px Microsoft YaHei' } },
+      { type: 'text', left: 90, bottom: 90,
+        style: { text: '低影响\n低可行', textAlign: 'left',
+                 fill: 'rgba(100,116,139,0.55)', font: 'bold 13px Microsoft YaHei' } }
+    ],
     series: [
       {
         type: 'scatter',
@@ -306,16 +335,16 @@ const CHART_F7 = () => {
         data,
         itemStyle: {
           color: p => {
-            const [imp, fea] = p.data.value;
+            const [fea, imp] = p.data.value;  // [可行性, 影响]
             if (imp >= 4 && fea >= 4) return PALETTE.primary;
             if (imp >= 4) return PALETTE.accent;
             if (fea >= 4) return PALETTE.success;
             return PALETTE.muted;
           },
-          opacity: 0.85,
+          opacity: 0.88,
           borderColor: '#fff', borderWidth: 2
         },
-        label: { show: true, formatter: p => p.data.name, position: 'top', color: PALETTE.ink, fontSize: 11 }
+        label: { show: true, formatter: p => p.data.name, position: 'top', color: PALETTE.ink, fontSize: 11, fontWeight: 500 }
       },
       {
         type: 'line', markLine: {
