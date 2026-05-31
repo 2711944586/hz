@@ -57,7 +57,7 @@ def _promote_headings():
     for p in doc.paragraphs:
         text = p.text.strip()
         if not text:
-            continue
+            continue  # 空段落不动
         norm = text.replace(' ', '')
         if any(norm == t.replace(' ', '') for t in targets):
             try:
@@ -114,6 +114,19 @@ def _apply_body_format():
                 rfonts.set(qn('w:eastAsia'), '宋体')
 
 _apply_body_format()
+
+
+# 2.7 清理空的标题段落（原文中存在的空 Heading）
+def _clean_empty_headings():
+    to_remove = []
+    for p in doc.paragraphs:
+        if p.style.name.startswith('Heading') and not p.text.strip():
+            to_remove.append(p)
+    for p in to_remove:
+        el = p._element
+        el.getparent().remove(el)
+
+_clean_empty_headings()
 
 
 # ------ 工具简写 ------
