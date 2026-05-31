@@ -11,8 +11,12 @@
     { href: 'methodology.html', label: '方法论' },
     { href: 'gallery.html', label: '图表画廊' },
     { href: 'appendix.html', label: '附录工具' },
+    { href: 'photos.html', label: '现场照片' },
     { href: 'team.html', label: '团队' },
+    { href: 'transparency.html', label: '数据透明' },
     { href: 'conclusion.html', label: '结论' },
+    { href: 'report-pdf.html', label: 'PDF 阅读' },
+    { href: 'qr.html', label: '二维码' },
     { href: 'references.html', label: '参考' }
   ];
 

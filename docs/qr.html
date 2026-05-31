@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>二维码导航 · 中国制博会调研</title>
+<meta name="description" content="第二十三届中国制博会调研报告全部页面二维码，扫码即可查看在线版。">
+<meta property="og:title" content="二维码导航 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .qr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .qr-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .qr-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .qr-card img {
+    width: 100%; max-width: 200px; aspect-ratio: 1;
+    background: #fff; border-radius: 8px;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .qr-card h3 { margin: 12px 0 4px; font-size: 15px; color: var(--ink); }
+  .qr-card p {
+    margin: 0; color: var(--muted); font-size: 11px;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .qr-card .actions { margin-top: 8px; }
+  .qr-card .actions a {
+    display: inline-block; font-size: 12px; color: var(--primary);
+    margin: 0 4px;
+  }
+  .qr-card.featured {
+    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(30,64,175,0.06));
+  }
+  .qr-card.featured h3::before { content: "⭐ "; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="section">
+    <span class="tag">二维码导航</span>
+    <h2 style="margin-top:8px;">扫码访问 · 任意页面</h2>
+    <div class="lead">本页汇集所有页面的二维码，方便答辩、海报、展板等场景使用。<b>所有二维码采用最高纠错等级（H 级）</b>，即使被遮挡 30% 仍可识读。点击二维码可下载高清 PNG。</div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">主入口</h2>
+    <div class="qr-grid" id="featured-grid"></div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">主线内容</h2>
+    <div class="qr-grid" id="main-grid"></div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">研究支撑与工具</h2>
+    <div class="qr-grid" id="support-grid"></div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>📋 使用建议</h3>
+      <ul style="line-height:1.9;">
+        <li><b>答辩海报</b>：印一张主站二维码即可，访客扫码可访问全部页面</li>
+        <li><b>展板</b>：印 3-5 张关键页面二维码（摘要 / 看板 / 问卷）</li>
+        <li><b>胸卡 / 名片</b>：建议使用 main 主站二维码</li>
+        <li><b>问卷收集</b>：现场扫码版页面 mobile.html 专为手机优化</li>
+        <li><b>打印尺寸</b>：建议不小于 25mm × 25mm，确保扫码距离 30cm 内可识别</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js"></script>
+<script>
+  const featured = ['main', 'mobile'];
+  const mainPages = ['summary', 'overview', 'problems', 'solutions', 'conclusion'];
+  const supportPages = ['dashboard', 'methodology', 'cases', 'gallery', 'appendix', 'team', 'photos', 'transparency', 'references', 'github'];
+
+  fetch('assets/qr/index.json').then(r => r.json()).then(data => {
+    const map = {};
+    data.forEach(d => map[d.name] = d);
+
+    function render(targetId, names, isFeatured = false) {
+      const el = document.getElementById(targetId);
+      el.innerHTML = names.map(n => {
+        const p = map[n];
+        if (!p) return '';
+        return `
+          <div class="qr-card ${isFeatured ? 'featured' : ''}">
+            <a href="assets/qr/${p.name}.png" download>
+              <img src="assets/qr/${p.name}.png" alt="${p.label}">
+            </a>
+            <h3>${p.label}</h3>
+            <p>${p.url}</p>
+            <div class="actions">
+              <a href="${p.url}" target="_blank">访问</a>
+              <a href="assets/qr/${p.name}.png" download>下载</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    render('featured-grid', featured, true);
+    render('main-grid', mainPages);
+    render('support-grid', supportPages);
+  });
+</script>
+</body>
+</html>

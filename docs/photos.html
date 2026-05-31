@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>现场照片 · 中国制博会调研</title>
+<meta name="description" content="第二十三届中国制博会现场照片墙，配合调研报告呈现展会真实场景。">
+<meta property="og:title" content="现场照片墙 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .photo {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .photo:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .photo .ph-img {
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo .ph-img.placeholder {
+    display: flex;
+    align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #F59E0B 100%);
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .photo .ph-img.placeholder::before {
+    content: "📷";
+    font-size: 36px;
+    opacity: 0.7;
+  }
+  .photo .ph-meta { padding: 14px 16px; }
+  .photo .ph-meta h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px; color: var(--ink); }
+  .photo .ph-meta p { font-size: 12px; color: var(--muted); margin: 0; }
+  .photo .ph-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: rgba(255,255,255,0.9); color: var(--primary);
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <section class="section">
+    <span class="tag">现场照片</span>
+    <h2 style="margin-top:8px;">展会现场与调研记录</h2>
+    <div class="lead">本节呈现第二十三届中国制博会现场场景与团队调研过程。当前显示为示意占位图，正式照片将由团队现场拍摄并替换。</div>
+  </section>
+
+  <section class="section">
+    <div class="card" style="background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(30,64,175,0.06)); border-style:dashed;">
+      <h3>📌 占位说明</h3>
+      <p style="margin:0;">受作品提交时间限制，本页当前展示彩色占位图与场景描述。团队将在正式赴展期间补充以下五类照片：<b>展馆外景与入口</b>、<b>主要展区与展品</b>、<b>洽谈区与同期论坛</b>、<b>团队调研工作场景</b>、<b>沈阳工业文旅延伸场景</b>。如有需要，亦可使用展会官方公开图片，并在标注页明确出处。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">一、展馆与入口</h2>
+    <div class="photo-grid">
+      <div class="photo">
+        <div class="ph-img placeholder"><span>沈阳国际展览中心 · 主入口</span></div>
+        <span class="ph-tag">外景</span>
+        <div class="ph-meta"><h3>展馆外景</h3><p>沈阳国际展览中心主立面，展示展会规模与城市制造形象</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>主入口签到台 · 数字化注册</span></div>
+        <span class="ph-tag">入场</span>
+        <div class="ph-meta"><h3>主入口签到</h3><p>专业观众注册流程与电子证件核验</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>主标识 · "智能新装备 · 新质生产力"</span></div>
+        <span class="ph-tag">主题</span>
+        <div class="ph-meta"><h3>展会主视觉</h3><p>本届主题"智能新装备 · 新质生产力"主标识</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">二、主要展区与展品</h2>
+    <div class="photo-grid">
+      <div class="photo">
+        <div class="ph-img placeholder"><span>机床工具展区</span></div>
+        <span class="ph-tag">机床</span>
+        <div class="ph-meta"><h3>工业母机展区</h3><p>金属加工设备、刀具及配套产品展示</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>工业自动化与机器人展区</span></div>
+        <span class="ph-tag">机器人</span>
+        <div class="ph-meta"><h3>机器人现场演示</h3><p>新松等品牌机器人产线动态演示</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>工业互联网与智能软件展区</span></div>
+        <span class="ph-tag">智能软件</span>
+        <div class="ph-meta"><h3>工业互联网</h3><p>数字孪生、MES、智能控制系统展示</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>能源与节能环保装备展区</span></div>
+        <span class="ph-tag">绿色装备</span>
+        <div class="ph-meta"><h3>绿色装备</h3><p>节能、环保、新能源相关设备</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>国际展区</span></div>
+        <span class="ph-tag">国际</span>
+        <div class="ph-meta"><h3>国际展团</h3><p>外商投资企业与海外参展商集中展示区</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>工业文旅展区</span></div>
+        <span class="ph-tag">文旅</span>
+        <div class="ph-meta"><h3>工业文旅</h3><p>沈阳工业文化与城市产业形象融合展示</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">三、洽谈与同期活动</h2>
+    <div class="photo-grid">
+      <div class="photo">
+        <div class="ph-img placeholder"><span>专业洽谈区</span></div>
+        <span class="ph-tag">洽谈</span>
+        <div class="ph-meta"><h3>商务洽谈区</h3><p>展商与采购方现场对接</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>同期论坛 · 智能制造主论坛</span></div>
+        <span class="ph-tag">论坛</span>
+        <div class="ph-meta"><h3>智能制造论坛</h3><p>行业专家、龙头企业、政府主管联合发声</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>新产品新技术发布会</span></div>
+        <span class="ph-tag">发布</span>
+        <div class="ph-meta"><h3>新品发布</h3><p>参展企业现场发布新一代装备产品</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">四、调研工作记录</h2>
+    <div class="photo-grid">
+      <div class="photo">
+        <div class="ph-img placeholder"><span>团队现场观察</span></div>
+        <span class="ph-tag">观察</span>
+        <div class="ph-meta"><h3>动线观察</h3><p>团队按附录 C 记录主通道人流与拥堵点</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>问卷扫码现场</span></div>
+        <span class="ph-tag">问卷</span>
+        <div class="ph-meta"><h3>问卷收集</h3><p>专业观众扫码填写附录 A 在线问卷</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>展商深度访谈</span></div>
+        <span class="ph-tag">访谈</span>
+        <div class="ph-meta"><h3>展商访谈</h3><p>按附录 B 提纲开展半结构化访谈</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 style="font-size:20px;">五、沈阳工业文旅延伸</h2>
+    <div class="photo-grid">
+      <div class="photo">
+        <div class="ph-img placeholder"><span>中国工业博物馆</span></div>
+        <span class="ph-tag">文化</span>
+        <div class="ph-meta"><h3>中国工业博物馆</h3><p>串联沈阳工业历史与现代制造</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>沈阳机床集团</span></div>
+        <span class="ph-tag">工厂</span>
+        <div class="ph-meta"><h3>沈阳机床</h3><p>工业母机龙头企业实地参观</p></div>
+      </div>
+      <div class="photo">
+        <div class="ph-img placeholder"><span>东北大学产学研基地</span></div>
+        <span class="ph-tag">高校</span>
+        <div class="ph-meta"><h3>产学研对接</h3><p>装备制造方向校企合作场景</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="card">
+      <h3>📷 照片使用与版权</h3>
+      <ul style="line-height:1.9; color:var(--ink);">
+        <li>团队现场拍摄照片由团队拥有版权，授权本作品使用</li>
+        <li>使用展会官方或媒体公开图片时，将在脚注中标注来源</li>
+        <li>涉及人物的近景图片将获得当事人口头同意，避免商业用途</li>
+        <li>所有图片仅用于本调研作品展示与答辩，不作商业用途</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js"></script>
+</body>
+</html>

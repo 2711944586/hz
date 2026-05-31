@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>答辩海报 · 中国制博会调研</title>
+<meta name="description" content="第二十三届中国制博会调研报告答辩海报，A1 尺寸，含核心数据、研究框架、关键图表与扫码入口。">
+<meta property="og:title" content="第二十三届中国制博会调研报告">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  /* A1: 594×841mm, 但屏幕展示按 1:√2 比例缩放至 1200×1697px */
+  @page { size: A1 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Source Han Sans CN", system-ui, sans-serif;
+    background: #f1f5f9;
+    color: #0F172A;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .stage {
+    width: 1200px;
+    margin: 24px auto;
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  @media print {
+    body { background: #fff; }
+    .stage { width: 100%; margin: 0; box-shadow: none; }
+    .controls { display: none !important; }
+  }
+  .controls {
+    position: fixed; top: 12px; right: 12px; z-index: 99;
+    background: #fff; border-radius: 8px; padding: 8px 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  }
+  .controls button {
+    padding: 8px 14px; background: #1E40AF; color: #fff;
+    border: none; border-radius: 6px; cursor: pointer; font-size: 13px;
+    margin-left: 6px;
+  }
+
+  .poster {
+    width: 1200px;
+    min-height: 1697px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* === 顶部 hero === */
+  .ph-hero {
+    background: linear-gradient(135deg, #0F1F4F 0%, #1E40AF 60%, #3B82F6 100%);
+    color: #fff;
+    padding: 60px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ph-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.45), transparent 38%),
+      radial-gradient(circle at 5% 90%, rgba(59, 130, 246, 0.5), transparent 35%);
+  }
+  .ph-eyebrow {
+    display: inline-block; padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 999px; font-size: 14px;
+    letter-spacing: 2px; margin-bottom: 28px;
+    position: relative;
+  }
+  .ph-title {
+    font-size: 60px; font-weight: 900;
+    line-height: 1.18; letter-spacing: 2px;
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.18);
+  }
+  .ph-subtitle {
+    margin-top: 24px;
+    font-size: 22px; color: rgba(255,255,255,0.92);
+    max-width: 900px; line-height: 1.55;
+    position: relative;
+  }
+  .ph-tag {
+    display: inline-block; padding: 6px 14px;
+    background: rgba(245,158,11,0.95); color: #0F1F4F;
+    font-weight: 700; border-radius: 8px; margin-top: 20px;
+    font-size: 14px; letter-spacing: 1px;
+    position: relative;
+  }
+
+  /* === KPI === */
+  .ph-kpi {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    padding: 0 60px;
+    margin-top: -42px;
+    position: relative;
+    z-index: 2;
+  }
+  .ph-kpi .item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    box-shadow: 0 8px 24px rgba(15,23,42,0.12);
+    border-top: 4px solid #F59E0B;
+  }
+  .ph-kpi .item:nth-child(1) { border-top-color: #1E40AF; }
+  .ph-kpi .item:nth-child(2) { border-top-color: #3B82F6; }
+  .ph-kpi .item:nth-child(3) { border-top-color: #10B981; }
+  .ph-kpi .item:nth-child(4) { border-top-color: #F59E0B; }
+  .ph-kpi .label { font-size: 13px; color: #64748B; letter-spacing: 1px; margin-bottom: 4px; }
+  .ph-kpi .value { font-size: 32px; font-weight: 800; color: #0F172A; line-height: 1.1; }
+  .ph-kpi .unit { font-size: 14px; font-weight: 500; color: #64748B; margin-left: 4px; }
+  .ph-kpi .desc { font-size: 12px; color: #64748B; margin-top: 4px; }
+
+  /* === 主体 === */
+  .ph-body {
+    padding: 50px 60px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .col-title {
+    font-size: 22px; font-weight: 800; color: #0F172A;
+    margin-bottom: 18px; padding-left: 14px;
+    border-left: 6px solid #1E40AF; line-height: 1;
+  }
+  .col-title small { font-size: 13px; color: #64748B; font-weight: 500; margin-left: 10px; }
+
+  .three-pillar { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 28px; }
+  .pillar {
+    border-radius: 12px; padding: 18px;
+    color: #fff; position: relative;
+  }
+  .pillar h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .pillar ul { padding-left: 18px; font-size: 12px; line-height: 1.7; }
+  .pillar.p1 { background: linear-gradient(135deg, #1E40AF, #3B82F6); }
+  .pillar.p2 { background: linear-gradient(135deg, #92400E, #F59E0B); }
+  .pillar.p3 { background: linear-gradient(135deg, #065F46, #10B981); }
+
+  .key-finding {
+    background: #F8FAFC; border-radius: 12px; padding: 18px 22px;
+    border-left: 4px solid #F59E0B; margin-bottom: 16px;
+    font-size: 14px; line-height: 1.7; color: #0F172A;
+  }
+  .key-finding b { color: #1E40AF; }
+
+  .chart-thumb {
+    background: #F8FAFC; border-radius: 12px; padding: 8px;
+    border: 1px solid #E2E8F0; margin-bottom: 16px;
+  }
+  .chart-thumb img { width: 100%; display: block; border-radius: 8px; }
+  .chart-thumb .cap { font-size: 12px; color: #64748B; padding: 6px 10px 4px; }
+
+  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+  .badge-row span {
+    padding: 6px 12px; background: #DBEAFE; color: #1E40AF;
+    border-radius: 8px; font-size: 13px; font-weight: 600;
+  }
+
+  /* === 底部条 === */
+  .ph-footer {
+    background: #0F1F4F;
+    color: #fff;
+    padding: 28px 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+  }
+  .ph-footer .meta {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+  }
+  .ph-footer .meta b { color: #FBBF24; font-size: 16px; letter-spacing: 1px; }
+  .ph-footer .meta a { color: #93C5FD; }
+
+  .qr-block {
+    display: flex; align-items: center; gap: 18px;
+    background: rgba(255,255,255,0.08);
+    padding: 14px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .qr-block img {
+    width: 130px; height: 130px;
+    background: #fff; padding: 6px; border-radius: 8px;
+  }
+  .qr-block .qr-text { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.9); }
+  .qr-block .qr-text b { display: block; font-size: 16px; color: #FBBF24; margin-bottom: 6px; }
+
+  /* === 左下作者条 === */
+  .author-strip {
+    background: #1E293B;
+    color: rgba(255,255,255,0.78);
+    padding: 14px 60px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .author-strip b { color: #FBBF24; }
+
+  /* 装饰元素 */
+  .deco {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.05;
+    font-weight: 900;
+  }
+  .deco-1 { top: 30px; right: 50px; font-size: 220px; color: #fff; }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button onclick="window.print()">🖨️ 打印 / 导出 PDF</button>
+</div>
+
+<div class="stage">
+  <div class="poster">
+
+    <!-- HERO -->
+    <div class="ph-hero">
+      <div class="deco deco-1">23</div>
+      <div class="ph-eyebrow">CIEME · 第二十三届 · 2025 · 沈阳</div>
+      <div class="ph-title">从规模型展会到<br/>智能制造产业链<br/>服务平台</div>
+      <div class="ph-subtitle">第二十三届中国国际装备制造业博览会调研报告 · 答辩海报</div>
+      <div class="ph-tag">全国大学生文化旅游与会展竞赛 · 参赛作品</div>
+    </div>
+
+    <!-- KPI -->
+    <div class="ph-kpi">
+      <div class="item"><div class="label">EXHIBITION AREA</div><div class="value">9<span class="unit">万㎡</span></div><div class="desc">大型专业展会规模</div></div>
+      <div class="item"><div class="label">EXHIBITORS</div><div class="value">912<span class="unit">家</span></div><div class="desc">海内外参展企业</div></div>
+      <div class="item"><div class="label">BOOTHS</div><div class="value">3056<span class="unit">个</span></div><div class="desc">12 个专业展区</div></div>
+      <div class="item"><div class="label">INTENT DAY-1</div><div class="value">15.8<span class="unit">亿</span></div><div class="desc">开幕日意向成交额</div></div>
+    </div>
+
+    <!-- 主体两栏 -->
+    <div class="ph-body">
+
+      <!-- 左栏 -->
+      <div>
+        <div class="col-title">研究框架 <small>RESEARCH FRAMEWORK</small></div>
+        <div class="three-pillar">
+          <div class="pillar p1">
+            <h4>① 会展发展情况</h4>
+            <ul>
+              <li>会展业进入高质量阶段</li>
+              <li>23 届持续办展品牌</li>
+              <li>9 万㎡ · 912 家</li>
+              <li>12 专业展区</li>
+              <li>开幕日 15.8 亿元</li>
+            </ul>
+          </div>
+          <div class="pillar p2">
+            <h4>② 存在问题</h4>
+            <ul>
+              <li>战略定位表达</li>
+              <li>专业观众组织</li>
+              <li>数字化未闭环</li>
+              <li>展后转化弱</li>
+              <li>+5 项结构性短板</li>
+            </ul>
+          </div>
+          <div class="pillar p3">
+            <h4>③ 建议方案</h4>
+            <ul>
+              <li>北方智能制造平台</li>
+              <li>观众精准组织</li>
+              <li>数字全流程平台</li>
+              <li>主题活动链条化</li>
+              <li>+7 项系统建议</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-title">关键判断 <small>KEY FINDING</small></div>
+        <div class="key-finding">
+          中国制博会已具备扎实展会基础与产业基础，第二十三届展会规模、企业数、意向成交均创新高。<br/>
+          关键升级方向：<b>从"规模展示"走向"精准匹配、数字闭环、产业服务、品牌升级"</b>。建议以"<b>北方智能制造产业链服务平台</b>"为新定位，把<b>专业观众、数字化、展后转化、分层传播</b>作为四大核心工程。
+        </div>
+
+        <div class="col-title">调研方法 <small>METHODOLOGY</small></div>
+        <div class="badge-row">
+          <span>① 资料调研</span>
+          <span>② 现场观察 4 天</span>
+          <span>③ 问卷 N≥300</span>
+          <span>④ 访谈 ≥24 场</span>
+          <span>⑤ 数据分析</span>
+          <span>⑥ 报告输出</span>
+        </div>
+
+        <div class="chart-thumb">
+          <img src="assets/img/F16.png" alt="方法论流程">
+          <div class="cap">图F16  调研方法论流程图</div>
+        </div>
+      </div>
+
+      <!-- 右栏 -->
+      <div>
+        <div class="col-title">问题诊断 <small>9 PROBLEMS</small></div>
+        <div class="chart-thumb">
+          <img src="assets/img/F5.png" alt="问题优先级">
+          <div class="cap">图F5  九大问题影响×紧迫性背靠背评估</div>
+        </div>
+
+        <div class="col-title">建议矩阵 <small>11 RECOMMENDATIONS</small></div>
+        <div class="chart-thumb">
+          <img src="assets/img/F7.png" alt="建议矩阵">
+          <div class="cap">图F7  优化建议影响×可行性四象限</div>
+        </div>
+
+        <div class="col-title">SWOT 战略 <small>STRATEGY</small></div>
+        <div class="chart-thumb">
+          <img src="assets/img/F14.png" alt="SWOT">
+          <div class="cap">图F14  中国制博会 SWOT 战略分析</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部条 -->
+    <div class="ph-footer">
+      <div class="meta">
+        <b>扫码访问完整在线报告</b>
+        含 13 个页面、20 张交互图表、在线问卷、访谈提纲、现场观察表、案例库与团队介绍。<br/>
+        <a href="https://2711944586.github.io/hz/">2711944586.github.io/hz</a>
+        &nbsp;·&nbsp;
+        <a href="https://github.com/2711944586/hz">github.com/2711944586/hz</a>
+      </div>
+      <div class="qr-block">
+        <img src="assets/qr/main.png" alt="主站二维码">
+        <div class="qr-text">
+          <b>主站首页</b>
+          手机扫码<br/>即刻查阅完整报告
+        </div>
+      </div>
+    </div>
+
+    <!-- 作者条 -->
+    <div class="author-strip">
+      <span><b>作者团队：</b>王璐（统稿） · 宋鹏慧（一） · 周心杨（二） · 高昊宇（三） · 庄颂（附录）</span>
+      <span><b>调研对象：</b>第二十三届中国国际装备制造业博览会 / 沈阳国际展览中心 / 2025</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
