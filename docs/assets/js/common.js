@@ -13,6 +13,7 @@
   // 支撑（更多菜单）
   const MORE_NAV = [
     { group: '研究支撑', items: [
+      { href: 'context.html',      label: '战略上下文' },
       { href: 'dashboard.html',    label: '数据看板' },
       { href: 'methodology.html',  label: '调研方法论' },
       { href: 'cases.html',        label: '标杆案例' },
