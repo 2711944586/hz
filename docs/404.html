@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>页面未找到 · 中国制博会调研</title>
+<meta name="description" content="访问的页面不存在，请返回首页或浏览全站导航。">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="stylesheet" href="assets/css/style.css" />
+<style>
+  .err-wrap {
+    min-height: 70vh;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; padding: 40px 16px;
+  }
+  .err-code {
+    font-size: 120px; font-weight: 900; line-height: 1;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .err-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .err-desc { color: var(--muted); font-size: 14px; max-width: 500px; text-align: center; margin-bottom: 32px; }
+  .err-actions a {
+    display: inline-block; padding: 10px 20px; margin: 4px;
+    background: var(--bg-card); border: 1px solid var(--line);
+    border-radius: 10px; color: var(--ink); font-size: 14px;
+    transition: all .2s;
+  }
+  .err-actions a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .err-actions a.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="err-wrap">
+    <div class="err-code">404</div>
+    <div class="err-title">页面未找到</div>
+    <div class="err-desc">您访问的链接可能已被移除、重命名或暂时不可用。请通过下方入口返回主线浏览。</div>
+    <div class="err-actions">
+      <a href="index.html" class="primary">🏠 返回首页</a>
+      <a href="summary.html">📋 报告摘要</a>
+      <a href="dashboard.html">📊 数据看板</a>
+      <a href="qr.html">📱 全部页面</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/common.js"></script>
+</body>
+</html>
