@@ -5,3 +5,8 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+__pycache__/
+*.pyc
+.tmp_combined/
+.tmp_photos/
+.tmp_icons/
