@@ -16,7 +16,7 @@
     { href: 'transparency.html', label: '数据透明' },
     { href: 'conclusion.html', label: '结论' },
     { href: 'report-pdf.html', label: 'PDF 阅读' },
-    { href: 'qr.html', label: '二维码' },
+    { href: 'qr.html', label: '扫码' },
     { href: 'references.html', label: '参考' }
   ];
 

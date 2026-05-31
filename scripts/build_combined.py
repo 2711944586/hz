@@ -367,81 +367,26 @@ TABLE(appx, ['图号', '图名', '类型', '对应正文'], charts_index, widths
 
 PB(appx)
 
-H(appx, '二、二维码导航', level=2)
-P(appx, '本作品配套 17 个页面的高清二维码（H 级容错，被遮挡 30% 仍可识读）。'
-  '在场可印制为答辩海报、展板、胸卡、名片等，扫码即达对应在线页面。')
+H(appx, '二、扫码访问', level=2)
+P(appx, '本作品采用单一主二维码入口设计。扫码后进入主站首页，'
+  '通过页面顶部导航或卡片入口可一键跳转到全部 20 个页面（摘要 / 三段主体 / 数据看板 / '
+  '方法论 / 案例库 / 图表画廊 / 附录工具 / 团队 / 数据透明度 / PDF / 现场扫码版等）。'
+  '相比多二维码方案，单一入口更便于在海报、展板、胸卡、PPT 等场景印制使用，扫一次即可。')
 
-H(appx, '（一）核心入口', level=3)
-qr_main_pages = [
-    ('main', '主站首页', '完整在线报告入口'),
-    ('mobile', '现场扫码版', '专为手机优化的轻量页'),
-    ('appendix', '在线问卷', '附录 A 可现场填写并导出 CSV'),
-    ('github', 'GitHub 仓库', '源代码与数据'),
-]
-core_table = appx.add_table(rows=2, cols=2)
-for i, (name, title, desc) in enumerate(qr_main_pages):
-    cell = core_table.rows[i // 2].cells[i % 2]
-    qr_path = os.path.join(QR_DIR, f'{name}.png')
-    cp = cell.paragraphs[0]
-    cp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    if os.path.exists(qr_path):
-        run = cp.add_run()
-        run.add_picture(qr_path, width=Cm(3.8))
-    tp = cell.add_paragraph()
-    tp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    tr = tp.add_run(f'{title}\n')
-    styled_run(tr, size=11, bold=True, color=PRIMARY)
-    dr = tp.add_run(desc)
-    styled_run(dr, size=9, color=MUTED)
-appx.add_paragraph()
+# 居中放大主二维码
+main_qr_path = os.path.join(QR_DIR, 'main.png')
+if os.path.exists(main_qr_path):
+    qp = appx.add_paragraph()
+    qp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    qrun = qp.add_run()
+    qrun.add_picture(main_qr_path, width=Cm(7))
+    cap = appx.add_paragraph()
+    cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    cr = cap.add_run('主站二维码  ·  https://2711944586.github.io/hz/')
+    styled_run(cr, size=11, italic=True, color=MUTED)
 
-
-def qr_grid(doc, items, cols=2):
-    for i in range(0, len(items), cols):
-        chunk = items[i:i+cols]
-        t = doc.add_table(rows=2, cols=len(chunk))
-        for j, (name, title, desc) in enumerate(chunk):
-            qr_path = os.path.join(QR_DIR, f'{name}.png')
-            cell_qr = t.rows[0].cells[j]
-            if os.path.exists(qr_path):
-                cp = cell_qr.paragraphs[0]
-                cp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                run = cp.add_run()
-                run.add_picture(qr_path, width=Cm(3))
-            cell_text = t.rows[1].cells[j]
-            tp = cell_text.paragraphs[0]
-            tp.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            tr = tp.add_run(title + '\n')
-            styled_run(tr, size=10, bold=True)
-            dr = tp.add_run(desc)
-            styled_run(dr, size=9, color=MUTED)
-        doc.add_paragraph()
-
-
-H(appx, '（二）主线内容', level=3)
-qr_grid(appx, [
-    ('summary', '报告摘要', '5 分钟读懂全报告'),
-    ('overview', '一·展会发展', '行业 / 项目 / 运行 / 价值'),
-    ('problems', '二·存在问题', '9 大问题诊断'),
-    ('solutions', '三·建议方案', '11 项建议'),
-    ('conclusion', '结论与展望', '建议 / 局限 / 未来'),
-])
-
-H(appx, '（三）研究支撑', level=3)
-qr_grid(appx, [
-    ('dashboard', '数据看板', '20 张图表汇总'),
-    ('methodology', '调研方法论', '六阶段流程'),
-    ('cases', '案例库', '5 大标杆展会'),
-    ('gallery', '图表画廊', '高清下载'),
-    ('transparency', '数据透明', 'A-E 数据分级'),
-])
-
-H(appx, '（四）工具与团队', level=3)
-qr_grid(appx, [
-    ('team', '调研团队', '5 位成员分工'),
-    ('photos', '现场照片', '展会与团队记录'),
-    ('references', '参考资料', '资料来源 / 术语表'),
-])
+P(appx, '二维码规格：800×800 像素 / 纯黑白 / M 级纠错 / 4 模块静默区，适配主流扫描器。'
+  '建议打印尺寸不小于 25mm × 25mm，30cm 内可识别。')
 
 PB(appx)
 
@@ -451,7 +396,7 @@ TABLE(appx, ['资源', '尺寸', '用途', '路径'], [
     ['答辩海报', '1200×1697 px (A1)', '现场展示、可打印', 'docs/poster.html'],
     ['现场扫码版', '响应式手机页', '现场观众扫码访问', 'docs/mobile.html'],
     ['图表 PNG', '1600×1000 px', '答辩、报告插图', 'docs/assets/img/F*.png'],
-    ['二维码 PNG', '600×600 px', '海报、展板', 'docs/assets/qr/*.png'],
+    ['二维码 PNG', '800×800 px', '海报、展板、胸卡', 'docs/assets/qr/main.png'],
     ['favicon', 'SVG', '浏览器图标', 'docs/favicon.svg'],
     ['完整 PDF', '约 2 MB', '存档、阅读', 'docs/assets/report.pdf'],
 ], widths=[3, 4, 4.5, 4.5])

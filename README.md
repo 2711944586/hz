@@ -5,7 +5,7 @@
 [![GitHub Pages](https://img.shields.io/badge/在线版-2711944586.github.io%2Fhz-1E40AF?logo=github)](https://2711944586.github.io/hz/)
 [![Pages](https://img.shields.io/badge/网页-20_个-3B82F6)](docs/)
 [![Charts](https://img.shields.io/badge/图表-20_张-F59E0B)](docs/assets/img/)
-[![QR](https://img.shields.io/badge/二维码-17_张-10B981)](docs/assets/qr/)
+[![QR](https://img.shields.io/badge/二维码-1_张-10B981)](docs/assets/qr/main.png)
 [![PDF](https://img.shields.io/badge/PDF-2_份-EC4899)](docs/assets/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -32,7 +32,7 @@
 | **合订本** | 把调研报告与在线扩展整合的提交版（约 75 页） |
 | **PDF** | 调研报告 PDF（≈60 页）+ 合订本 PDF（≈75 页） |
 | **A1 答辩海报** | 1200×1697 px 答辩海报，可一键导出 PDF |
-| **17 张二维码** | 覆盖所有页面，海报 / 展板 / 胸卡场景一键复用 |
+| **主二维码** | 800×800 px 单一入口，扫码即达完整在线报告（站内导航跳转全部页面） |
 | **18 张定制占位图** | 与作品视觉一致的现场照片占位图，便于团队赴展后无缝替换 |
 
 ---
@@ -60,7 +60,7 @@
 - 📱 **PWA**：可安装到手机主屏，service worker 离线缓存
 - 🖨️ **打印样式**：所有页面适配 @media print
 - 📑 **页内 TOC**：长页右侧自动生成目录
-- 🏷️ **17 张二维码**：H 级容错，遮挡 30% 仍可识读
+- 🏷️ **主二维码**：单一入口设计，800×800 / 纯黑白 / M 级纠错，海报与胸卡场景一码即达
 - 📝 **在线问卷**：附录 A 可现场填写，本地保存 + 导出 CSV
 
 ---
