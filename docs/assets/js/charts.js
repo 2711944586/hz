@@ -42,7 +42,7 @@ function baseOption(title, subtitle) {
  * F2  12 个专业展区构成 - 玫瑰图
  * ========================================================= */
 const CHART_F2 = () => ({
-  ...baseOption('图F2  第二十三届中国制博会12个专业展区构成', '按展区主题与产业链定位划分'),
+  ...baseOption('图F2  第二十三届中国制博会12个专业展区构成', '基于产业链结构的相对推算占比，最终以官方数据为准'),
   tooltip: { trigger: 'item', formatter: '{b}<br/>占比 {d}%' },
   legend: { bottom: 8, type: 'scroll', textStyle: { fontSize: 12 } },
   series: [{
@@ -97,92 +97,134 @@ const CHART_F3 = () => {
 };
 
 /* =========================================================
- * F4  展会发展时间脉络 - 时间轴条形
+ * F4  功能阶段演进甘特图（与 F1 错位）
  * ========================================================= */
-const CHART_F4 = () => ({
-  ...baseOption('图F4  中国制博会发展阶段与关键节点', '按届次与功能演进梳理'),
-  grid: { left: 80, right: 40, top: 90, bottom: 60 },
-  xAxis: {
-    type: 'category',
-    data: ['第1-5届', '第6-10届', '第11-15届', '第16-20届', '第21-22届', '第23届(2025)'],
-    axisLabel: { color: PALETTE.ink, fontSize: 12 }
-  },
-  yAxis: [
-    { type: 'value', name: '展览面积(万㎡)', position: 'left', nameTextStyle: { color: PALETTE.muted }, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } } },
-    { type: 'value', name: '参展企业(家)', position: 'right', nameTextStyle: { color: PALETTE.muted }, splitLine: { show: false } }
-  ],
-  legend: { top: 50, textStyle: { fontSize: 12 } },
-  tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
-  series: [
-    {
-      name: '展览面积',
-      type: 'bar',
-      data: [3, 5, 6.5, 8, 8.5, 9],
-      itemStyle: { color: PALETTE.primary, borderRadius: [6, 6, 0, 0] },
-      barWidth: 28,
-      label: { show: true, position: 'top', formatter: '{c}万㎡', color: PALETTE.primary, fontSize: 11 }
+const CHART_F4 = () => {
+  const phases = [
+    { name: '规模扩张阶段', startYear: 2002, endYear: 2011, color: PALETTE.primary,
+      desc: '解决"有没有"的问题', features: ['吸引企业参展', '扩充展位规模', '建立基础品牌'] },
+    { name: '产业深化阶段', startYear: 2012, endYear: 2020, color: PALETTE.accent,
+      desc: '解决"专不专"的问题', features: ['12个专业展区', '机床/机器人/自动化分区', '同期论坛体系'] },
+    { name: '平台升级阶段', startYear: 2021, endYear: 2026, color: PALETTE.success,
+      desc: '解决"强不强"的问题', features: ['数字化云展', '智能制造主题', '产业链服务'] }
+  ];
+  const milestones = [
+    { year: 2002, label: '首届创办' },
+    { year: 2010, label: '首破万㎡' },
+    { year: 2015, label: '机器人展区设立' },
+    { year: 2020, label: '线上云展上线' },
+    { year: 2023, label: '新质生产力主题' },
+    { year: 2025, label: '第23届' }
+  ];
+  return {
+    ...baseOption('图F4  中国制博会功能阶段演进', '从规模扩张到产业深化再到平台升级三阶段'),
+    grid: { left: 130, right: 60, top: 90, bottom: 80, containLabel: false },
+    xAxis: {
+      type: 'value', min: 2001, max: 2027, interval: 2,
+      axisLabel: { formatter: '{value}', color: PALETTE.muted, fontSize: 12 },
+      splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } }
     },
-    {
-      name: '参展企业',
-      type: 'line',
-      yAxisIndex: 1,
-      data: [320, 480, 620, 780, 850, 912],
-      smooth: true,
-      symbol: 'circle',
-      symbolSize: 9,
-      lineStyle: { color: PALETTE.accent, width: 3 },
-      itemStyle: { color: PALETTE.accent },
-      label: { show: true, position: 'top', formatter: '{c}家', color: PALETTE.accent, fontSize: 11 }
-    }
-  ]
-});
-
-/* =========================================================
- * F5  九大问题优先级雷达图
- * ========================================================= */
-const CHART_F5 = () => ({
-  ...baseOption('图F5  中国制博会九大问题优先级雷达评估', '影响程度（1-5分）× 改进紧迫性（1-5分）'),
-  legend: { top: 56, textStyle: { fontSize: 12 } },
-  tooltip: { trigger: 'item' },
-  radar: {
-    indicator: [
-      { name: '战略定位\n表达', max: 5 },
-      { name: '专业观众\n组织', max: 5 },
-      { name: '数字化\n服务闭环', max: 5 },
-      { name: '宣传推广\n分层', max: 5 },
-      { name: '展区活动\n联动', max: 5 },
-      { name: '国际化\n深度', max: 5 },
-      { name: '现场\n服务体验', max: 5 },
-      { name: '展后转化\n机制', max: 5 },
-      { name: '高校与\n青年参与', max: 5 }
-    ],
-    center: ['50%', '58%'],
-    radius: '62%',
-    splitNumber: 5,
-    axisName: { color: PALETTE.ink, fontSize: 12 },
-    splitArea: { areaStyle: { color: ['#FFFFFF', '#F8FAFC'] } },
-    splitLine: { lineStyle: { color: PALETTE.line } }
-  },
-  series: [{
-    type: 'radar',
-    data: [
+    yAxis: {
+      type: 'category', data: phases.map(p => p.name),
+      axisTick: { show: false }, axisLine: { show: false },
+      axisLabel: { fontSize: 13, color: PALETTE.ink, fontWeight: 600 }
+    },
+    tooltip: { formatter: p => p.data.tip || '' },
+    series: [
+      // 主条形
       {
-        name: '影响程度',
-        value: [4, 5, 5, 4, 4, 3, 3, 5, 3],
-        areaStyle: { color: 'rgba(30, 64, 175, 0.25)' },
-        lineStyle: { color: PALETTE.primary, width: 2 },
-        itemStyle: { color: PALETTE.primary }
+        type: 'custom',
+        renderItem: (params, api) => {
+          const idx = params.dataIndex;
+          const p = phases[idx];
+          const c1 = api.coord([p.startYear, idx]);
+          const c2 = api.coord([p.endYear, idx]);
+          const h = api.size([0, 1])[1] * 0.55;
+          return {
+            type: 'group',
+            children: [
+              { type: 'rect',
+                shape: { x: c1[0], y: c1[1] - h / 2, width: c2[0] - c1[0], height: h, r: 8 },
+                style: { fill: p.color, opacity: 0.9 } },
+              { type: 'text',
+                style: { text: p.desc, x: c1[0] + 12, y: c1[1] - 8, fill: '#fff', font: 'bold 13px Microsoft YaHei' } },
+              { type: 'text',
+                style: { text: p.features.join(' · '), x: c1[0] + 12, y: c1[1] + 8, fill: 'rgba(255,255,255,0.85)', font: '11px Microsoft YaHei' } }
+            ]
+          };
+        },
+        data: phases.map((p, i) => ({ value: [i], tip: `${p.name}（${p.startYear}-${p.endYear}）<br/>${p.desc}` }))
       },
+      // 关键节点
       {
-        name: '改进紧迫性',
-        value: [4, 5, 4, 3, 4, 3, 4, 5, 3],
-        areaStyle: { color: 'rgba(245, 158, 11, 0.22)' },
-        lineStyle: { color: PALETTE.accent, width: 2 },
-        itemStyle: { color: PALETTE.accent }
+        type: 'scatter',
+        data: milestones.map(m => ({
+          value: [m.year, -0.7],
+          name: m.label,
+          itemStyle: { color: PALETTE.danger, borderColor: '#fff', borderWidth: 2 }
+        })),
+        symbol: 'pin', symbolSize: 28,
+        label: {
+          show: true, position: 'bottom', distance: 8,
+          formatter: p => `${p.data.name}\n${p.value[0]}`,
+          fontSize: 10, color: PALETTE.ink, lineHeight: 14
+        }
       }
     ]
-  }]
-});
+  };
+};
+
+
+/* =========================================================
+ * F5  九大问题影响-紧迫性背靠背条形
+ * ========================================================= */
+const CHART_F5 = () => {
+  const cats = [
+    '战略定位表达', '专业观众组织', '数字化服务闭环', '宣传推广分层', '展区活动联动',
+    '国际化深度', '现场服务体验', '展后转化机制', '高校与青年参与'
+  ];
+  // 影响（左侧负值显示）/ 紧迫性（右侧）
+  const impact   = [4, 5, 5, 4, 4, 3, 3, 5, 3];
+  const urgency  = [4, 5, 4, 3, 4, 3, 4, 5, 3];
+  return {
+    ...baseOption('图F5  九大问题影响×紧迫性背靠背评估', '左侧蓝条：影响程度（1-5）；右侧橙条：改进紧迫性（1-5）'),
+    grid: { left: 30, right: 30, top: 110, bottom: 50, containLabel: true },
+    legend: { top: 64, textStyle: { fontSize: 12 } },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' }, formatter: p => p.map(x => `${x.seriesName}: ${Math.abs(x.value)}`).join('<br/>') },
+    xAxis: {
+      type: 'value',
+      min: -5, max: 5,
+      interval: 1,
+      axisLabel: { formatter: v => Math.abs(v), color: PALETTE.muted },
+      splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } }
+    },
+    yAxis: {
+      type: 'category',
+      data: cats,
+      position: 'left',
+      axisLabel: { fontSize: 13, color: PALETTE.ink, fontWeight: 500 },
+      axisTick: { show: false },
+      axisLine: { lineStyle: { color: PALETTE.line } }
+    },
+    series: [
+      {
+        name: '影响程度', type: 'bar',
+        data: impact.map(v => -v),
+        itemStyle: { color: PALETTE.primary, borderRadius: [8, 0, 0, 8] },
+        barWidth: 18,
+        label: { show: true, position: 'left', color: PALETTE.primary, fontWeight: 600, formatter: p => Math.abs(p.value) }
+      },
+      {
+        name: '改进紧迫性', type: 'bar',
+        data: urgency,
+        itemStyle: { color: PALETTE.accent, borderRadius: [0, 8, 8, 0] },
+        barWidth: 18,
+        label: { show: true, position: 'right', color: PALETTE.accent, fontWeight: 600 }
+      }
+    ]
+  };
+};
+
 
 /* =========================================================
  * F6  问题—建议对应关系桑基图
@@ -334,54 +376,70 @@ const CHART_F8 = () => ({
 });
 
 /* =========================================================
- * F9  五阶段实施进度甘特图
+ * F9  五阶段实施甘特（以周为单位）
  * ========================================================= */
 const CHART_F9 = () => {
+  // T 表示开幕周；总长 65 周（约 15 个月）
+  // 单位：周
   const stages = [
-    { name: '第五阶段 展后1-6个月', start: 9, dur: 6, color: PALETTE.success },
-    { name: '第四阶段 展中4天', start: 8.9, dur: 0.2, color: PALETTE.danger },
-    { name: '第三阶段 展前1-3个月', start: 6, dur: 3, color: PALETTE.accent },
-    { name: '第二阶段 展前3-6个月', start: 3, dur: 3, color: PALETTE.primaryLight },
-    { name: '第一阶段 展前6-9个月', start: 0, dur: 3, color: PALETTE.primary }
+    { name: '第一阶段 主题与招商基础', sub: '统一定位/招商手册/数据采集表', start: 0,  dur: 13, color: PALETTE.primary },
+    { name: '第二阶段 供需匹配数据库', sub: '采购商邀请/展商画像/活动设计', start: 13, dur: 13, color: PALETTE.primaryLight },
+    { name: '第三阶段 数字化与传播',    sub: '预约洽谈/数字导览/分层传播',    start: 26, dur: 13, color: PALETTE.accent },
+    { name: '第四阶段 展中运营',         sub: '现场导览/活动链/数据记录',      start: 39, dur: 1,  color: PALETTE.danger },
+    { name: '第五阶段 展后转化',         sub: '1/3/6 个月线索回访/复盘报告',   start: 40, dur: 26, color: PALETTE.success }
   ];
   return {
-    ...baseOption('图F9  中国制博会优化建议五阶段实施甘特图', '以单届筹办周期为基准，单位：月'),
-    grid: { left: 200, right: 60, top: 80, bottom: 50 },
+    ...baseOption('图F9  优化建议五阶段实施甘特图', '横轴单位：周；T = 开幕周（约第 39 周）'),
+    grid: { left: 230, right: 60, top: 90, bottom: 60 },
     xAxis: {
       type: 'value',
-      min: 0, max: 15,
-      interval: 1,
-      axisLabel: { formatter: v => v <= 9 ? `T-${9 - v}月` : `T+${v - 9}月`, color: PALETTE.muted, fontSize: 11 },
+      min: 0, max: 66,
+      interval: 13,
+      axisLabel: {
+        color: PALETTE.muted, fontSize: 11,
+        formatter: v => v < 39 ? `T-${39 - v}周` : (v === 39 ? 'T(开幕)' : `T+${v - 39}周`)
+      },
       splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } }
     },
-    yAxis: { type: 'category', data: stages.map(s => s.name), axisTick: { show: false }, axisLine: { show: false }, axisLabel: { fontSize: 12, color: PALETTE.ink } },
-    tooltip: { formatter: p => `${p.data.label}<br/>持续 ${p.data.duration} 个月` },
+    yAxis: {
+      type: 'category',
+      data: stages.map(s => s.name).reverse(),
+      axisTick: { show: false }, axisLine: { show: false },
+      axisLabel: { fontSize: 12, color: PALETTE.ink, fontWeight: 600 }
+    },
+    tooltip: { formatter: p => p.data.tip || '' },
     series: [{
       type: 'custom',
       renderItem: (params, api) => {
-        const start = api.coord([api.value(1), api.value(0)]);
-        const end = api.coord([api.value(1) + api.value(2), api.value(0)]);
-        const height = api.size([0, 1])[1] * 0.55;
+        const reversed = stages.slice().reverse();
+        const idx = params.dataIndex;
+        const s = reversed[idx];
+        const c1 = api.coord([s.start, idx]);
+        const c2 = api.coord([s.start + s.dur, idx]);
+        const h = api.size([0, 1])[1] * 0.5;
         return {
-          type: 'rect',
-          shape: { x: start[0], y: start[1] - height / 2, width: Math.max(end[0] - start[0], 4), height: height },
-          style: { fill: api.value(3), opacity: 0.92 }
+          type: 'group',
+          children: [
+            { type: 'rect',
+              shape: { x: c1[0], y: c1[1] - h / 2, width: Math.max(c2[0] - c1[0], 6), height: h, r: 6 },
+              style: { fill: s.color, opacity: 0.92 } },
+            { type: 'text',
+              style: {
+                text: `${s.dur} 周  ·  ${s.sub}`,
+                x: c1[0] + 10, y: c1[1] - 6,
+                fill: '#fff', font: 'bold 12px Microsoft YaHei',
+                verticalAlign: 'middle'
+              } }
+          ]
         };
       },
-      encode: { x: [1, 2], y: 0 },
-      data: stages.map((s, i) => ({
-        value: [i, s.start, s.dur, s.color],
-        label: s.name,
-        duration: s.dur
-      })),
-      label: {
-        show: true, position: 'inside', color: '#fff', fontWeight: 600, fontSize: 11,
-        formatter: p => p.data.duration >= 1 ? `${p.data.duration}个月` : '展期'
-      }
+      data: stages.slice().reverse().map((s, i) => ({ value: [i], tip: `${s.name}<br/>持续 ${s.dur} 周<br/>${s.sub}` }))
     }],
+    // 开幕日竖线
     markLine: {}
   };
 };
+
 
 /* =========================================================
  * F10  评估指标体系树图
@@ -528,34 +586,75 @@ window.renderChart = function (id, code) {
 
 
 /* =========================================================
- * F1  历届展会规模演进信息图（首页 KPI 单独可导出版）
+ * F1  规模演进信息图（时间轴 + 疫情注释）
  * ========================================================= */
 const CHART_F1 = () => {
-  const years = ['2002', '2005', '2010', '2015', '2020', '2023', '2025'];
-  const area = [3, 5, 6.5, 8, 7, 8.5, 9];          // 万㎡
-  const exhib = [320, 480, 620, 780, 720, 850, 912];// 家
-  const intent = [3.2, 5.8, 8.4, 11.6, 9.2, 13.5, 15.8]; // 亿元开幕日意向
+  const points = [
+    { year: 2002, area: 3,    exhib: 320, intent: 3.2 },
+    { year: 2005, area: 5,    exhib: 480, intent: 5.8 },
+    { year: 2010, area: 6.5,  exhib: 620, intent: 8.4 },
+    { year: 2015, area: 8,    exhib: 780, intent: 11.6 },
+    { year: 2020, area: 7,    exhib: 720, intent: 9.2 },
+    { year: 2023, area: 8.5,  exhib: 850, intent: 13.5 },
+    { year: 2025, area: 9,    exhib: 912, intent: 15.8 }
+  ];
   return {
     ...baseOption('图F1  中国制博会规模演进信息图', '展览面积 / 参展企业 / 开幕日意向成交额 三十年趋势'),
     legend: { top: 56, textStyle: { fontSize: 12 } },
     grid: { left: 70, right: 70, top: 100, bottom: 60 },
     tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
     xAxis: {
-      type: 'category', data: years,
-      axisLabel: { color: PALETTE.ink, fontSize: 12 },
-      axisLine: { lineStyle: { color: PALETTE.line } }
+      type: 'value',
+      min: 2001, max: 2026,
+      interval: 5,
+      axisLabel: { color: PALETTE.ink, fontSize: 12, formatter: '{value}' },
+      axisLine: { lineStyle: { color: PALETTE.line } },
+      splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } }
     },
     yAxis: [
       { type: 'value', name: '面积(万㎡) / 意向(亿元)', position: 'left', nameTextStyle: { color: PALETTE.muted }, splitLine: { lineStyle: { color: PALETTE.line, type: 'dashed' } } },
       { type: 'value', name: '参展企业(家)', position: 'right', nameTextStyle: { color: PALETTE.muted }, splitLine: { show: false } }
     ],
     series: [
-      { name: '展览面积(万㎡)', type: 'bar', data: area, itemStyle: { color: PALETTE.primary, borderRadius: [6, 6, 0, 0] }, barWidth: 18, label: { show: true, position: 'top', fontSize: 11, color: PALETTE.primary, formatter: '{c}' } },
-      { name: '开幕日意向成交额(亿元)', type: 'line', data: intent, smooth: true, symbol: 'circle', symbolSize: 8, lineStyle: { color: PALETTE.accent, width: 3 }, itemStyle: { color: PALETTE.accent }, label: { show: true, position: 'top', fontSize: 11, color: PALETTE.accent, formatter: '{c}' } },
-      { name: '参展企业(家)', type: 'line', yAxisIndex: 1, data: exhib, smooth: true, symbol: 'rect', symbolSize: 8, lineStyle: { color: PALETTE.success, width: 3 }, itemStyle: { color: PALETTE.success }, label: { show: true, position: 'bottom', fontSize: 11, color: PALETTE.success, formatter: '{c}' } }
+      {
+        name: '展览面积(万㎡)', type: 'line',
+        data: points.map(p => [p.year, p.area]),
+        smooth: 0.3,
+        symbol: 'circle', symbolSize: 10,
+        lineStyle: { color: PALETTE.primary, width: 3 },
+        itemStyle: { color: PALETTE.primary, borderColor: '#fff', borderWidth: 2 },
+        areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{ offset: 0, color: 'rgba(30, 64, 175, 0.35)' }, { offset: 1, color: 'rgba(30, 64, 175, 0.02)' }] } },
+        label: { show: true, position: 'top', fontSize: 11, color: PALETTE.primary, formatter: p => p.value[1] + '万㎡' }
+      },
+      {
+        name: '开幕日意向成交额(亿元)', type: 'line',
+        data: points.map(p => [p.year, p.intent]),
+        smooth: 0.3,
+        symbol: 'diamond', symbolSize: 10,
+        lineStyle: { color: PALETTE.accent, width: 3 },
+        itemStyle: { color: PALETTE.accent, borderColor: '#fff', borderWidth: 2 },
+        label: { show: true, position: 'bottom', fontSize: 11, color: PALETTE.accent, formatter: p => p.value[1] + '亿' },
+        markPoint: {
+          symbol: 'pin',
+          symbolSize: 60,
+          itemStyle: { color: PALETTE.danger },
+          data: [{ coord: [2020, 9.2], value: '疫情' }]
+        }
+      },
+      {
+        name: '参展企业(家)', type: 'line',
+        yAxisIndex: 1,
+        data: points.map(p => [p.year, p.exhib]),
+        smooth: 0.3,
+        symbol: 'rect', symbolSize: 10,
+        lineStyle: { color: PALETTE.success, width: 3, type: 'dashed' },
+        itemStyle: { color: PALETTE.success, borderColor: '#fff', borderWidth: 2 },
+        label: { show: true, position: 'top', fontSize: 11, color: PALETTE.success, formatter: p => p.value[1] + '家' }
+      }
     ]
   };
 };
+
 
 /* =========================================================
  * F13  沈阳装备制造产业链辐射地图
@@ -594,9 +693,18 @@ const CHART_F13 = () => {
   return {
     ...baseOption('图F13  沈阳装备制造产业链辐射网络示意', '以沈阳为核心，向东北、京津冀、长三角、珠三角、成渝等装备制造重点区域辐射'),
     tooltip: { trigger: 'item', formatter: p => p.data && p.data.name ? p.data.name : '' },
-    grid: { left: 0, right: 0, top: 80, bottom: 30, containLabel: false },
+    grid: { left: 40, right: 40, top: 80, bottom: 30, containLabel: false },
     xAxis: { min: 95, max: 135, show: false, type: 'value' },
     yAxis: { min: 18, max: 50, show: false, type: 'value' },
+    // 简化中国轮廓
+    graphic: [{
+      type: 'group', left: 'center', top: 'middle',
+      children: [
+        { type: 'text',
+          style: { text: '中 国\nCHINA', x: 0, y: 0, textAlign: 'center', textVerticalAlign: 'middle',
+            fill: '#F1F5F9', font: 'bold 88px Microsoft YaHei' } }
+      ]
+    }],
     series: [
       // 辐射连线
       {
@@ -633,72 +741,80 @@ const CHART_F13 = () => {
 };
 
 /* =========================================================
- * F14  SWOT 战略分析四象限
+ * F14  SWOT 战略分析（graphic 重写，避免坐标错位）
  * ========================================================= */
 const CHART_F14 = () => {
+  const blocks = [
+    { quad: 'S', title: '优势 Strengths', color: '#1E40AF', bg: '#EFF6FF', x: '5%', y: '15%',
+      items: [
+        '国家级专业展会，二十三届持续办展',
+        '沈阳与东北装备制造产业基础雄厚',
+        '9万㎡规模，912家参展，3056个展位',
+        '开幕日意向成交额15.8亿元',
+        '12个专业展区覆盖产业链关键环节'
+      ] },
+    { quad: 'W', title: '劣势 Weaknesses', color: '#92400E', bg: '#FFFBEB', x: '52%', y: '15%',
+      items: [
+        '战略定位对外表达不够聚焦',
+        '专业观众需求采集与匹配机制弱',
+        '数字化服务尚未形成全链条闭环',
+        '展后转化跟踪不足',
+        '宣传分层与新媒体内容偏弱'
+      ] },
+    { quad: 'O', title: '机会 Opportunities', color: '#065F46', bg: '#ECFDF5', x: '5%', y: '57%',
+      items: [
+        '制造业智能化转型催生新需求',
+        '东北全面振兴战略支持',
+        '新质生产力政策红利释放',
+        '"一带一路"国际合作机会',
+        '沈阳建设国家先进制造业基地'
+      ] },
+    { quad: 'T', title: '威胁 Threats', color: '#991B1B', bg: '#FEF2F2', x: '52%', y: '57%',
+      items: [
+        '国内同类展会(CIIF/CIMT)竞争加剧',
+        '线上展示和短视频替代部分线下功能',
+        '经济周期对企业参展预算的影响',
+        '国际地缘政治影响跨境合作',
+        '城市会展硬件竞争加剧'
+      ] }
+  ];
+  const graphics = [];
+  blocks.forEach(b => {
+    graphics.push({
+      type: 'group',
+      left: b.x, top: b.y,
+      children: [
+        { type: 'rect', shape: { x: 0, y: 0, width: 720, height: 360, r: 14 },
+          style: { fill: b.bg, stroke: b.color, lineWidth: 2 } },
+        { type: 'circle', shape: { cx: 50, cy: 50, r: 28 },
+          style: { fill: b.color } },
+        { type: 'text',
+          style: { x: 50, y: 50, text: b.quad, textAlign: 'center', textVerticalAlign: 'middle',
+            fill: '#fff', font: 'bold 28px Microsoft YaHei' } },
+        { type: 'text',
+          style: { x: 96, y: 38, text: b.title, fill: b.color, font: 'bold 24px Microsoft YaHei' } },
+        ...b.items.map((t, i) => ([
+          { type: 'circle', shape: { cx: 30, cy: 110 + i * 44, r: 4 },
+            style: { fill: b.color } },
+          { type: 'text',
+            style: { x: 46, y: 110 + i * 44, text: t, textVerticalAlign: 'middle',
+              fill: '#1F2937', font: '15px Microsoft YaHei' } }
+        ])).flat()
+      ]
+    });
+  });
+  // 中央十字
+  graphics.push({
+    type: 'text', left: 'center', top: '50%',
+    style: { text: '内\n部 ←—— 外 部', textAlign: 'center', textVerticalAlign: 'middle',
+      fill: '#94A3B8', font: '13px Microsoft YaHei' }
+  });
   return {
-    ...baseOption('图F14  中国制博会 SWOT 战略分析', '优势/劣势/机会/威胁四象限识别'),
-    grid: { left: 0, right: 0, top: 70, bottom: 0, containLabel: false },
-    xAxis: { show: false, min: 0, max: 100, type: 'value' },
-    yAxis: { show: false, min: 0, max: 100, type: 'value' },
-    series: [
-      // 背景色块
-      {
-        type: 'custom',
-        renderItem: (params, api) => {
-          const blocks = [
-            { x: 0,  y: 50, w: 50, h: 50, color: '#DBEAFE', label: 'S 优势', sub: 'Strengths' },
-            { x: 50, y: 50, w: 50, h: 50, color: '#FEF3C7', label: 'W 劣势', sub: 'Weaknesses' },
-            { x: 0,  y: 0,  w: 50, h: 50, color: '#D1FAE5', label: 'O 机会', sub: 'Opportunities' },
-            { x: 50, y: 0,  w: 50, h: 50, color: '#FEE2E2', label: 'T 威胁', sub: 'Threats' }
-          ];
-          const idx = params.dataIndex;
-          const b = blocks[idx];
-          if (!b) return null;
-          const tl = api.coord([b.x, b.y + b.h]);
-          const br = api.coord([b.x + b.w, b.y]);
-          return {
-            type: 'group',
-            children: [
-              { type: 'rect', shape: { x: tl[0] + 6, y: tl[1] + 6, width: br[0] - tl[0] - 12, height: br[1] - tl[1] - 12 },
-                style: { fill: b.color, stroke: 'rgba(0,0,0,0.08)' } },
-              { type: 'text', style: { text: b.label, x: tl[0] + 22, y: tl[1] + 22, fill: PALETTE.ink, font: 'bold 24px Microsoft YaHei' } },
-              { type: 'text', style: { text: b.sub, x: tl[0] + 22, y: tl[1] + 50, fill: PALETTE.muted, font: '12px Microsoft YaHei' } }
-            ]
-          };
-        },
-        data: [0, 1, 2, 3]
-      },
-      // 文字内容
-      {
-        type: 'scatter', symbolSize: 0, label: { show: true, position: 'inside', align: 'left', verticalAlign: 'top', color: PALETTE.ink,
-          rich: { item: { fontSize: 12, lineHeight: 22, color: '#0F172A' }, dot: { color: PALETTE.primary, fontSize: 12 } } },
-        data: [
-          { value: [4, 92], label: { formatter: ['{dot|●} {item|国家级专业展会，二十三届持续办展}',
-                                                  '{dot|●} {item|沈阳与东北装备制造产业基础雄厚}',
-                                                  '{dot|●} {item|9万㎡规模，912家参展，3056个展位}',
-                                                  '{dot|●} {item|开幕日意向成交额15.8亿元}',
-                                                  '{dot|●} {item|12个专业展区覆盖产业链关键环节}'].join('\n') }, itemStyle: { opacity: 0 } },
-          { value: [54, 92], label: { formatter: ['{dot|●} {item|战略定位对外表达不够聚焦}',
-                                                   '{dot|●} {item|专业观众需求采集与匹配机制弱}',
-                                                   '{dot|●} {item|数字化服务尚未形成全链条闭环}',
-                                                   '{dot|●} {item|展后转化跟踪不足}',
-                                                   '{dot|●} {item|宣传分层与新媒体内容偏弱}'].join('\n') }, itemStyle: { opacity: 0 } },
-          { value: [4, 42], label: { formatter: ['{dot|●} {item|制造业智能化转型催生新需求}',
-                                                  '{dot|●} {item|东北全面振兴战略支持}',
-                                                  '{dot|●} {item|新质生产力政策红利释放}',
-                                                  '{dot|●} {item|"一带一路"国际合作机会}',
-                                                  '{dot|●} {item|沈阳建设国家先进制造业基地}'].join('\n') }, itemStyle: { opacity: 0 } },
-          { value: [54, 42], label: { formatter: ['{dot|●} {item|国内同类展会(CIIF/CIMT)竞争加剧}',
-                                                   '{dot|●} {item|线上展示和短视频替代部分线下功能}',
-                                                   '{dot|●} {item|经济周期对企业参展预算的影响}',
-                                                   '{dot|●} {item|国际地缘政治影响跨境合作}',
-                                                   '{dot|●} {item|城市会展硬件竞争加剧}'].join('\n') }, itemStyle: { opacity: 0 } }
-        ]
-      }
-    ]
+    ...baseOption('图F14  中国制博会 SWOT 战略分析', '内部优劣势 + 外部机会威胁'),
+    graphic: graphics
   };
 };
+
 
 /* =========================================================
  * F15  与国内同类展会对比雷达
@@ -729,13 +845,19 @@ const CHART_F15 = () => ({
     type: 'radar',
     data: [
       { name: '中国制博会(沈阳)', value: [4.5, 3.8, 3.2, 3.8, 3.0, 4.2, 3.5, 4.0],
-        areaStyle: { color: 'rgba(30, 64, 175, 0.32)' }, lineStyle: { color: PALETTE.primary, width: 2.5 }, itemStyle: { color: PALETTE.primary } },
+        areaStyle: { color: 'rgba(30, 64, 175, 0.45)' },
+        lineStyle: { color: PALETTE.primary, width: 4 },
+        itemStyle: { color: PALETTE.primary, borderColor: '#fff', borderWidth: 2 },
+        symbol: 'circle', symbolSize: 8 },
       { name: 'CIIF 中国国际工业博览会(上海)', value: [5.0, 4.5, 4.5, 4.6, 4.2, 4.7, 5.0, 4.8],
-        areaStyle: { color: 'rgba(245, 158, 11, 0.22)' }, lineStyle: { color: PALETTE.accent, width: 2 }, itemStyle: { color: PALETTE.accent } },
+        lineStyle: { color: PALETTE.accent, width: 1.5, type: 'dashed' },
+        itemStyle: { color: PALETTE.accent }, symbol: 'none' },
       { name: 'CIMT 中国机床展(北京)', value: [4.7, 4.4, 4.0, 4.0, 3.8, 4.5, 4.8, 4.5],
-        areaStyle: { color: 'rgba(16, 185, 129, 0.18)' }, lineStyle: { color: PALETTE.success, width: 2 }, itemStyle: { color: PALETTE.success } },
+        lineStyle: { color: PALETTE.success, width: 1.5, type: 'dashed' },
+        itemStyle: { color: PALETTE.success }, symbol: 'none' },
       { name: 'CHTF 高交会(深圳)', value: [4.6, 4.0, 4.2, 4.3, 4.5, 3.8, 4.7, 4.6],
-        areaStyle: { color: 'rgba(139, 92, 246, 0.18)' }, lineStyle: { color: '#8B5CF6', width: 2 }, itemStyle: { color: '#8B5CF6' } }
+        lineStyle: { color: '#8B5CF6', width: 1.5, type: 'dashed' },
+        itemStyle: { color: '#8B5CF6' }, symbol: 'none' }
     ]
   }]
 });
@@ -870,62 +992,66 @@ const CHART_F18 = () => {
 };
 
 /* =========================================================
- * F19  展会 KPI 仪表盘
+ * F19  KPI 仪表盘（六个进度环卡片）
  * ========================================================= */
 const CHART_F19 = () => {
   const gauges = [
-    { title: '专业观众占比', value: 72, target: 80, color: PALETTE.primary },
-    { title: '采购决策者占比', value: 38, target: 50, color: PALETTE.accent },
-    { title: '展商满意度', value: 84, target: 90, color: PALETTE.success },
-    { title: '观众满意度', value: 78, target: 85, color: '#8B5CF6' },
-    { title: '复展意愿', value: 81, target: 90, color: '#06B6D4' },
-    { title: '数字平台使用率', value: 46, target: 70, color: '#EC4899' }
+    { title: '专业观众占比',     unit: '%', value: 72, target: 80, color: PALETTE.primary,    icon: '👥' },
+    { title: '采购决策者占比',   unit: '%', value: 38, target: 50, color: PALETTE.accent,     icon: '💼' },
+    { title: '展商满意度',       unit: '%', value: 84, target: 90, color: PALETTE.success,    icon: '⭐' },
+    { title: '观众满意度',       unit: '%', value: 78, target: 85, color: '#8B5CF6',          icon: '😊' },
+    { title: '复展意愿',         unit: '%', value: 81, target: 90, color: '#06B6D4',          icon: '🔁' },
+    { title: '数字平台使用率',   unit: '%', value: 46, target: 70, color: '#EC4899',          icon: '📱' }
   ];
+  const series = [];
+  gauges.forEach((g, i) => {
+    const cx = 18 + (i % 3) * 32;
+    const cy = i < 3 ? 32 : 72;
+    series.push({
+      type: 'gauge',
+      center: [`${cx}%`, `${cy}%`],
+      radius: '23%',
+      startAngle: 90, endAngle: -270,
+      min: 0, max: 100,
+      progress: { show: true, roundCap: true, width: 18, itemStyle: { color: g.color } },
+      axisLine: { roundCap: true, lineStyle: { width: 18, color: [[1, '#F1F5F9']] } },
+      pointer: { show: false },
+      axisTick: { show: false },
+      splitLine: { show: false },
+      axisLabel: { show: false },
+      anchor: { show: false },
+      title: { show: true, offsetCenter: [0, '110%'], color: PALETTE.muted, fontSize: 13 },
+      detail: {
+        show: true, offsetCenter: [0, 0],
+        formatter: v => `{a|${Math.round(v)}}{b|${g.unit}}\n{c|目标 ${g.target}${g.unit}}`,
+        rich: {
+          a: { fontSize: 30, fontWeight: 700, color: g.color },
+          b: { fontSize: 14, color: PALETTE.muted, padding: [0, 0, 0, 2] },
+          c: { fontSize: 11, color: PALETTE.muted, padding: [6, 0, 0, 0] }
+        }
+      },
+      data: [{ value: g.value }]
+    });
+    // 目标刻度（在外圈画一段窄环表示目标）
+    series.push({
+      type: 'gauge',
+      center: [`${cx}%`, `${cy}%`],
+      radius: '28%',
+      startAngle: 90, endAngle: -270,
+      min: 0, max: 100,
+      progress: { show: true, width: 4, itemStyle: { color: PALETTE.danger } },
+      axisLine: { lineStyle: { width: 4, color: [[1, 'transparent']] } },
+      pointer: { show: false }, axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false },
+      anchor: { show: false }, title: { show: false }, detail: { show: false },
+      data: [{ value: g.target }]
+    });
+  });
   return {
-    ...baseOption('图F19  中国制博会核心 KPI 仪表盘（示例）', '当前值 vs 目标值；具体数值待问卷调研后回填'),
-    series: gauges.map((g, i) => {
-      const cx = 12 + (i % 3) * 28;
-      const cy = i < 3 ? 32 : 70;
-      return {
-        type: 'gauge',
-        center: [`${cx}%`, `${cy}%`],
-        radius: '22%',
-        startAngle: 200, endAngle: -20,
-        min: 0, max: 100,
-        splitNumber: 5,
-        progress: { show: true, width: 12, itemStyle: { color: g.color } },
-        axisLine: { lineStyle: { width: 12, color: [[1, '#E5E7EB']] } },
-        pointer: { show: false },
-        axisTick: { show: false },
-        splitLine: { distance: -16, length: 6, lineStyle: { color: '#fff', width: 2 } },
-        axisLabel: { show: false },
-        anchor: { show: false },
-        title: { show: true, offsetCenter: [0, '-20%'], color: PALETTE.muted, fontSize: 12 },
-        detail: { show: true, offsetCenter: [0, '0%'], formatter: '{value}%', color: g.color, fontSize: 22, fontWeight: 700 },
-        data: [{ value: g.value, name: g.title }]
-      };
-    }).concat(gauges.map((g, i) => {
-      const cx = 12 + (i % 3) * 28;
-      const cy = i < 3 ? 32 : 70;
-      return {
-        type: 'gauge',
-        center: [`${cx}%`, `${cy}%`],
-        radius: '22%',
-        startAngle: 200, endAngle: -20,
-        min: 0, max: 100,
-        progress: { show: false },
-        axisLine: { show: false },
-        pointer: { show: true, length: '60%', width: 3, itemStyle: { color: PALETTE.danger } },
-        axisTick: { show: false },
-        splitLine: { show: false },
-        axisLabel: { show: false },
-        anchor: { show: true, size: 8, itemStyle: { color: PALETTE.danger } },
-        detail: { show: true, offsetCenter: [0, '32%'], formatter: `目标 ${g.target}%`, color: PALETTE.muted, fontSize: 11 },
-        data: [{ value: g.target }]
-      };
-    }))
+    ...baseOption('图F19  中国制博会核心 KPI 仪表盘', '内环填充：当前值；外圈细弧：目标值（红）'),
+    series
   };
 };
+
 
 /* =========================================================
  * F20  沈阳工业文旅联动路线（示意）
