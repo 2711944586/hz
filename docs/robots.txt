@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://2711944586.github.io/hz/sitemap.xml

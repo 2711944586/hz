@@ -7,6 +7,8 @@
 <meta name="description" content="第二十三届中国制博会调研报告现场版，专为手机优化，问卷可一键填写。">
 <meta property="og:title" content="第二十三届中国制博会调研报告">
 <meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
   :root {
@@ -268,5 +270,10 @@
   <a href="https://2711944586.github.io/hz/">完整在线版</a>
 </div>
 
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+</script>
 </body>
 </html>

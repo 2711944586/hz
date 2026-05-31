@@ -1,0 +1,20 @@
+{
+  "name": "中国制博会调研报告",
+  "short_name": "制博会调研",
+  "description": "第二十三届中国国际装备制造业博览会调研报告 · 在线版",
+  "lang": "zh-CN",
+  "start_url": "./mobile.html",
+  "display": "standalone",
+  "background_color": "#0F1F4F",
+  "theme_color": "#1E40AF",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["education", "research"],
+  "shortcuts": [
+    { "name": "报告摘要", "url": "./summary.html" },
+    { "name": "数据看板", "url": "./dashboard.html" },
+    { "name": "在线问卷", "url": "./appendix.html" }
+  ]
+}
