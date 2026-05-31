@@ -7,6 +7,7 @@
 - 段落格式（首行缩进、行距、段前段后）
 """
 
+import os
 from docx.shared import Cm, Pt, Mm, RGBColor, Emu
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
@@ -324,3 +325,205 @@ def add_toc(doc, max_level=3):
     run._r.append(fldChar3)
     run._r.append(fldChar4)
     return p
+
+
+# ============================================================
+# 高级排版：封面 / TOC / 分节 / 页码控制
+# ============================================================
+
+def _qn(name):
+    return qn(name)
+
+
+def insert_cover_page(doc, *, title_main, title_sub=None, slogan=None,
+                      kpi_line=None, qr_path=None, url=None,
+                      team_name=None, team_members=None, date_text=None):
+    """在文档最前插入一页封面页。
+    封面不带页眉页脚（因为是默认 section 0 起始处）。
+    使用方式：先调用 configure_styles + configure_page，再调 insert_cover_page。
+    """
+    body = doc.element.body
+    # 收集所有要插入的段落 / 分页 元素，最后一次性 prepend
+    new_paras = []
+
+    def make_para(text='', size=12, bold=False, italic=False, color=None,
+                  eastasia='宋体', align=WD_ALIGN_PARAGRAPH.CENTER):
+        from docx.oxml import OxmlElement as _O
+        p_el = _O('w:p')
+        ppr = _O('w:pPr')
+        jc = _O('w:jc')
+        if align == WD_ALIGN_PARAGRAPH.CENTER:
+            jc.set(qn('w:val'), 'center')
+        elif align == WD_ALIGN_PARAGRAPH.RIGHT:
+            jc.set(qn('w:val'), 'right')
+        else:
+            jc.set(qn('w:val'), 'left')
+        ppr.append(jc)
+        # 1.5 倍行距
+        spacing = _O('w:spacing')
+        spacing.set(qn('w:line'), '360')
+        spacing.set(qn('w:lineRule'), 'auto')
+        ppr.append(spacing)
+        p_el.append(ppr)
+
+        if text:
+            r_el = _O('w:r')
+            rpr = _O('w:rPr')
+            rfonts = _O('w:rFonts')
+            rfonts.set(qn('w:eastAsia'), eastasia)
+            rfonts.set(qn('w:ascii'), 'Times New Roman')
+            rfonts.set(qn('w:hAnsi'), 'Times New Roman')
+            rpr.append(rfonts)
+            sz = _O('w:sz')
+            sz.set(qn('w:val'), str(size * 2))  # half-points
+            rpr.append(sz)
+            szCs = _O('w:szCs')
+            szCs.set(qn('w:val'), str(size * 2))
+            rpr.append(szCs)
+            if bold:
+                rpr.append(_O('w:b'))
+                rpr.append(_O('w:bCs'))
+            if italic:
+                rpr.append(_O('w:i'))
+                rpr.append(_O('w:iCs'))
+            if color:
+                col = _O('w:color')
+                col.set(qn('w:val'), '{:02X}{:02X}{:02X}'.format(*color))
+                rpr.append(col)
+            r_el.append(rpr)
+            t_el = _O('w:t')
+            t_el.set(qn('xml:space'), 'preserve')
+            t_el.text = text
+            r_el.append(t_el)
+            p_el.append(r_el)
+        return p_el
+
+    def make_image_para(img_path, width_cm=5):
+        """单独图片段落"""
+        from docx.oxml import OxmlElement as _O
+        # 临时方案：先把图片加到文档里，再把段落 element 移出来
+        para = doc.add_paragraph()
+        para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        run = para.add_run()
+        run.add_picture(img_path, width=Cm(width_cm))
+        el = para._element
+        el.getparent().remove(el)
+        return el
+
+    def make_break():
+        from docx.oxml import OxmlElement as _O
+        p_el = _O('w:p')
+        r_el = _O('w:r')
+        br = _O('w:br')
+        br.set(qn('w:type'), 'page')
+        r_el.append(br)
+        p_el.append(r_el)
+        return p_el
+
+    # 顶部留白（约 1/4 页面）
+    for _ in range(4):
+        new_paras.append(make_para(' '))
+
+    # 主标题
+    new_paras.append(make_para(title_main, size=28, bold=True,
+                               color=PRIMARY_DARK, eastasia='黑体'))
+    new_paras.append(make_para(' '))
+
+    if title_sub:
+        new_paras.append(make_para(title_sub, size=18, color=ACCENT, eastasia='黑体'))
+        new_paras.append(make_para(' '))
+    new_paras.append(make_para(' '))
+
+    if slogan:
+        new_paras.append(make_para(slogan, size=14, italic=True, color=MUTED))
+        new_paras.append(make_para(' '))
+
+    if kpi_line:
+        new_paras.append(make_para(kpi_line, size=12, bold=True, color=PRIMARY))
+    new_paras.append(make_para(' '))
+    new_paras.append(make_para(' '))
+
+    if qr_path and os.path.exists(qr_path):
+        new_paras.append(make_image_para(qr_path, width_cm=5))
+        new_paras.append(make_para('扫码访问完整在线版', size=10, italic=True, color=MUTED))
+    if url:
+        new_paras.append(make_para(url, size=11, color=PRIMARY))
+
+    new_paras.append(make_para(' '))
+    new_paras.append(make_para(' '))
+    new_paras.append(make_para(' '))
+
+    if team_name:
+        new_paras.append(make_para(team_name, size=12, color=INK))
+    if team_members:
+        new_paras.append(make_para(team_members, size=11, color=MUTED))
+    if date_text:
+        new_paras.append(make_para(date_text, size=11, color=MUTED))
+
+    # 分页
+    new_paras.append(make_break())
+
+    # 反向插入到 body 最前（保持原顺序）
+    # body 第一个子元素通常是某个 sectPr 或某个段落，我们要插入到所有正文之前
+    for el in reversed(new_paras):
+        body.insert(0, el)
+
+
+def insert_toc_at_marker(doc, marker_text='目录', max_level=3):
+    """找到含'目录'文字的段落，在其后插入 TOC 字段。
+    如果不存在，则不插入。"""
+    target = None
+    for p in doc.paragraphs:
+        if p.text.strip() == marker_text:
+            target = p
+            break
+    if target is None:
+        return False
+
+    from docx.oxml import OxmlElement as _O
+    p_el = _O('w:p')
+    ppr = _O('w:pPr')
+    spacing = _O('w:spacing')
+    spacing.set(qn('w:line'), '360')
+    spacing.set(qn('w:lineRule'), 'auto')
+    ppr.append(spacing)
+    p_el.append(ppr)
+
+    r1 = _O('w:r')
+    fld_begin = _O('w:fldChar')
+    fld_begin.set(qn('w:fldCharType'), 'begin')
+    r1.append(fld_begin)
+    p_el.append(r1)
+
+    r2 = _O('w:r')
+    instr = _O('w:instrText')
+    instr.set(qn('xml:space'), 'preserve')
+    instr.text = f' TOC \\o "1-{max_level}" \\h \\z \\u '
+    r2.append(instr)
+    p_el.append(r2)
+
+    r3 = _O('w:r')
+    fld_sep = _O('w:fldChar')
+    fld_sep.set(qn('w:fldCharType'), 'separate')
+    r3.append(fld_sep)
+    p_el.append(r3)
+
+    r4 = _O('w:r')
+    rpr = _O('w:rPr')
+    rfonts = _O('w:rFonts')
+    rfonts.set(qn('w:eastAsia'), '宋体')
+    rpr.append(rfonts)
+    r4.append(rpr)
+    t = _O('w:t')
+    t.text = '请在 Word 中右键此处选择"更新域"以生成目录'
+    r4.append(t)
+    p_el.append(r4)
+
+    r5 = _O('w:r')
+    fld_end = _O('w:fldChar')
+    fld_end.set(qn('w:fldCharType'), 'end')
+    r5.append(fld_end)
+    p_el.append(r5)
+
+    target._element.addnext(p_el)
+    return True

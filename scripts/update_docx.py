@@ -19,13 +19,15 @@ from docx.oxml.ns import qn
 from style_helper import (
     configure_styles, configure_page,
     style_table, add_indented_para, add_centered_caption, add_image,
-    styled_run, INK, MUTED, PRIMARY, ACCENT
+    styled_run, INK, MUTED, PRIMARY, ACCENT,
+    insert_cover_page, insert_toc_at_marker
 )
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = r"D:\文件\项目\会展\第二十三届中国国际装备制造业博览会调研报告.docx"
 BACKUP = r"D:\文件\项目\会展\第二十三届中国国际装备制造业博览会调研报告_原版.docx"
 IMG_DIR = os.path.join(ROOT, "docs", "assets", "img")
+QR_DIR = os.path.join(ROOT, "docs", "assets", "qr")
 
 # 1. 从备份恢复
 if os.path.exists(BACKUP):
@@ -127,6 +129,24 @@ def _clean_empty_headings():
         el.getparent().remove(el)
 
 _clean_empty_headings()
+
+
+# 2.8 在文档最前插入正式封面
+insert_cover_page(doc,
+    title_main='第二十三届中国国际装备制造业\n博览会调研报告',
+    title_sub='—— 完整版 ——',
+    slogan='从规模型展会到智能制造产业链服务平台',
+    kpi_line='9 万㎡  ·  912 家  ·  3056 个展位  ·  15.8 亿意向成交',
+    qr_path=os.path.join(QR_DIR, 'main.png'),
+    url='https://2711944586.github.io/hz/',
+    team_name='全国大学生文化旅游与会展竞赛参赛作品',
+    team_members='王璐 · 宋鹏慧 · 周心杨 · 高昊宇 · 庄颂',
+    date_text='2026 年'
+)
+
+
+# 2.9 在"目录"段落后插入自动 TOC 字段
+insert_toc_at_marker(doc, marker_text='目录', max_level=3)
 
 
 # ------ 工具简写 ------
