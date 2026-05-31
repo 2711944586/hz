@@ -1,5 +1,5 @@
 // Service Worker for 中国制博会调研报告 PWA
-const CACHE_NAME = 'hz-cieme-v2';
+const CACHE_NAME = 'hz-cieme-v3-3-1';
 const PRECACHE_URLS = [
   './',
   './index.html',
