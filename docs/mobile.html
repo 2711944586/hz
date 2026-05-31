@@ -4,102 +4,141 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>制博会调研 · 现场版</title>
-<meta name="description" content="第二十三届中国制博会调研报告现场版，专为手机优化，问卷可一键填写。">
-<meta property="og:title" content="第二十三届中国制博会调研报告">
+<meta name="description" content="第二十三届中国制博会调研报告现场版，专为手机优化。">
+<meta property="og:title" content="制博会调研 · 现场版">
 <meta property="og:type" content="article">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
   :root {
     --primary: #1E40AF;
     --accent: #F59E0B;
-    --ink: #0F172A;
-    --muted: #64748B;
+    --ink-1: #0B1220;
+    --ink-3: #475569;
+    --ink-4: #64748B;
     --line: #E2E8F0;
-    --bg: #F8FAFC;
+    --bg: #FAFBFD;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   html, body {
-    font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-    background: var(--bg); color: var(--ink); line-height: 1.6;
+    font-family: "Inter", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+    background: var(--bg); color: var(--ink-1); line-height: 1.6;
     -webkit-text-size-adjust: 100%;
   }
   a { color: inherit; text-decoration: none; }
 
   .m-hero {
-    background: linear-gradient(135deg, #0F1F4F, #1E40AF 60%, #3B82F6);
-    color: #fff; padding: 28px 18px 36px;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(245,158,11,.3), transparent 45%),
+      linear-gradient(135deg, #0F1F4F, #1E40AF 70%);
+    color: #fff;
+    padding: 32px 20px 40px;
     position: relative; overflow: hidden;
   }
-  .m-hero::before {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(245,158,11,0.3), transparent 40%);
-    pointer-events: none;
-  }
   .m-hero .eyebrow {
-    display: inline-block; padding: 4px 10px;
-    border: 1px solid rgba(255,255,255,0.4); border-radius: 999px;
-    font-size: 11px; letter-spacing: 1px; margin-bottom: 14px;
+    display: inline-block; padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 600;
   }
-  .m-hero h1 { font-size: 24px; font-weight: 800; line-height: 1.3; }
-  .m-hero p { margin-top: 8px; font-size: 13px; color: rgba(255,255,255,0.85); }
-  .m-hero .kpi {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 20px;
+  .m-hero h1 {
+    font-family: "Fraunces", "PingFang SC", serif;
+    font-size: 28px; font-weight: 800; line-height: 1.2;
+    letter-spacing: -0.012em;
   }
+  .m-hero p { margin-top: 10px; font-size: 14px; color: rgba(255,255,255,.85); line-height: 1.6; }
+  .m-hero .kpi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 22px; }
   .m-hero .kpi .item {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 10px; padding: 10px 12px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px; padding: 12px 14px;
+    backdrop-filter: blur(6px);
   }
-  .m-hero .kpi .v { font-size: 20px; font-weight: 800; line-height: 1; }
-  .m-hero .kpi .l { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+  .m-hero .kpi .v {
+    font-family: "Fraunces", serif;
+    font-size: 22px; font-weight: 700; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .m-hero .kpi .l {
+    font-size: 10px; color: rgba(255,255,255,.65); margin-top: 4px;
+    letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+  }
 
-  .container { padding: 16px; }
-
-  .section { margin-bottom: 20px; }
-  .section .title { font-size: 14px; color: var(--muted); margin-bottom: 8px; letter-spacing: 1px; }
+  .container { padding: 20px 16px 40px; }
+  .section { margin-bottom: 24px; }
+  .section .title {
+    font-size: 11px;
+    color: var(--ink-4);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
 
   .card {
-    background: #fff; border-radius: 12px; padding: 14px;
-    box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+    background: #fff;
+    border-radius: 14px;
+    padding: 16px;
     margin-bottom: 10px;
     border: 1px solid var(--line);
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; gap: 14px;
+    transition: transform .15s;
   }
+  .card:active { transform: scale(0.98); }
   .card .icon {
-    width: 40px; height: 40px; border-radius: 10px;
+    width: 44px; height: 44px;
+    border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     font-size: 18px; flex-shrink: 0;
     background: linear-gradient(135deg, var(--primary), var(--accent));
     color: #fff;
+    font-weight: 700;
   }
   .card .body { flex: 1; min-width: 0; }
-  .card .body h3 { font-size: 15px; font-weight: 700; }
-  .card .body p { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .card .arrow { color: var(--muted); font-size: 18px; }
+  .card .body h3 { font-size: 15px; font-weight: 700; margin-bottom: 2px; }
+  .card .body p { font-size: 12px; color: var(--ink-4); margin: 0; }
+  .card .arrow { color: var(--ink-4); font-size: 20px; flex-shrink: 0; }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .grid-2 .card { padding: 14px 12px; flex-direction: column; align-items: flex-start; }
+  .grid-2 .card {
+    padding: 16px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .grid-2 .card .arrow { display: none; }
 
   .quick-q {
     background: linear-gradient(135deg, #FEF3C7, #FDE68A);
-    border-radius: 14px; padding: 18px;
+    border-radius: 16px;
+    padding: 20px;
     border: 1px solid #FBBF24;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
-  .quick-q h3 { color: #92400E; font-size: 16px; margin-bottom: 6px; }
-  .quick-q p { font-size: 12px; color: #92400E; margin-bottom: 12px; }
+  .quick-q h3 {
+    color: #92400E;
+    font-size: 16px;
+    margin-bottom: 6px;
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+  }
+  .quick-q p { font-size: 13px; color: #92400E; margin-bottom: 14px; }
   .quick-q .btn {
-    display: block; width: 100%; padding: 12px;
-    background: var(--primary); color: #fff;
-    border: none; border-radius: 10px;
-    font-size: 14px; font-weight: 600; text-align: center;
+    display: block; width: 100%;
+    padding: 13px;
+    background: var(--primary);
+    color: #fff;
+    border: none; border-radius: 12px;
+    font-size: 14px; font-weight: 600;
+    text-align: center;
+    font-family: inherit;
   }
 
   .footer-bar {
-    padding: 24px 16px 40px;
-    text-align: center; color: var(--muted); font-size: 11px;
+    padding: 32px 16px 40px;
+    text-align: center; color: var(--ink-4); font-size: 11px;
     line-height: 1.7;
   }
   .footer-bar a { color: var(--primary); }
@@ -108,14 +147,14 @@
 <body>
 
 <div class="m-hero">
-  <div class="eyebrow">CIEME · 现场版</div>
-  <h1>制博会调研报告 · 移动端</h1>
+  <div class="eyebrow">CIEME · Mobile</div>
+  <h1>制博会调研报告</h1>
   <p>9 万㎡ · 912 家参展 · 15.8 亿意向 · 23 届持续</p>
   <div class="kpi">
-    <div class="item"><div class="v">9万㎡</div><div class="l">展览面积</div></div>
-    <div class="item"><div class="v">912</div><div class="l">参展企业</div></div>
-    <div class="item"><div class="v">3056</div><div class="l">展位</div></div>
-    <div class="item"><div class="v">15.8亿</div><div class="l">意向成交</div></div>
+    <div class="item"><div class="v">9万㎡</div><div class="l">Area</div></div>
+    <div class="item"><div class="v">912</div><div class="l">Exhibitors</div></div>
+    <div class="item"><div class="v">3,056</div><div class="l">Booths</div></div>
+    <div class="item"><div class="v">15.8亿</div><div class="l">Day-1 Intent</div></div>
   </div>
 </div>
 
@@ -129,136 +168,35 @@
 
   <div class="section">
     <div class="title">主线内容</div>
-    <a class="card" href="summary.html">
-      <div class="icon">📋</div>
-      <div class="body">
-        <h3>报告摘要</h3>
-        <p>核心数据 · 三段框架 · 5 分钟读懂</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="overview.html">
-      <div class="icon">①</div>
-      <div class="body">
-        <h3>第一部分 · 会展发展情况</h3>
-        <p>行业背景 · 项目基础 · 综合价值</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="problems.html">
-      <div class="icon">②</div>
-      <div class="body">
-        <h3>第二部分 · 存在问题</h3>
-        <p>9 大问题诊断 + 优先级评估</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="solutions.html">
-      <div class="icon">③</div>
-      <div class="body">
-        <h3>第三部分 · 建议方案</h3>
-        <p>11 项建议 + 五阶段实施甘特</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="conclusion.html">
-      <div class="icon">✓</div>
-      <div class="body">
-        <h3>结论与展望</h3>
-        <p>核心建议 · 局限性 · 未来研究</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+    <a class="card" href="summary.html"><div class="icon">📋</div><div class="body"><h3>报告摘要</h3><p>5 分钟读懂全报告</p></div><div class="arrow">›</div></a>
+    <a class="card" href="overview.html"><div class="icon">①</div><div class="body"><h3>第一部分 · 会展发展情况</h3><p>行业 / 项目 / 运行 / 价值</p></div><div class="arrow">›</div></a>
+    <a class="card" href="problems.html"><div class="icon">②</div><div class="body"><h3>第二部分 · 存在问题</h3><p>9 大问题诊断</p></div><div class="arrow">›</div></a>
+    <a class="card" href="solutions.html"><div class="icon">③</div><div class="body"><h3>第三部分 · 建议方案</h3><p>11 项建议</p></div><div class="arrow">›</div></a>
+    <a class="card" href="conclusion.html"><div class="icon">✓</div><div class="body"><h3>结论与展望</h3><p>建议 / 局限 / 未来</p></div><div class="arrow">›</div></a>
   </div>
 
   <div class="section">
     <div class="title">研究支撑</div>
     <div class="grid-2">
-      <a class="card" href="dashboard.html">
-        <div class="icon">📊</div>
-        <div class="body">
-          <h3>数据看板</h3>
-          <p>20 张图表汇总</p>
-        </div>
-      </a>
-      <a class="card" href="cases.html">
-        <div class="icon">🏛️</div>
-        <div class="body">
-          <h3>案例库</h3>
-          <p>5 大标杆展会</p>
-        </div>
-      </a>
-      <a class="card" href="methodology.html">
-        <div class="icon">🔬</div>
-        <div class="body">
-          <h3>方法论</h3>
-          <p>六阶段调研</p>
-        </div>
-      </a>
-      <a class="card" href="gallery.html">
-        <div class="icon">🖼️</div>
-        <div class="body">
-          <h3>图表画廊</h3>
-          <p>高清下载</p>
-        </div>
-      </a>
+      <a class="card" href="dashboard.html"><div class="icon">📊</div><div class="body"><h3>数据看板</h3><p>20 张图表汇总</p></div></a>
+      <a class="card" href="cases.html"><div class="icon">🏛️</div><div class="body"><h3>案例库</h3><p>5 大标杆展会</p></div></a>
+      <a class="card" href="methodology.html"><div class="icon">🔬</div><div class="body"><h3>方法论</h3><p>六阶段调研</p></div></a>
+      <a class="card" href="gallery.html"><div class="icon">🖼️</div><div class="body"><h3>图表画廊</h3><p>高清下载</p></div></a>
     </div>
   </div>
 
   <div class="section">
     <div class="title">附录与团队</div>
-    <a class="card" href="appendix.html">
-      <div class="icon">📝</div>
-      <div class="body">
-        <h3>调研工具</h3>
-        <p>问卷 · 访谈 · 观察记录</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="photos.html">
-      <div class="icon">📷</div>
-      <div class="body">
-        <h3>现场照片</h3>
-        <p>展会实拍与团队记录</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="team.html">
-      <div class="icon">👥</div>
-      <div class="body">
-        <h3>调研团队</h3>
-        <p>5 位成员 · 分工协作</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="transparency.html">
-      <div class="icon">🔍</div>
-      <div class="body">
-        <h3>数据透明度</h3>
-        <p>数据来源 · 局限说明</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
-    <a class="card" href="references.html">
-      <div class="icon">📚</div>
-      <div class="body">
-        <h3>参考资料</h3>
-        <p>资料来源 · 术语表</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+    <a class="card" href="appendix.html"><div class="icon">📝</div><div class="body"><h3>调研工具</h3><p>问卷 / 访谈 / 观察</p></div><div class="arrow">›</div></a>
+    <a class="card" href="photos.html"><div class="icon">📷</div><div class="body"><h3>现场照片</h3><p>展会与团队记录</p></div><div class="arrow">›</div></a>
+    <a class="card" href="team.html"><div class="icon">👥</div><div class="body"><h3>调研团队</h3><p>5 位成员协作</p></div><div class="arrow">›</div></a>
+    <a class="card" href="transparency.html"><div class="icon">🔍</div><div class="body"><h3>数据透明度</h3><p>来源 / 局限说明</p></div><div class="arrow">›</div></a>
+    <a class="card" href="references.html"><div class="icon">📚</div><div class="body"><h3>参考资料</h3><p>来源 / 术语表</p></div><div class="arrow">›</div></a>
   </div>
 
   <div class="section">
     <div class="title">桌面版</div>
-    <a class="card" href="index.html">
-      <div class="icon">🖥️</div>
-      <div class="body">
-        <h3>切换到桌面版</h3>
-        <p>大屏完整体验，深色模式可切换</p>
-      </div>
-      <div class="arrow">›</div>
-    </a>
+    <a class="card" href="index.html"><div class="icon">🖥️</div><div class="body"><h3>切换到桌面版</h3><p>大屏完整体验</p></div><div class="arrow">›</div></a>
   </div>
 
 </div>

@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>附录 · 调研工具与可视化图表</title>
-<meta name="description" content="第二十三届中国国际装备制造业博览会（中国制博会）调研报告在线版，含20张可视化图表、问题诊断、建议方案与调研工具。">
-<meta name="keywords" content="中国制博会,装备制造,会展调研,沈阳,智能制造,会展业">
-<meta property="og:title" content="第二十三届中国国际装备制造业博览会调研报告">
-<meta property="og:description" content="9万平方米 · 912家参展 · 15.8亿元意向成交。从规模型展会向智能制造产业链服务平台升级。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://2711944586.github.io/hz/">
+<title>附录工具 · 中国制博会调研</title>
+<meta name="description" content="附录 A 在线问卷可填写、附录 B 访谈提纲、附录 C 现场观察表。">
+<meta property="og:title" content="附录工具 · 中国制博会调研">
+<meta property="og:type" content="article">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
- href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 </head>
 <body>
 
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Research Tools</div>
+    <h1>调研工具<br/>问卷 · 访谈 · 观察</h1>
+    <p class="lede" style="margin-top: 24px;">附录 A 在线问卷可现场扫码填写，本地保存并导出 CSV；附录 B 是参展商访谈提纲；附录 C 是现场观察记录表。所有图表与 Word 报告附录中的图保持一致。</p>
+  </div>
+</section>
+
 <div class="container">
 
+  <!-- 附录 A 在线问卷 -->
   <section class="section">
-    <span class="tag">附录</span>
-    <h2 style="margin-top:8px;">调研工具与可视化图表</h2>
-    <div class="lead">附录 A 在线问卷可现场扫码填写，数据可导出 CSV；附录 B 是参展商访谈提纲；附录 C 是现场观察记录表。所有图表与 word 报告附录中的图保持一致。</div>
-  </section>
+    <div class="eyebrow">Appendix A</div>
+    <h2>专业观众调查问卷</h2>
+    <p class="lede">填写约需 5 分钟，提交后可在浏览器中导出 CSV，便于团队整理。</p>
 
-  <!-- ============ 附录 A 在线问卷 ============ -->
-  <section class="section">
     <div class="card">
-      <h3>附录 A · 专业观众问卷（在线版）</h3>
-      <p class="sub">填写约需 5 分钟，提交后可在浏览器中导出 CSV，便于团队整理</p>
-
       <form id="survey-form">
 
         <div class="q-block">
@@ -101,7 +101,7 @@
         <div class="q-block">
           <div class="q-title">8. 您是否愿意推荐同行参观（NPS 0-10）</div>
           <input type="range" name="q8" min="0" max="10" value="7" oninput="this.nextElementSibling.value=this.value" />
-          <output>7</output>
+          <output style="display:inline-block; padding: 2px 10px; background: var(--bg-soft); border-radius: 6px; margin-left: 8px;">7</output>
         </div>
 
         <div class="q-block">
@@ -120,105 +120,115 @@
           <textarea name="q10" placeholder="可以填写您对展会的具体建议……"></textarea>
         </div>
 
-        <div style="margin-top:18px;">
-          <button type="button" class="btn-primary" onclick="saveResponse()">提交并保存到本地</button>
-          <button type="button" class="btn-primary" style="background:var(--accent); margin-left:8px;" onclick="exportCSV()">导出 CSV</button>
-          <span id="save-tip" style="margin-left:12px; color:var(--success); font-size:13px;"></span>
+        <div style="margin-top:24px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary" onclick="saveResponse()">提交并保存到本地</button>
+          <button type="button" class="btn btn-accent" onclick="exportCSV()">导出 CSV</button>
+          <span id="save-tip" style="margin-left:12px; color:var(--ok); font-size:13px;"></span>
         </div>
 
       </form>
     </div>
   </section>
 
-  <!-- ============ 附录 B 访谈提纲 ============ -->
+  <div class="divider"></div>
+
+  <!-- 附录 B -->
   <section class="section">
-    <div class="card">
-      <h3>附录 B · 参展商访谈提纲</h3>
-      <p class="sub">半结构化访谈，建议每场 30-45 分钟，覆盖龙头/中小/首次参展三类至少各 8 家</p>
+    <div class="eyebrow">Appendix B</div>
+    <h2>参展商深度访谈提纲</h2>
+    <p class="lede">半结构化访谈，建议每场 30-45 分钟，覆盖龙头/中小/首次参展三类至少各 8 家。</p>
 
-      <h4>第一部分 暖场与企业基本情况</h4>
-      <ol>
-        <li>请介绍贵公司主营业务和典型客户</li>
-        <li>这是贵公司第几次参加中国制博会，本届展位面积与人员配置如何</li>
-        <li>本届展品的主要亮点是什么</li>
-      </ol>
-
-      <h4>第二部分 参展目标与预期</h4>
-      <ol start="4">
-        <li>本届主要参展目标是什么（品牌/客户/产品发布/渠道/园区对接），请按重要性排序</li>
-        <li>对有效线索数量、意向成交额是否有预期，与上一届相比是否调整</li>
-      </ol>
-
-      <h4>第三部分 现场效果评价</h4>
-      <ol start="6">
-        <li>本届现场客流的数量、专业度和决策层级如何</li>
-        <li>目标客户匹配度与洽谈深度是否符合预期</li>
-        <li>新产品发布反响如何，与往届相比变化</li>
-      </ol>
-
-      <h4>第四部分 主办方服务体验</h4>
-      <ol start="9">
-        <li>招商沟通、报名注册、布撤展三个环节，最满意与最希望改进的各一项</li>
-        <li>现场服务（导览、洽谈、餐饮、安保）整体如何</li>
-        <li>对宣传推广（行业媒体、新媒体、政府渠道）的评价</li>
-        <li>对数字平台（云展、预约、电子名片、线索系统）的使用感受</li>
-      </ol>
-
-      <h4>第五部分 展后转化与复展意愿</h4>
-      <ol start="13">
-        <li>展期内沟通的客户预计多久能转化为有效订单</li>
-        <li>希望主办方提供怎样的展后服务</li>
-        <li>下一届是否计划继续参展，展位面积或形式是否调整</li>
-      </ol>
-
-      <h4>第六部分 升级建议</h4>
-      <ol start="16">
-        <li>对展会战略定位的看法，是否赞同"北方智能制造产业链服务平台"的提法</li>
-        <li>对国际化与产学研合作的期待</li>
-        <li>对绿色低碳会展的态度与建议</li>
-      </ol>
-
-      <p style="margin-top:18px; color:var(--muted); font-size:13px;">访谈记录字段：受访企业 · 受访人岗位 · 时长 · 关键观点 · 典型语句 · 信息可信度（高/中/低）</p>
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>① 暖场与企业基本情况</h3>
+        <ol style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>请介绍贵公司主营业务和典型客户</li>
+          <li>这是贵公司第几次参加中国制博会，本届展位面积与人员配置如何</li>
+          <li>本届展品的主要亮点是什么</li>
+        </ol>
+      </div>
+      <div class="card lead-blue">
+        <h3>② 参展目标与预期</h3>
+        <ol start="4" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>本届主要参展目标是什么，请按重要性排序</li>
+          <li>对有效线索数量、意向成交额是否有预期，与上一届相比是否调整</li>
+        </ol>
+      </div>
+      <div class="card lead-amber">
+        <h3>③ 现场效果评价</h3>
+        <ol start="6" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>本届现场客流的数量、专业度和决策层级如何</li>
+          <li>目标客户匹配度与洽谈深度是否符合预期</li>
+          <li>新产品发布反响如何，与往届相比变化</li>
+        </ol>
+      </div>
+      <div class="card lead-amber">
+        <h3>④ 主办方服务体验</h3>
+        <ol start="9" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>招商沟通、报名注册、布撤展三个环节，最满意与最希望改进的各一项</li>
+          <li>现场服务整体如何</li>
+          <li>对宣传推广的评价</li>
+          <li>对数字平台的使用感受</li>
+        </ol>
+      </div>
+      <div class="card lead-green">
+        <h3>⑤ 展后转化与复展意愿</h3>
+        <ol start="13" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>展期内沟通的客户预计多久能转化为有效订单</li>
+          <li>希望主办方提供怎样的展后服务</li>
+          <li>下一届是否计划继续参展，展位面积或形式是否调整</li>
+        </ol>
+      </div>
+      <div class="card lead-green">
+        <h3>⑥ 升级建议</h3>
+        <ol start="16" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>对展会战略定位的看法，是否赞同"北方智能制造产业链服务平台"</li>
+          <li>对国际化与产学研合作的期待</li>
+          <li>对绿色低碳会展的态度与建议</li>
+        </ol>
+      </div>
     </div>
   </section>
 
-  <!-- ============ 附录 C 现场观察 ============ -->
+  <div class="divider"></div>
+
+  <!-- 附录 C -->
   <section class="section">
-    <div class="card">
-      <h3>附录 C · 现场观察记录表</h3>
-      <p class="sub">建议至少 2 名观察员、覆盖 4 天展期、每天分上下午两段</p>
+    <div class="eyebrow">Appendix C</div>
+    <h2>现场观察记录表</h2>
+    <p class="lede">建议至少 2 名观察员、覆盖 4 天展期、每天分上下午两段。</p>
 
+    <div class="card" style="margin-top: 24px;">
       <h4>C-1 观察基本信息</h4>
-      <table class="tbl">
-        <tr><th>观察日期</th><td>____ 年 ____ 月 ____ 日（星期 ____）</td><th>观察员</th><td>____________</td></tr>
-        <tr><th>天气</th><td>____________</td><th>覆盖展区</th><td>____________</td></tr>
-        <tr><th>观察时段</th><td>□ 上午 09:00-12:00 □ 下午 13:00-17:00</td><th>方式</th><td>□ 定点 □ 动线 □ 跟随</td></tr>
+      <table class="tbl" style="margin-top: 12px;">
+        <tr><td><b>观察日期</b></td><td>____ 年 ____ 月 ____ 日（星期 ____）</td></tr>
+        <tr><td><b>观察员</b></td><td>____________</td></tr>
+        <tr><td><b>天气</b></td><td>____________</td></tr>
+        <tr><td><b>覆盖展区</b></td><td>____________</td></tr>
+        <tr><td><b>观察时段</b></td><td>□ 上午 09:00-12:00 □ 下午 13:00-17:00</td></tr>
+        <tr><td><b>方式</b></td><td>□ 定点 □ 动线 □ 跟随</td></tr>
       </table>
+    </div>
 
-      <h4 style="margin-top:18px;">C-2 现场动线与人流</h4>
-      <table class="tbl">
-        <thead><tr><th>时段</th><th>入口排队人数</th><th>主通道密度</th><th>热门展区</th><th>冷门展区</th><th>拥堵点</th></tr></thead>
+    <div class="card" style="margin-top: 16px;">
+      <h4>C-2 现场动线与人流</h4>
+      <table class="tbl" style="margin-top: 12px;">
+        <thead><tr><th>时段</th><th>排队</th><th>密度</th><th>热门展区</th><th>冷门展区</th><th>拥堵点</th></tr></thead>
         <tbody>
-          <tr><td>09:00-10:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
-          <tr><td>10:00-11:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
-          <tr><td>11:00-12:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
-          <tr><td>13:00-14:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
-          <tr><td>14:00-15:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
-          <tr><td>15:00-16:00</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>09-10</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>10-11</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>11-12</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>13-14</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>14-15</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>15-16</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
         </tbody>
       </table>
+    </div>
 
-      <h4 style="margin-top:18px;">C-3 展商互动观察（抽样 30-50 个展位）</h4>
-      <table class="tbl">
-        <thead><tr><th>展位编号</th><th>展位面积</th><th>接待人员数</th><th>平均停留观众数</th><th>洽谈人数</th><th>扫码/递名片</th><th>演示频次</th><th>典型话术摘录</th></tr></thead>
-        <tbody>
-          <tr><td colspan="8" style="text-align:center; color:var(--muted);">用于现场抽样填写</td></tr>
-        </tbody>
-      </table>
-
-      <h4 style="margin-top:18px;">C-4 现场服务与数字工具</h4>
-      <table class="tbl">
-        <thead><tr><th>项目</th><th>评分（1-5）</th><th>观察记录</th></tr></thead>
+    <div class="card" style="margin-top: 16px;">
+      <h4>C-3 现场服务与数字工具</h4>
+      <table class="tbl" style="margin-top: 12px;">
+        <thead><tr><th>项目</th><th>评分 (1-5)</th><th>观察记录</th></tr></thead>
         <tbody>
           <tr><td>导览牌清晰度</td><td></td><td></td></tr>
           <tr><td>咨询台响应时间</td><td></td><td></td></tr>
@@ -226,48 +236,16 @@
           <tr><td>餐饮排队时长</td><td></td><td></td></tr>
           <tr><td>休息区使用率</td><td></td><td></td></tr>
           <tr><td>商务洽谈区使用率</td><td></td><td></td></tr>
-          <tr><td>线上云展使用</td><td></td><td></td></tr>
-          <tr><td>数字导览使用</td><td></td><td></td></tr>
-          <tr><td>预约洽谈使用</td><td></td><td></td></tr>
-          <tr><td>电子名片使用</td><td></td><td></td></tr>
+          <tr><td>云展/数字工具使用</td><td></td><td></td></tr>
         </tbody>
       </table>
-
-      <h4 style="margin-top:18px;">C-5 观察员综合点评</h4>
-      <p>当日亮点 3 条：____________________________________________________________________</p>
-      <p>当日问题 3 条：____________________________________________________________________</p>
-      <p>典型场景速写（≤200 字）：______________________________________________________</p>
-    </div>
-  </section>
-
-  <!-- ============ 附录可视化图表合集 ============ -->
-  <section class="section">
-    <h2 style="font-size:20px;">附录可视化图表合集（与 word 报告同源）</h2>
-    <div class="grid-2">
-      <div class="card"><h3>图F2 展区构成</h3><div id="c-f2" class="chart short"></div></div>
-      <div class="card"><h3>图F3 发展成效评分</h3><div id="c-f3" class="chart short"></div></div>
-      <div class="card"><h3>图F4 发展时间脉络</h3><div id="c-f4" class="chart short"></div></div>
-      <div class="card"><h3>图F5 问题优先级雷达</h3><div id="c-f5" class="chart short"></div></div>
-      <div class="card"><h3>图F6 问题—建议桑基</h3><div id="c-f6" class="chart short"></div></div>
-      <div class="card"><h3>图F7 影响×可行性矩阵</h3><div id="c-f7" class="chart short"></div></div>
-      <div class="card"><h3>图F8 数字化闭环</h3><div id="c-f8" class="chart short"></div></div>
-      <div class="card"><h3>图F9 实施甘特图</h3><div id="c-f9" class="chart short"></div></div>
-      <div class="card"><h3>图F10 评估指标树</h3><div id="c-f10" class="chart short"></div></div>
-      <div class="card"><h3>图F11 价值主张四象限</h3><div id="c-f11" class="chart short"></div></div>
-      <div class="card"><h3>图F12 传播渠道矩阵</h3><div id="c-f12" class="chart short"></div></div>
     </div>
   </section>
 
 </div>
 
 <script src="assets/js/common.js"></script>
-<script src="assets/js/charts.js"></script>
 <script>
-  // 渲染附录图表合集
-  ['F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12'].forEach(c => {
-    renderChart('c-' + c.toLowerCase(), c);
-  });
-
   // Likert 满意度
   const likertItems = [
     '展前邀请与信息推送', '注册流程', '现场导览', '展商质量',
@@ -276,7 +254,7 @@
   ];
   const ll = document.getElementById('likert-list');
   ll.innerHTML = likertItems.map((it, i) => `
-    <div style="display:flex; align-items:center; padding:6px 0; border-bottom:1px dashed var(--line);">
+    <div style="display:flex; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line-1);">
       <div style="flex:1;">${it}</div>
       <div class="likert">
         ${[1,2,3,4,5].map(v => `<label><input type="radio" name="q6_${i}" value="${v}"><span>${v}</span></label>`).join('')}
@@ -288,11 +266,8 @@
     const f = document.getElementById('survey-form');
     const data = { _ts: new Date().toISOString() };
     new FormData(f).forEach((v, k) => {
-      if (data[k]) {
-        data[k] = [].concat(data[k], v);
-      } else {
-        data[k] = v;
-      }
+      if (data[k]) data[k] = [].concat(data[k], v);
+      else data[k] = v;
     });
     return data;
   }

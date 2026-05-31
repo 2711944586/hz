@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>现场照片 · 中国制博会调研</title>
-<meta name="description" content="第二十三届中国制博会现场照片墙，配合调研报告呈现展会真实场景。">
-<meta property="og:title" content="现场照片墙 · 中国制博会调研">
+<meta name="description" content="展馆 / 展区 / 洽谈 / 调研工作 / 沈阳工业文旅延伸 五个分组照片墙。">
+<meta property="og:title" content="现场照片 · 中国制博会调研">
 <meta property="og:type" content="article">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
@@ -14,90 +14,94 @@
 <style>
   .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 16px;
   }
   .photo {
-    background: var(--bg-card);
-    border: 1px solid var(--line);
-    border-radius: 14px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
     overflow: hidden;
     position: relative;
-    transition: transform .2s, box-shadow .2s;
+    transition: all .2s;
   }
-  .photo:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .photo:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in oklab, var(--primary) 25%, var(--line-1));
+  }
   .photo .ph-img {
     aspect-ratio: 16/10;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-color: #1E40AF;
   }
-  .photo .ph-meta { padding: 14px 16px; }
-  .photo .ph-meta h3 { font-size: 15px; font-weight: 700; margin: 0 0 4px; color: var(--ink); }
-  .photo .ph-meta p { font-size: 12px; color: var(--muted); margin: 0; }
+  .photo .ph-meta { padding: 14px 18px 18px; }
+  .photo .ph-meta h3 { font-size: 15px; margin-bottom: 4px; }
+  .photo .ph-meta p { font-size: 12px; color: var(--ink-4); margin: 0; font-family: var(--font-en); }
   .photo .ph-tag {
     position: absolute; top: 12px; left: 12px;
     background: rgba(255,255,255,0.95); color: var(--primary);
-    padding: 3px 10px; border-radius: 999px;
+    padding: 3px 12px; border-radius: 999px;
     font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     z-index: 2;
   }
-  .photo a { display: block; }
 </style>
 </head>
 <body>
 
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Photo Wall</div>
+    <h1>现场照片<br/>展会与调研记录</h1>
+    <p class="lede" style="margin-top: 24px;">本节呈现第二十三届中国制博会现场场景与团队调研过程。当前显示为<b>主题占位图</b>，与作品视觉风格统一；正式赴展期间团队将拍摄照片替换。</p>
+  </div>
+</section>
+
 <div class="container">
 
   <section class="section">
-    <span class="tag">现场照片</span>
-    <h2 style="margin-top:8px;">展会现场与调研记录</h2>
-    <div class="lead">本节呈现第二十三届中国制博会现场场景与团队调研过程。当前显示为<b>主题占位图</b>，与作品视觉风格统一；正式赴展期间团队将拍摄照片替换。点击图片可查看大图。</div>
-  </section>
-
-  <section class="section">
-    <div class="card" style="background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(30,64,175,0.06)); border-style:dashed;">
-      <h3>📌 占位说明</h3>
-      <p style="margin:0;">本页采用作品同色系定制占位图（共 18 张），左上角为分类标签，中间为主题图标与中英文场景描述，右下角带有"PHOTO PLACEHOLDER · 待替换为现场实拍"水印。占位图与正式照片保留相同 16:10 比例与排版位置，替换无需调整版面。</p>
+    <div class="callout warn">
+      <strong>占位说明</strong> · 本页采用作品同色系定制占位图（共 18 张），左上角为分类标签，中间为主题图标与中英文场景描述，右下角带"PHOTO PLACEHOLDER · 待替换为现场实拍"水印。占位图与正式照片保留相同 16:10 比例与排版位置，替换无需调整版面。
     </div>
   </section>
 
   <section class="section">
-    <h2 style="font-size:20px;">一、展馆与入口</h2>
-    <div class="photo-grid" id="grp-venue"></div>
+    <div class="eyebrow">Group 01</div>
+    <h2>展馆与入口</h2>
+    <div class="photo-grid" id="grp-venue" style="margin-top: 24px;"></div>
   </section>
 
   <section class="section">
-    <h2 style="font-size:20px;">二、主要展区与展品</h2>
-    <div class="photo-grid" id="grp-zone"></div>
+    <div class="eyebrow">Group 02</div>
+    <h2>主要展区与展品</h2>
+    <div class="photo-grid" id="grp-zone" style="margin-top: 24px;"></div>
   </section>
 
   <section class="section">
-    <h2 style="font-size:20px;">三、洽谈与同期活动</h2>
-    <div class="photo-grid" id="grp-event"></div>
+    <div class="eyebrow">Group 03</div>
+    <h2>洽谈与同期活动</h2>
+    <div class="photo-grid" id="grp-event" style="margin-top: 24px;"></div>
   </section>
 
   <section class="section">
-    <h2 style="font-size:20px;">四、调研工作记录</h2>
-    <div class="photo-grid" id="grp-research"></div>
+    <div class="eyebrow">Group 04</div>
+    <h2>调研工作记录</h2>
+    <div class="photo-grid" id="grp-research" style="margin-top: 24px;"></div>
   </section>
 
   <section class="section">
-    <h2 style="font-size:20px;">五、沈阳工业文旅延伸</h2>
-    <div class="photo-grid" id="grp-shenyang"></div>
+    <div class="eyebrow">Group 05</div>
+    <h2>沈阳工业文旅延伸</h2>
+    <div class="photo-grid" id="grp-shenyang" style="margin-top: 24px;"></div>
   </section>
 
+  <div class="divider"></div>
+
   <section class="section">
-    <div class="card">
-      <h3>📷 照片使用与版权</h3>
-      <ul style="line-height:1.9; color:var(--ink);">
-        <li><b>定制占位图</b>：作品配套生成，可在仓库 <code>docs/assets/photos/</code> 目录获取，授权用于本作品全部场景</li>
-        <li><b>团队现场拍摄</b>：照片由团队拥有版权，授权本作品使用</li>
-        <li><b>展会官方图片</b>：使用展会官方或媒体公开图片时，将在脚注中标注来源</li>
-        <li><b>人物肖像</b>：涉及人物的近景图片将获得当事人口头同意，避免商业用途</li>
-        <li><b>使用范围</b>：所有图片仅用于本调研作品展示与答辩，不作商业用途</li>
-      </ul>
+    <div class="callout info">
+      <strong>照片使用与版权</strong> · 团队现场拍摄照片由团队拥有版权；使用展会官方或媒体公开图片时将在脚注中标注来源；涉及人物的近景图片获得当事人口头同意；所有图片仅用于本调研作品展示与答辩。
     </div>
   </section>
 
@@ -122,7 +126,7 @@
         const p = map[id];
         if (!p) return '';
         return `
-          <div class="photo">
+          <article class="photo">
             <a href="assets/photos/${id}.png" target="_blank">
               <span class="ph-tag">${p.tag}</span>
               <div class="ph-img" style="background-image: url('assets/photos/${id}.png');"></div>
@@ -131,7 +135,7 @@
               <h3>${p.label}</h3>
               <p>${p.en}</p>
             </div>
-          </div>
+          </article>
         `;
       }).join('');
     });
