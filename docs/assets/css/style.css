@@ -1016,3 +1016,77 @@ a.card:hover, .card.hoverable:hover {
 .kpi .value { font-family: var(--font-serif); font-size: 32px; font-weight: 700; line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
 .kpi .unit { font-family: var(--font-zh); font-size: 14px; font-weight: 500; margin-left: 4px; color: rgba(255, 255, 255, .82); }
 .kpi .desc { font-size: 12px; color: rgba(255, 255, 255, .65); margin-top: 6px; }
+
+
+/* ============================================================
+   Nav more menu (dropdown)
+   ============================================================ */
+.nav-more-wrap {
+  position: relative;
+  display: inline-block;
+}
+.nav-more-btn {
+  padding: 7px 11px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: var(--ink-3);
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all .15s;
+}
+.nav-more-btn:hover { background: var(--bg-soft); color: var(--ink-1); }
+.nav-more-btn.active { background: var(--ink-1); color: var(--bg-elev); }
+[data-theme="dark"] .nav-more-btn.active { background: var(--primary); color: var(--bg); }
+
+.nav-more-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-elev);
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  display: none;
+  min-width: 480px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 24px;
+  z-index: 100;
+}
+.nav-more-panel.open { display: grid; }
+.nav-more-panel .nav-group-title {
+  font-family: var(--font-en);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-1);
+}
+.nav-more-panel .nav-group a {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: all .15s;
+}
+.nav-more-panel .nav-group a:hover {
+  background: var(--bg-soft);
+  color: var(--primary);
+}
+.nav-more-panel .nav-group a.active {
+  background: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+@media (max-width: 920px) {
+  .nav-more-panel { right: -90px; min-width: 360px; }
+}

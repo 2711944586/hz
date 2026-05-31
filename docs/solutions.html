@@ -4,14 +4,99 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>第三部分 · 建议方案 · 中国制博会调研</title>
-<meta name="description" content="11 项可执行优化建议 · 五阶段实施甘特 · 影响×可行性矩阵。">
+<meta name="description" content="11 项可执行优化建议 · 五阶段实施甘特 · 影响×可行性矩阵 · 评估指标体系。">
 <meta property="og:title" content="第三部分 · 建议方案">
 <meta property="og:type" content="article">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010115" />
+<link rel="stylesheet" href="assets/css/style.css?v=202606010120" />
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  .sol-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    transition: all .2s;
+    position: relative;
+  }
+  .sol-card:hover {
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+  }
+  .sol-card .num {
+    position: absolute;
+    top: 16px; right: 24px;
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1;
+    color: color-mix(in oklab, var(--primary) 14%, transparent);
+    pointer-events: none;
+  }
+  .sol-card .meta-row {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .sol-card h3 { font-size: 18px; margin: 8px 0 10px; padding-right: 56px; }
+  .sol-card .desc {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+  .sol-card .desc b { color: var(--ink-1); }
+  .sol-card .impl {
+    background: var(--bg-soft);
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    margin-top: 14px;
+  }
+  .sol-card .impl .impl-label {
+    font-family: var(--font-en);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 6px;
+  }
+  .sol-card .impl ul {
+    margin: 0; padding-left: 16px;
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .sol-card .impl ul li { margin: 2px 0; }
+
+  .pillar-card {
+    border-radius: var(--r-lg);
+    padding: 28px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .pillar-card::before {
+    content: "";
+    position: absolute; right: -30px; top: -30px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .pillar-card .pillar-num {
+    font-family: var(--font-serif);
+    font-size: 48px; font-weight: 700; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pillar-card h3 { color: #fff; font-size: 20px; margin-bottom: 10px; }
+  .pillar-card p { color: rgba(255,255,255,.85); font-size: 14px; line-height: 1.7; }
+  .pillar-card.p1 { background: linear-gradient(135deg, #1E40AF, #3B82F6); }
+  .pillar-card.p2 { background: linear-gradient(135deg, #92400E, #F59E0B); }
+  .pillar-card.p3 { background: linear-gradient(135deg, #4338CA, #8B5CF6); }
+  .pillar-card.p4 { background: linear-gradient(135deg, #065F46, #10B981); }
+</style>
 </head>
 <body>
 
@@ -22,16 +107,49 @@
       <span>· 11 Solutions</span>
     </div>
     <h1>北方智能制造<br/>产业链服务平台</h1>
-    <p class="lede" style="margin-top: 24px;">建议方案以问题为靶、以执行为准。总体思路：<b>定位更清晰、匹配更精准、数字更闭环、服务更精细、转化更可衡量</b>。把项目从"装备制造业综合展"重新定位为"北方智能制造产业链服务平台"。</p>
+    <p class="lede" style="margin-top: 24px;">建议方案以问题为靶、以执行为准。总体思路：<b>定位更清晰、匹配更精准、数字更闭环、服务更精细、转化更可衡量</b>。把项目从"装备制造业综合展"重新定位为"北方智能制造产业链服务平台"，并以问题—建议—指标—责任四层映射，形成可落地、可考核的优化矩阵。</p>
   </div>
 </section>
 
 <div class="container">
 
+  <!-- ============ 总体思路 ============ -->
+  <section class="section">
+    <div class="eyebrow">Strategic Position</div>
+    <h2>总体思路：四大核心工程</h2>
+    <p class="lede">十一项建议中，有四项是<b>核心工程</b>——它们直接对应第二部分的高优先级问题，是项目从规模型走向平台型的根本切入点。其余七项是<b>支撑措施</b>，提供配套保障。</p>
+
+    <div class="grid-2" style="margin-top: 32px;">
+      <div class="pillar-card p1">
+        <div class="pillar-num">01</div>
+        <h3>专业观众精准组织</h3>
+        <p>从"现场随机遇见"升级为"展前精准安排、展中高效洽谈、展后持续跟进"。建立观众分级、展商画像、双向匹配机制。</p>
+      </div>
+      <div class="pillar-card p2">
+        <div class="pillar-num">02</div>
+        <h3>数字化全流程平台</h3>
+        <p>展前需求采集、展中智能撮合、展后线索运营，三阶段九环节形成完整数据闭环；分阶段建设而非一次性堆功能。</p>
+      </div>
+      <div class="pillar-card p3">
+        <div class="pillar-num">03</div>
+        <h3>主题活动链条化</h3>
+        <p>同期活动从"多而散"升级为"主题链条化"。趋势 → 案例 → 对接 → 落地 一气呵成，避免活动多而散。</p>
+      </div>
+      <div class="pillar-card p4">
+        <div class="pillar-num">04</div>
+        <h3>展后转化机制</h3>
+        <p>展后 1 / 3 / 6 个月跟踪台账 + 参展效果报告 + 复展意愿分析；用真实成交数据支撑下一届招商。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ============ 问题—建议映射 ============ -->
   <section class="section">
     <div class="eyebrow">Mapping</div>
     <h2>问题 → 建议对应关系</h2>
-    <p class="lede">9 类问题映射到 11 项优化建议，体现闭环。</p>
+    <p class="lede">9 类问题映射到 11 项优化建议——每条问题至少有一条建议覆盖，形成闭环。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f6" class="chart tall"></div>
     </div>
@@ -52,56 +170,252 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ============ 数字化闭环 ============ -->
   <section class="section">
     <div class="eyebrow">Digital Loop</div>
     <h2>数字化服务三阶段闭环</h2>
-    <p class="lede">三阶段九环节，形成从需求识别到数据沉淀的闭环。</p>
+    <p class="lede">展前精准组织（需求采集 / 智能推荐 / 预约洽谈）→ 展中高效撮合（数字导览 / 电子名片 / 线索记录）→ 展后持续运营（线索回访 / 效果评估 / 数据看板）。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f8" class="chart tall"></div>
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ============ 11 项建议详解 ============ -->
   <section class="section">
     <div class="eyebrow">11 Recommendations</div>
-    <h2>11 项优化建议</h2>
+    <h2>11 项优化建议详解</h2>
+    <p class="lede">每条建议包含核心思路与执行清单，所有清单条目均与具体问题、实施主体、操作动作形成对应。</p>
 
-    <div class="numbered" style="margin-top: 32px;">
-      <div class="item"><div class="num">01</div><h3>明确平台定位</h3><p>形成兼顾地域、产业、服务的差异化表达，对参展商、专业观众、政府园区、高校形成四套话术。</p></div>
-      <div class="item"><div class="num">02</div><h3>专业观众精准组织</h3><p>注册信息分级分类，建立采购决策型 / 技术评估型等观众画像，与展商需求双向匹配。</p></div>
-      <div class="item"><div class="num">03</div><h3>数字化全流程平台</h3><p>展前需求采集、展中智能导览、展后线索回访，分阶段建设而非一次性堆功能。</p></div>
-      <div class="item"><div class="num">04</div><h3>场景分区</h3><p>在品类分区基础上设置"智能工厂解决方案区""设备更新与改造专区"等，按问题找方案。</p></div>
-      <div class="item"><div class="num">05</div><h3>同期活动主题链条化</h3><p>趋势 → 案例 → 对接 → 落地 一气呵成，避免活动多而散。</p></div>
-      <div class="item"><div class="num">06</div><h3>现场服务专业化</h3><p>半日 / 一日观展路线、专业洽谈区、安静会议区、志愿者培训等，减少时间成本。</p></div>
-      <div class="item"><div class="num">07</div><h3>分层传播体系</h3><p>产业客户、专业观众、城市公众、高校青年四类对象差异化触达。</p></div>
-      <div class="item"><div class="num">08</div><h3>国际采购组织</h3><p>面向东北亚、东盟、欧洲先进制造和"一带一路"沿线，组织国际采购团与跨境对接。</p></div>
-      <div class="item"><div class="num">09</div><h3>展后转化机制</h3><p>展后 1 / 3 / 6 个月跟踪台账，形成参展效果报告和复展决策依据。</p></div>
-      <div class="item"><div class="num">10</div><h3>产教融合</h3><p>大学生技术观察团、青年工程师论坛、校企科研成果展示纳入展会体系。</p></div>
-      <div class="item"><div class="num">11</div><h3>绿色低碳会展</h3><p>可循环展台、电子资料、绿色展品标识、绿色会展实践总结。</p></div>
+    <div class="grid-2" style="margin-top: 32px;">
+
+      <article class="sol-card">
+        <span class="num">01</span>
+        <div class="meta-row"><span class="tag">战略定位</span></div>
+        <h3>明确"北方智能制造产业链服务平台"定位</h3>
+        <p class="desc">在原"智能新装备 · 新质生产力"主题基础上，形成更具市场识别度的定位表达。<b>地域上突出沈阳和东北的装备制造基础；产业上突出智能制造、工业自动化、机床工具、工业机器人；服务上突出供需撮合、技术交流、招商合作和产业链协同</b>。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 执行清单</div>
+          <ul>
+            <li>对参展商：强调"获取高质量采购线索"</li>
+            <li>对专业观众：强调"一站式比较智能制造装备"</li>
+            <li>对政府/园区：强调"招商引资、产业链补链"</li>
+            <li>对高校科研：强调"成果转化、人才对接"</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">02</span>
+        <div class="meta-row"><span class="tag danger">核心工程</span></div>
+        <h3>专业观众精准组织</h3>
+        <p class="desc">把专业观众组织作为展会升级的核心工程。展前注册阶段增加<b>采购需求、关注行业、设备更新计划、预算周期、决策角色、希望对接企业类型</b>等字段，并对观众进行分级分类。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 执行清单</div>
+          <ul>
+            <li>建立重点采购商邀请名单</li>
+            <li>设置展前线上供需发布区</li>
+            <li>为重点展商安排采购对接专场</li>
+            <li>现场设置行业采购洽谈区</li>
+            <li>对意向项目建立展后跟踪台账</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">03</span>
+        <div class="meta-row"><span class="tag danger">核心工程</span></div>
+        <h3>建设数字化全流程平台</h3>
+        <p class="desc">在线上云展基础上建设"中国制博会数字服务平台"。展前解决"<b>谁来、看什么、见谁</b>"，展中解决"<b>怎么找、怎么约、怎么谈</b>"，展后解决"<b>怎么跟、怎么评、怎么转化</b>"。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 三阶段建设</div>
+          <ul>
+            <li>第一阶段：注册结构化、展商标准化、数字导览</li>
+            <li>第二阶段：预约洽谈、需求推荐、电子名片</li>
+            <li>第三阶段：展后线索管理、数据看板、参展效果报告</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">04</span>
+        <div class="meta-row"><span class="tag warn">展区升级</span></div>
+        <h3>从品类分区升级为场景分区</h3>
+        <p class="desc">在保持现有专业展区基础上，增加"应用场景导向"的展区组织方式。设置<b>智能工厂解决方案区、工业机器人应用区、设备更新与改造专区、绿色节能装备专区、工业软件与数字化管理专区、产学研成果转化专区</b>。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 帮助观众</div>
+          <ul>
+            <li>从"按产品看展"转向"按问题找方案"</li>
+            <li>从展商角度从卖单品转向卖解决方案</li>
+            <li>提升观展效率与决策效率</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">05</span>
+        <div class="meta-row"><span class="tag danger">核心工程</span></div>
+        <h3>同期活动主题链条化</h3>
+        <p class="desc">围绕展会核心主题设计若干<b>活动链条</b>。"智能制造升级链条"包括主论坛、机器人应用分论坛、智能产线案例发布、重点企业参观；"产业链供需对接链条"包括采购需求发布会、闭门会、展商路演、项目签约。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 活动链条</div>
+          <ul>
+            <li>智能制造升级链条</li>
+            <li>产业链供需对接链条</li>
+            <li>青年创新链条</li>
+            <li>每条链条形成"趋势—案例—对接—落地"逻辑</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">06</span>
+        <div class="meta-row"><span class="tag warn">现场服务</span></div>
+        <h3>现场体验从基础服务升级为专业服务</h3>
+        <p class="desc">从观众路径出发优化现场体验。<b>入口处设置主题导览图、推出"半日观展路线"和"一日观展路线"</b>，分别服务时间有限的采购商和深度参观观众；设置专业洽谈区和安静会议区。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 服务清单</div>
+          <ul>
+            <li>主题导览图与推荐路线</li>
+            <li>专业洽谈区与安静会议区</li>
+            <li>餐饮、休息、充电、寄存、翻译、打印</li>
+            <li>志愿者培训与服务标准</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">07</span>
+        <div class="meta-row"><span class="tag">分层传播</span></div>
+        <h3>建立四层分层传播体系</h3>
+        <p class="desc">把宣传推广分为四类对象：<b>产业客户、专业观众、城市公众、青年群体</b>。每类对象对应不同渠道与内容重点；新媒体方面围绕"智能装备现场演示""机器人互动""工业母机加工"等主题制作短视频。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 渠道矩阵</div>
+          <ul>
+            <li>产业客户：行业协会 + 商会 + 园区</li>
+            <li>专业观众：行业媒体 + 采购社群</li>
+            <li>城市公众：本地媒体 + 政务新媒体</li>
+            <li>青年群体：高校社群 + B站抖音小红书</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">08</span>
+        <div class="meta-row"><span class="tag">国际合作</span></div>
+        <h3>提升国际化水平和开放合作能力</h3>
+        <p class="desc">在现有国际企业参展基础上，进一步提升国际采购和国际合作深度。联合海外商协会和驻华机构组织<b>国际采购商团</b>，重点面向东北亚、东盟、欧洲先进制造企业和"一带一路"沿线工业园区。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 国际化抓手</div>
+          <ul>
+            <li>设置国际合作洽谈专场</li>
+            <li>提供英文展商手册与多语种服务</li>
+            <li>通过海外商协会渠道开展展前推广</li>
+            <li>"年度伙伴省"机制（参考 HMI）</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">09</span>
+        <div class="meta-row"><span class="tag danger">核心工程</span></div>
+        <h3>建立展后转化和效果评估机制</h3>
+        <p class="desc">展后服务作为升级重点。组织展商填写<b>参展效果反馈</b>（接待客户数、有效线索数、意向订单金额、满意度），对重点项目建立"<b>意向成交项目台账</b>"，在展后 1 / 3 / 6 个月跟踪。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 全周期跟踪</div>
+          <ul>
+            <li>展后 1 个月：线索回访 + 满意度调查</li>
+            <li>展后 3 个月：项目推进情况复盘</li>
+            <li>展后 6 个月：成交转化与复展意愿</li>
+            <li>向展商提供简版参展效果报告</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">10</span>
+        <div class="meta-row"><span class="tag">产教融合</span></div>
+        <h3>推动高校产教融合和青年参与</h3>
+        <p class="desc">依托沈阳高校资源，建立"<b>中国制博会大学生技术观察团</b>"和"<b>青年工程师成长计划</b>"。高校学生围绕机器人、工业软件、智能产线等主题观展调研，形成青年视角观察报告。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 三方共赢</div>
+          <ul>
+            <li>大学生技术观察团（增强创新氛围）</li>
+            <li>青年工程师论坛</li>
+            <li>校企联合需求发布</li>
+            <li>研究生科研成果路演</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sol-card">
+        <span class="num">11</span>
+        <div class="meta-row"><span class="tag success">绿色低碳</span></div>
+        <h3>推进绿色低碳会展建设</h3>
+        <p class="desc">逐步建立绿色会展标准。鼓励<b>可循环展台材料</b>，减少一次性搭建浪费；推动电子资料替代纸质资料；设置垃圾分类和回收点；鼓励展商展示节能环保装备和低碳制造方案；对绿色展台、绿色展品进行标识。</p>
+        <div class="impl">
+          <div class="impl-label">Executable · 绿色实践</div>
+          <ul>
+            <li>可循环展台材料标准</li>
+            <li>电子资料替代纸质</li>
+            <li>绿色展台 / 绿色展品标识</li>
+            <li>展后形成绿色会展实践总结</li>
+          </ul>
+        </div>
+      </article>
+
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ============ 分层传播 ============ -->
   <section class="section">
     <div class="eyebrow">Communication</div>
-    <h2>分层传播渠道</h2>
-    <p class="lede">颜色越深表示渠道与受众匹配度越高。</p>
+    <h2>分层传播渠道矩阵</h2>
+    <p class="lede">颜色越深表示渠道与受众匹配度越高。蓝色矩阵帮助主办方为每类受众选择最适合的传播渠道。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f12" class="chart"></div>
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ============ 实施甘特 ============ -->
   <section class="section">
     <div class="eyebrow">Roadmap</div>
     <h2>五阶段实施甘特</h2>
-    <p class="lede">单届筹办周期，T 表示展会开幕周。</p>
+    <p class="lede">单届筹办周期，T 表示展会开幕周。第一阶段从展前 9 个月启动，第五阶段延伸至展后 6 个月，全过程约 15 个月。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f9" class="chart"></div>
     </div>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>展前阶段</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">第一阶段（T-9～T-6 月）：明确主题定位与招商手册<br/>第二阶段（T-6～T-3 月）：构建供需匹配数据库<br/>第三阶段（T-3～T 月）：上线数字化平台与传播矩阵</p>
+      </div>
+      <div class="card lead-amber">
+        <h3>展中阶段</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">第四阶段（T 周）：现场导览、洽谈区、活动链条同步运行；数据记录与服务保障同步推进。</p>
+      </div>
+      <div class="card lead-green">
+        <h3>展后阶段</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">第五阶段（T+1～T+6 月）：线索回访、成交跟踪、满意度调查、效果报告发布，形成闭环与下一届优化依据。</p>
+      </div>
+    </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- ============ 评估指标 ============ -->
   <section class="section">
     <div class="eyebrow">KPIs</div>
     <h2>评估指标体系</h2>
-    <p class="lede">六类指标 × 二十余项核心指标。</p>
+    <p class="lede">六类指标 × 二十余项核心指标——构成项目持续监测的评估框架，覆盖规模、质量、匹配、转化、满意、传播六个维度。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f10" class="chart tall"></div>
     </div>
@@ -109,16 +423,48 @@
 
   <div class="divider thick"></div>
 
+  <!-- ============ 组织保障 ============ -->
   <section class="section">
-    <div class="callout ok">
-      <strong>下一步</strong> · 调研工具与原始问卷请见 <a href="appendix.html">附录工具</a>，标杆案例的具体做法请见 <a href="cases.html">案例库</a>。
+    <div class="eyebrow">Governance</div>
+    <h2>组织保障与风险控制</h2>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>专项工作组</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">建议成立展会优化专项工作组，下设：</p>
+        <ul style="font-size: 14px; color: var(--ink-3); line-height: 1.85; margin-top: 10px; padding-left: 18px;">
+          <li>招商招展组</li>
+          <li>专业观众组</li>
+          <li>数字平台组</li>
+          <li>活动运营组</li>
+          <li>现场服务组</li>
+          <li>宣传传播组</li>
+          <li>数据复盘组</li>
+        </ul>
+        <div class="card-foot">每组明确目标与考核指标，避免建议停留在纸面</div>
+      </div>
+
+      <div class="card lead-red">
+        <h3>风险控制清单</h3>
+        <ul style="font-size: 14px; color: var(--ink-3); line-height: 1.85; margin-top: 4px; padding-left: 18px;">
+          <li><b>专业观众不足</b>：扩大邀约渠道 + 重点采购商名单</li>
+          <li><b>数字平台使用率低</b>：简化操作 + 现场协助</li>
+          <li><b>现场客流拥堵</b>：优化入场动线 + 高峰管理</li>
+          <li><b>宣传效果不足</b>：储备展品亮点与短视频素材</li>
+          <li><b>展后跟进不足</b>：纳入主办方固定工作流程</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout ok" style="margin-top: 28px;">
+      <strong>下一步</strong> · 调研工具与原始问卷请见 <a href="appendix.html">附录工具</a>，标杆案例的具体做法请见 <a href="cases.html">案例库</a>，PDF 完整下载请见 <a href="report-pdf.html">PDF 阅读</a>。
     </div>
   </section>
 
 </div>
 
-<script src="assets/js/common.js?v=202606010115"></script>
-<script src="assets/js/charts.js?v=202606010115"></script>
+<script src="assets/js/common.js?v=202606010120"></script>
+<script src="assets/js/charts.js?v=202606010120"></script>
 <script>
   ['F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'].forEach(c => renderChart('chart-' + c.toLowerCase(), c));
 </script>

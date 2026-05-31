@@ -1,5 +1,5 @@
 // Service Worker for 中国制博会调研报告 PWA
-const CACHE_NAME = 'hz-cieme-v3-3-1';
+const CACHE_NAME = 'hz-cieme-v3-4-0';
 const PRECACHE_URLS = [
   './',
   './index.html',
@@ -21,6 +21,9 @@ const PRECACHE_URLS = [
   './qr.html',
   './report-pdf.html',
   './poster.html',
+  './roadmap.html',
+  './reading-paths.html',
+  './faq.html',
   './assets/css/style.css',
   './assets/js/charts.js',
   './assets/js/common.js',
@@ -45,22 +48,18 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // 只处理 GET
   if (e.request.method !== 'GET') return;
   const url = new URL(e.request.url);
-  // 跨域 CDN 不经过 SW 缓存逻辑
   if (url.origin !== location.origin) return;
 
+  // 网络优先策略：优先取最新版本，离线降级到缓存
   e.respondWith(
-    caches.match(e.request).then(cached => {
-      const fresh = fetch(e.request).then(res => {
-        if (res && res.status === 200 && res.type === 'basic') {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then(c => c.put(e.request, copy));
-        }
-        return res;
-      }).catch(() => cached);
-      return cached || fresh;
-    })
+    fetch(e.request).then(res => {
+      if (res && res.status === 200 && res.type === 'basic') {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then(c => c.put(e.request, copy));
+      }
+      return res;
+    }).catch(() => caches.match(e.request))
   );
 });
