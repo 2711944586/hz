@@ -47,6 +47,13 @@ const photos = [
   { file: "figure-50.jpg", title: "现场参观动线", text: "用于观察动线组织、标识服务和现场运营体验。" }
 ];
 
+function clearLegacyWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  navigator.serviceWorker.getRegistrations()
+    .then((registrations) => Promise.all(registrations.map((item) => item.unregister())))
+    .catch(() => {});
+}
+
 function setActive() {
   const here = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav a").forEach((link) => {
@@ -117,6 +124,7 @@ function renderPhotos() {
   `).join("");
 }
 
+clearLegacyWorker();
 setActive();
 renderFigures();
 renderFigureGroups();
