@@ -10,12 +10,12 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-48.jpg'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../img/figure-01.jpg'); --hero-position:center;">
   <div class="inner narrow">
     <div class="eyebrow">Report Guide</div>
     <h1>正文结构、核心数据<br/>与行动建议</h1>
@@ -35,6 +35,15 @@
       <div class="stat"><div class="stat-label">Paragraphs</div><div class="stat-value">682</div><div class="stat-desc">段落数量</div></div>
       <div class="stat"><div class="stat-label">Tables</div><div class="stat-value">22</div><div class="stat-desc">数据表格</div></div>
       <div class="stat"><div class="stat-label">Figures</div><div class="stat-value">56</div><div class="stat-desc">图片与图表</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="photo-strip" style="--photo-image:url('../img/figure-01.jpg'); --photo-position:center;">
+      <div>
+        <h3>完整报告把现场资料、图表证据和行动建议放在同一条阅读线上</h3>
+        <p>现场全景用于说明展会规模与组织复杂度，图表用于解释结构关系，建议清单用于指向下一届行动。导读页帮助读者快速进入这三层内容。</p>
+      </div>
     </div>
   </section>
 
@@ -105,9 +114,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   renderChart('chart-f6', 'F6');
   renderChart('chart-f11', 'F11');

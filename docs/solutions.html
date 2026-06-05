@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 <style>
   .sol-card {
     background: var(--bg-elev);
@@ -98,9 +98,9 @@
   .pillar-card.p4 { background: linear-gradient(135deg, #065F46, #10B981); }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-46.jpg'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../img/figure-49.jpg'); --hero-position:center;">
   <div class="inner narrow">
     <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
       <span>Part Three</span>
@@ -166,6 +166,17 @@
         <h3 style="padding: 12px 12px 0;">分对象价值主张</h3>
         <p class="sub" style="padding: 0 12px;">图 F11 · 不同主体的核心需求与展会响应能力</p>
         <div id="chart-f11" class="chart"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="photo-strip" style="--photo-image:url('../img/figure-49.jpg'); --photo-position:center;">
+      <div>
+        <h3>建议方案落点在真实商务洽谈</h3>
+        <p>“平台化”不是多做一个页面，而是让展前邀约、现场洽谈、电子名片、线索回访和复展招商形成一条可追踪的业务链。照片中的洽谈场景，正是数字闭环要服务的现场。</p>
       </div>
     </div>
   </section>
@@ -424,9 +435,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   ['F6', 'F7', 'F8', 'F11', 'F12'].forEach(c => renderChart('chart-' + c.toLowerCase(), c));
 </script>

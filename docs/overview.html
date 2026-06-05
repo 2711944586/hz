@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 <style>
   .force-card {
     background: var(--bg-elev);
@@ -90,9 +90,9 @@
   }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../photos/zone-machine-tool.png'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../img/figure-48.jpg'); --hero-position:center;">
   <div class="inner narrow">
     <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
       <span>Part One</span>
@@ -276,6 +276,13 @@
       <strong>参展主体特征</strong> · 头部企业的参与提升技术层级，地方展团和行业协会的参与扩大产业链覆盖。<b>本届展会同时具备这两类参展主体</b>，但仍需通过精准观众组织把数量优势转化为质量合作。
     </div>
 
+    <div class="photo-strip" style="--photo-image:url('../img/figure-48.jpg'); --photo-position:center; margin-top: 32px;">
+      <div>
+        <h3>展区内容不是抽象分类，而是可被看见的装备现场</h3>
+        <p>从重点装备展示到机器人、自动化、工业软件等板块，展区结构直接决定专业观众的参观路径，也决定后续供需匹配能否从“看热闹”转向“找方案”。</p>
+      </div>
+    </div>
+
     <h3 style="margin: 36px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">线上云展拓展服务边界</h3>
 
     <div class="card lead-violet">
@@ -355,9 +362,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   renderChart('chart-f2', 'F2');
   renderChart('chart-f3', 'F3');

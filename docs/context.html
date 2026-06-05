@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 <style>
   .policy {
     background: var(--bg-elev);
@@ -77,9 +77,9 @@
   }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-45.jpg'); --page-bg-position:center top;">
 
-<section class="hero editorial">
+<section class="hero editorial photo-backdrop" style="--hero-image:url('../photos/shenyang-factory.png'); --hero-position:center;">
   <div class="inner narrow">
     <div class="meta">
       <span>Strategic Context</span>
@@ -239,6 +239,15 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="photo-strip" style="--photo-image:url('../photos/shenyang-factory.png'); --photo-position:center;">
+      <div>
+        <h3>展馆里的展品连接着沈阳真实产业底盘</h3>
+        <p>机床、机器人、汽车零部件、航空装备和能源装备并不是孤立展项，而是沈阳制造业生态在展会空间中的集中呈现。战略上下文页用这些场景说明“展会即产业窗口”的现实基础。</p>
+      </div>
+    </div>
+  </section>
+
   <div class="divider"></div>
 
   <!-- 展会的政策定位 -->
@@ -310,9 +319,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   renderChart('chart-f13', 'F13');
   renderChart('chart-f17', 'F17');

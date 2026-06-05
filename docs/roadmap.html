@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 <style>
   .feature {
     background: var(--bg-elev);
@@ -104,9 +104,9 @@
   .release-card p { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-49.jpg'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../photos/zone-software.png'); --hero-position:center;">
   <div class="inner narrow">
     <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
       <span>Product Roadmap</span>
@@ -329,6 +329,17 @@
 
   <div class="divider"></div>
 
+  <section class="section">
+    <div class="photo-strip" style="--photo-image:url('../photos/zone-software.png'); --photo-position:center;">
+      <div>
+        <h3>路线图页强调的是可发版的执行节奏</h3>
+        <p>软件、数据、导览、预约和跟踪这些功能不是抽象概念，而是现场服务的具体形态。把它们放进展期节奏里，才会真正从建议变成可执行的产品。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- 版本节奏 -->
   <section class="section">
     <div class="eyebrow">Release Plan</div>
@@ -387,9 +398,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   renderChart('chart-f9', 'F9');
   renderChart('chart-f10', 'F10');

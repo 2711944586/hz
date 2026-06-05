@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
-<script src="assets/js/echarts.min.js?v=2026060502"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
+<script src="assets/js/echarts.min.js?v=2026060503"></script>
 <style>
   .prob-card {
     background: var(--bg-elev);
@@ -74,9 +74,9 @@
   }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-47.jpg'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../img/figure-50.jpg'); --hero-position:center;">
   <div class="inner narrow">
     <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
       <span>Part Two</span>
@@ -95,6 +95,15 @@
     <p class="lede">影响程度（蓝条）与改进紧迫性（橙条）背靠背呈现，越长表示越关键。三类高优先级问题（②③⑧）需要在下一届筹办中优先突破。</p>
     <div class="card" style="padding: 16px;">
       <div id="chart-f5" class="chart tall"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="photo-strip" style="--photo-image:url('../img/figure-50.jpg'); --photo-position:center;">
+      <div>
+        <h3>问题诊断来自展会动线与服务触点</h3>
+        <p>现场动线、展台停留、咨询排队、资料领取和洽谈记录共同构成观众体验。九类问题并非否定规模能力，而是指出从规模型展会升级为平台型展会时必须补齐的运营细节。</p>
+      </div>
     </div>
   </section>
 
@@ -295,9 +304,9 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
-<script src="assets/js/charts.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
+<script src="assets/js/charts.js?v=2026060503"></script>
 <script>
   renderChart('chart-f5', 'F5');
 </script>

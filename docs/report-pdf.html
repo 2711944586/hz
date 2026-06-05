@@ -10,7 +10,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026060503" />
 <style>
   .pdf-frame {
     width: 100%;
@@ -46,9 +46,9 @@
   }
 </style>
 </head>
-<body>
+<body class="photo-page" style="--page-bg-image:url('../img/figure-01.jpg'); --page-bg-position:center top;">
 
-<section class="hero minimal">
+<section class="hero minimal photo-backdrop" style="--hero-image:url('../photos/venue-banner.png'); --hero-position:center;">
   <div class="inner">
     <div class="eyebrow">PDF Reader</div>
     <h1>完整调研报告<br/>在线阅读</h1>
@@ -107,8 +107,8 @@
 
 </div>
 
-<script src="assets/js/common.js?v=2026060502"></script>
-<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/common.js?v=2026060503"></script>
+<script src="assets/js/search.js?v=2026060503"></script>
 <script>
   document.querySelectorAll('.tab-row button').forEach(btn => {
     btn.addEventListener('click', () => {
