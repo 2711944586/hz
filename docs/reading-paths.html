@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>阅读路径 · 中国制博会调研</title>
+<meta name="description" content="为评委、主办方、参展商、研究者、学生五类读者设计的差异化阅读路径。">
+<meta property="og:title" content="阅读路径 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<style>
+  .reader {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: all .2s;
+  }
+  .reader:hover {
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+    box-shadow: var(--shadow-sm);
+  }
+  .reader .reader-head {
+    display: flex; gap: 16px; align-items: flex-start;
+    margin-bottom: 18px;
+  }
+  .reader .icon {
+    width: 50px; height: 50px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .reader .reader-head .text { flex: 1; }
+  .reader .reader-head h3 { font-size: 20px; margin-bottom: 4px; }
+  .reader .reader-head p {
+    font-size: 13px;
+    color: var(--ink-4);
+    font-family: var(--font-en);
+    letter-spacing: 0.06em;
+  }
+  .reader .quick-stats {
+    display: flex; gap: 16px;
+    padding: 14px 16px;
+    background: var(--bg-soft);
+    border-radius: var(--r-sm);
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .reader .quick-stats .qs {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  .reader .quick-stats .qs b {
+    color: var(--ink-1);
+    font-family: var(--font-en);
+    font-weight: 700;
+  }
+
+  .step-list { counter-reset: step; }
+  .step-list .step {
+    display: flex; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line-1);
+    counter-increment: step;
+  }
+  .step-list .step:last-child { border-bottom: none; }
+  .step-list .step::before {
+    content: counter(step, decimal-leading-zero);
+    flex-shrink: 0;
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--primary);
+    min-width: 28px;
+    margin-top: 2px;
+  }
+  .step-list .step .body { flex: 1; }
+  .step-list .step h4 { font-size: 15px; margin-bottom: 4px; }
+  .step-list .step p { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin: 0 0 6px; }
+  .step-list .step a {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 10px;
+    background: var(--bg-soft);
+    border: 1px solid var(--line-1);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--primary);
+  }
+  .step-list .step a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Reading Paths</div>
+    <h1>不同的人<br/>该怎么读这份报告</h1>
+    <p class="lede" style="margin-top: 24px;">作品有 20 个页面、近 100 页 PDF、20 张图表与 7 个附录。一次读完不现实，也不必要。本页为五类典型读者设计了<b>差异化阅读路径</b>——按你的身份选一条，5-30 分钟内拿到你最关心的内容。</p>
+  </div>
+</section>
+
+<div class="container narrow">
+
+  <!-- 评委 -->
+  <article class="reader">
+    <div class="reader-head">
+      <div class="icon" style="background: rgba(30,64,175,0.12); color: var(--primary);">⚖️</div>
+      <div class="text">
+        <h3>评委 · Judges</h3>
+        <p>For Competition Reviewers</p>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <span class="qs"><b>10 min</b> 推荐时长</span>
+      <span class="qs"><b>5</b> 个页面</span>
+      <span class="qs"><b>核心</b> 严谨性 · 创新性</span>
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 14px; line-height: 1.7; margin-bottom: 14px;">您可能在 10-15 分钟内做出评判。建议从摘要切入，按需展开三段主体，最后通过透明度页判断研究严谨性。</p>
+
+    <div class="step-list">
+      <div class="step">
+        <div class="body">
+          <h4>1 分钟看完报告核心</h4>
+          <p>核心数据 · 三段框架 · 主要判断 — 5 分钟读懂全报告。</p>
+          <a href="summary.html">→ 报告摘要</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>问题诊断与建议方案速览</h4>
+          <p>九大问题影响-紧迫性矩阵；十一项建议影响-可行性矩阵。</p>
+          <a href="problems.html">→ 第二部分</a>
+          <a href="solutions.html">→ 第三部分</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>判断研究严谨性</h4>
+          <p>20 张图逐项的数据等级 A-E，公开标注示例数据与推算判断。</p>
+          <a href="transparency.html">→ 数据透明度</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>完整 PDF 备查</h4>
+          <p>调研报告版（约 60 页）+ 合订本版（约 75 页），可在线阅读或下载。</p>
+          <a href="report-pdf.html">→ PDF 阅读</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 主办方 -->
+  <article class="reader">
+    <div class="reader-head">
+      <div class="icon" style="background: rgba(245,158,11,0.14); color: var(--accent);">🏛️</div>
+      <div class="text">
+        <h3>主办方 · Organizers</h3>
+        <p>For Exhibition Organizers</p>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <span class="qs"><b>30 min</b> 推荐时长</span>
+      <span class="qs"><b>7</b> 个页面</span>
+      <span class="qs"><b>核心</b> 可执行性 · 落地路径</span>
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 14px; line-height: 1.7; margin-bottom: 14px;">如果您是主办方相关人员，本作品对您最有用的是建议方案、产品蓝图与实施甘特。</p>
+
+    <div class="step-list">
+      <div class="step">
+        <div class="body">
+          <h4>看 11 项建议是否真的对症</h4>
+          <p>每项建议都对应具体问题、有执行清单、有可量化指标。</p>
+          <a href="solutions.html">→ 第三部分</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>看产品蓝图（最实用）</h4>
+          <p>把建议方案拆成 18 项可发布功能，分三届展会逐步上线，避免一次性堆功能。</p>
+          <a href="roadmap.html">→ 产品蓝图</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>对照标杆案例</h4>
+          <p>CIIF / CIMT / CHTF / HMI / EMO 五大展会的关键做法摘录与对应建议。</p>
+          <a href="cases.html">→ 案例库</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>查看可量化的指标体系</h4>
+          <p>六类指标 × 二十余项核心指标，作为下一届的考核框架。</p>
+          <a href="dashboard.html">→ 数据看板</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>下载完整报告 + 调研工具</h4>
+          <p>问卷 / 访谈提纲 / 现场观察表可直接套用。</p>
+          <a href="appendix.html">→ 附录工具</a>
+          <a href="report-pdf.html">→ PDF 下载</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 参展商 -->
+  <article class="reader">
+    <div class="reader-head">
+      <div class="icon" style="background: rgba(16,185,129,0.14); color: var(--ok);">🏭</div>
+      <div class="text">
+        <h3>参展商 · Exhibitors</h3>
+        <p>For Companies Exhibiting</p>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <span class="qs"><b>15 min</b> 推荐时长</span>
+      <span class="qs"><b>4</b> 个页面</span>
+      <span class="qs"><b>核心</b> 参展效果 · 升级期待</span>
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 14px; line-height: 1.7; margin-bottom: 14px;">如果您是参展企业的市场或销售负责人，本作品反映了我们对参展商真实诉求的观察，也呈现了下一届可能升级的方向。</p>
+
+    <div class="step-list">
+      <div class="step">
+        <div class="body">
+          <h4>看团队怎么理解参展商需求</h4>
+          <p>分对象价值主张：参展商核心诉求是"找到真实采购需求"。</p>
+          <a href="solutions.html">→ 价值主张矩阵</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>看与展后转化相关的建议</h4>
+          <p>展后 1/3/6 月跟踪台账 + 参展效果报告，让"展会即结束"成为过去。</p>
+          <a href="solutions.html#section-09">→ 建议 09</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>填写访谈提纲（自查）</h4>
+          <p>用附录 B 自评一下：本届参展是否达到目标？哪里希望主办方改进？</p>
+          <a href="appendix.html">→ 附录工具</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>对比五大标杆展会的展商体验</h4>
+          <p>EMO "参展前 vs 参展后" 满意度连续追踪、CHTF APP 提前两个月开放等做法。</p>
+          <a href="cases.html">→ 案例库</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 研究者 -->
+  <article class="reader">
+    <div class="reader-head">
+      <div class="icon" style="background: rgba(139,92,246,0.14); color: var(--plum);">🎓</div>
+      <div class="text">
+        <h3>研究者 · Researchers</h3>
+        <p>For Academic Researchers</p>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <span class="qs"><b>30 min</b> 推荐时长</span>
+      <span class="qs"><b>6</b> 个页面</span>
+      <span class="qs"><b>核心</b> 方法论 · 数据来源</span>
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 14px; line-height: 1.7; margin-bottom: 14px;">如果您从事会展、产业、城市等方向研究，本作品提供的是一套可复用的<b>会展项目调研方法论</b>与三类调研工具。</p>
+
+    <div class="step-list">
+      <div class="step">
+        <div class="body">
+          <h4>看六阶段调研方法论</h4>
+          <p>资料 → 观察 → 问卷 → 访谈 → 分析 → 输出，定量定性交叉验证。</p>
+          <a href="methodology.html">→ 方法论</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>看数据来源 A-E 五级分类</h4>
+          <p>每张图表逐项标注数据等级，区分官方、报告、媒体、推算、示例。</p>
+          <a href="transparency.html">→ 数据透明度</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>三类调研工具可复用</h4>
+          <p>33 题观众问卷 / 24 题访谈提纲 / 5 张子表观察记录，可直接套用到其他展会调研。</p>
+          <a href="appendix.html">→ 附录工具</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>查看参考资料与术语表</h4>
+          <p>展会官方资料、行业报告、政策文件、对标展会、八条术语解释。</p>
+          <a href="references.html">→ 参考资料</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>多视角对比作品</h4>
+          <p>20 张图表横向比较；建议把 SWOT、影响-紧迫性、影响-可行性三个矩阵作为分析模板。</p>
+          <a href="gallery.html">→ 图表画廊</a>
+          <a href="dashboard.html">→ 数据看板</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- 学生 -->
+  <article class="reader">
+    <div class="reader-head">
+      <div class="icon" style="background: rgba(236,72,153,0.14); color: var(--rose);">🎒</div>
+      <div class="text">
+        <h3>学生 · Students</h3>
+        <p>For Curious Students</p>
+      </div>
+    </div>
+
+    <div class="quick-stats">
+      <span class="qs"><b>20 min</b> 推荐时长</span>
+      <span class="qs"><b>5</b> 个页面</span>
+      <span class="qs"><b>核心</b> 学方法 · 看视野</span>
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 14px; line-height: 1.7; margin-bottom: 14px;">如果你正在准备一份调研类作品或学习会展项目分析，本作品提供了一份"<b>可拆解、可借鉴</b>"的范本。</p>
+
+    <div class="step-list">
+      <div class="step">
+        <div class="body">
+          <h4>看作品整体长什么样</h4>
+          <p>从首页快速浏览 20 个页面的组织方式，理解"主线 / 支撑 / 工具"三层结构。</p>
+          <a href="index.html">→ 首页</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>学三段式调研框架</h4>
+          <p>"会展发展情况 / 存在问题 / 优化建议"是经典调研结构，可以套到任何项目。</p>
+          <a href="overview.html">→ 第一部分</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>看团队怎么分工</h4>
+          <p>5 人团队的分工方式与协作流程，可作为你组队时的参考。</p>
+          <a href="team.html">→ 团队</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>下载工具直接用</h4>
+          <p>问卷 / 访谈提纲 / 观察记录表都可以套用，省下设计时间。</p>
+          <a href="appendix.html">→ 附录工具</a>
+        </div>
+      </div>
+      <div class="step">
+        <div class="body">
+          <h4>看数据透明度自检</h4>
+          <p>学习"诚实标注局限"的写法，避免在自己的报告里讲过头。</p>
+          <a href="transparency.html">→ 数据透明度</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div class="divider thick"></div>
+
+  <section class="section" style="text-align: center;">
+    <p style="color: var(--ink-3); font-size: 14px; margin-bottom: 20px;">没找到你的角色？直接从首页开始浏览：</p>
+    <a class="btn btn-primary" href="index.html">回到首页</a>
+    <a class="btn btn-secondary" href="qr.html">扫码访问</a>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>常见问题 · 中国制博会调研</title>
+<meta name="description" content="关于本作品的 18 个常见问题：研究边界、数据来源、可信度、复用方式。">
+<meta property="og:title" content="常见问题 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<style>
+  .faq-section {
+    margin-bottom: 56px;
+  }
+  details.faq-item {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-md);
+    padding: 0;
+    margin-bottom: 10px;
+    transition: all .2s;
+    overflow: hidden;
+  }
+  details.faq-item:hover { border-color: color-mix(in oklab, var(--primary) 25%, var(--line-1)); }
+  details.faq-item[open] {
+    box-shadow: var(--shadow-sm);
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+  }
+  details.faq-item summary {
+    cursor: pointer;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink-1);
+    gap: 16px;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary::after {
+    content: "+";
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--ink-4);
+    flex-shrink: 0;
+    transition: transform .2s;
+  }
+  details.faq-item[open] summary::after {
+    content: "−";
+    color: var(--primary);
+  }
+  details.faq-item .answer {
+    padding: 0 22px 20px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.8;
+    border-top: 1px solid var(--line-1);
+    padding-top: 16px;
+  }
+  details.faq-item .answer p { margin: 0 0 0.8em; }
+  details.faq-item .answer p:last-child { margin: 0; }
+  details.faq-item .answer ul { margin: 8px 0; padding-left: 20px; }
+  details.faq-item .answer code {
+    font-family: var(--font-mono);
+    background: var(--bg-soft);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">FAQ</div>
+    <h1>关于这份作品<br/>18 个常见问题</h1>
+    <p class="lede" style="margin-top: 24px;">研究边界、数据来源、可信度、复用方式——评委、主办方、参展商、研究者最常问的问题，都集中在这里。</p>
+  </div>
+</section>
+
+<div class="container narrow">
+
+  <!-- 关于研究 -->
+  <div class="faq-section">
+    <div class="eyebrow">About Research</div>
+    <h2 style="margin-bottom: 24px;">关于研究本身</h2>
+
+    <details class="faq-item">
+      <summary>这份报告的调研对象是谁？</summary>
+      <div class="answer">
+        <p>调研对象是 <b>2025 年沈阳举办的第二十三届中国国际装备制造业博览会（简称中国制博会，CIEME）</b>。这是装备制造业领域的国家级大型经贸展览活动，已连续举办二十三届。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>团队真的去过现场吗？</summary>
+      <div class="answer">
+        <p>本作品基于<b>公开资料整理与调研判断</b>构建。问卷、访谈、现场观察的工具已经设计完成（见附录 A/B/C），<b>但正式赴展调研需要配合下届展会现场开展</b>。这一点在 <a href="transparency.html">数据透明度</a> 页明确标注。</p>
+        <p>下一阶段团队将完成 N≥300 的问卷回收 + 24 场展商访谈 + 4 天现场观察，把示例数据替换为真实数据。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>报告里的数字都是真实的吗？</summary>
+      <div class="answer">
+        <p>分情况：</p>
+        <ul>
+          <li><b>9 万㎡ / 912 家 / 3056 个 / 15.8 亿</b>等核心规模数据来自展会官方与媒体公开报道（数据等级 A）</li>
+          <li><b>展区构成、问题优先级、影响×可行性矩阵</b>等是基于公开资料的<b>团队推算与判断</b>（等级 D）</li>
+          <li><b>满意度模拟、KPI 仪表盘当前值</b>是<b>示例数据</b>（等级 E），明确标注"待问卷调研后回填"</li>
+        </ul>
+        <p>详见 <a href="transparency.html">数据透明度</a> 页对 20 张图表的逐项说明。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>为什么选择中国制博会做调研？</summary>
+      <div class="answer">
+        <p>三个原因：</p>
+        <ul>
+          <li><b>项目本身有价值</b>：国家级专业展会，二十三届持续办展，规模与产业基础扎实</li>
+          <li><b>研究意义足</b>：四股力量（会展业 + 制造业 + 东北振兴 + 沈阳制造业基地）在一个项目上交汇</li>
+          <li><b>调研可行性高</b>：地理临近、公开资料丰富、有持续追踪空间</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>本作品最具创新性的点是什么？</summary>
+      <div class="answer">
+        <p>四个层面：</p>
+        <ul>
+          <li><b>提出"北方智能制造产业链服务平台"定位</b>，把会展项目从"展示场所"重新定义为"产业服务平台"</li>
+          <li><b>建立可执行的产品蓝图</b>，把建议方案拆成 18 项可发布功能，分三届展会逐步上线</li>
+          <li><b>采用六阶段调研方法论</b>，定量与定性方法交叉验证</li>
+          <li><b>双载体作品体系</b>：Word 报告 + 在线网站 + 合订本 + PDF + A1 海报，相互补充</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <!-- 关于内容 -->
+  <div class="faq-section">
+    <div class="eyebrow">About Content</div>
+    <h2 style="margin-bottom: 24px;">关于报告内容</h2>
+
+    <details class="faq-item">
+      <summary>"九大问题"是怎么识别出来的？</summary>
+      <div class="answer">
+        <p>从<b>会展业一般规律 + 中国制博会公开资料 + 标杆展会对比</b>三个角度归纳：</p>
+        <ul>
+          <li>会展业研究文献里反复出现的关键议题（专业观众、数字化、展后转化）</li>
+          <li>中国制博会公开报道中可观察的现象（展区设置、活动安排、宣传渠道）</li>
+          <li>与 CIIF / CIMT / CHTF / HMI / EMO 五大标杆对比的能力差距</li>
+        </ul>
+        <p>每个问题都按"<b>影响程度 × 改进紧迫性</b>"双维度评估优先级，结果见图 F5。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>"11 项建议"和"九大问题"如何对应？</summary>
+      <div class="answer">
+        <p>9 类问题映射到 11 项建议，<b>每条问题至少有一条建议覆盖</b>，形成闭环。映射关系见图 F6（问题—建议桑基图）。</p>
+        <p>其中三类高优先级问题（专业观众组织、数字化服务闭环、展后转化机制）对应四项<b>核心工程</b>建议，是项目从规模型走向平台型的关键切入点。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>报告对沈阳和东北有什么意义？</summary>
+      <div class="answer">
+        <p>展会即是城市。中国制博会的升级与城市的产业升级、东北的振兴战略本质上是同向同行：</p>
+        <ul>
+          <li><b>对城市</b>：通过展示先进制造、智能装备、机器人、工业互联网等内容，更新外界对沈阳的产业形象认知</li>
+          <li><b>对东北</b>：作为东北最大装备制造类专业展会，是连接产业资源、招商资源和品牌资源的重要平台</li>
+          <li><b>对国家</b>：作为国家级展会，承担促进装备制造业高质量发展、产业链供应链协同的政策功能</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>建议方案是否可执行？</summary>
+      <div class="answer">
+        <p>每项建议都包含<b>核心思路 + 执行清单</b>。我们专门做了一份 <a href="roadmap.html">产品蓝图</a> 页，把 11 项建议拆成 18 项可发布功能，分 v1.0 / v2.0 / v3.0 三届展会逐步上线，避免一次性堆功能造成现场失败。</p>
+        <p>同时提供五阶段实施甘特图（图 F9）、组织保障方案、风险控制清单。</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- 关于复用 -->
+  <div class="faq-section">
+    <div class="eyebrow">Reuse</div>
+    <h2 style="margin-bottom: 24px;">关于复用与开放</h2>
+
+    <details class="faq-item">
+      <summary>这份作品可以引用吗？</summary>
+      <div class="answer">
+        <p>可以。本作品采用 <b>MIT License</b>，仅用于参赛展示与学术研究，禁止商业用途。引用时请注明：</p>
+        <ul>
+          <li>作品名：第二十三届中国国际装备制造业博览会调研报告</li>
+          <li>作者：王璐 · 宋鹏慧 · 周心杨 · 高昊宇 · 庄颂</li>
+          <li>来源：<a href="https://github.com/2711944586/hz" target="_blank">github.com/2711944586/hz</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>调研工具（问卷 / 访谈 / 观察）可以借用吗？</summary>
+      <div class="answer">
+        <p>可以。33 题专业观众问卷、24 题参展商访谈提纲、5 张现场观察记录子表均可复用到其他展会调研，建议根据具体项目调整少量字段。</p>
+        <p>问卷在线版可填写并导出 CSV：<a href="appendix.html">附录工具</a>。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>图表可以下载用到自己的报告里吗？</summary>
+      <div class="answer">
+        <p>可以。20 张图表均为团队自研（基于 ECharts 5 + 公开数据），<b>1600×1000 高清 PNG</b>，可直接下载用于答辩、海报与幻灯片。</p>
+        <p>下载入口：<a href="gallery.html">图表画廊</a>。每张图都附"交互查看"链接，方便在浏览器中查看原始数据。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>源代码在哪里？怎么二次开发？</summary>
+      <div class="answer">
+        <p>源代码全部开源在 GitHub：<a href="https://github.com/2711944586/hz" target="_blank">github.com/2711944586/hz</a>。</p>
+        <p>二次开发指南见仓库的 <code>CONTRIBUTING.md</code>。需要 Node.js 16+、Python 3.10+、本机 Chrome、Microsoft Word。一键构建命令：</p>
+        <p><code>python scripts/build_all.py</code></p>
+      </div>
+    </details>
+  </div>
+
+  <!-- 关于团队 -->
+  <div class="faq-section">
+    <div class="eyebrow">Team</div>
+    <h2 style="margin-bottom: 24px;">关于团队</h2>
+
+    <details class="faq-item">
+      <summary>团队由谁组成？</summary>
+      <div class="answer">
+        <p>5 位成员的团队：王璐（主理人，统稿）、宋鹏慧（第一部分）、周心杨（第二部分）、高昊宇（第三部分）、庄颂（附录与素材）。</p>
+        <p>详细分工与协作流程见 <a href="team.html">团队介绍</a> 页。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>作品哪些部分由 AI 辅助生成？</summary>
+      <div class="answer">
+        <p>选题、内容主线、九大问题归纳、十一项建议、案例选取、团队分工等核心研究判断由<b>团队主导</b>。</p>
+        <p>数字化呈现部分（ECharts 图表配置、网站 HTML/CSS、自动化脚本、PDF 导出、二维码生成）由 <b>AI 工程辅助</b>完成，所有产物均经团队审阅与调整。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>团队是哪所院校的？</summary>
+      <div class="answer">
+        <p>团队成员来自相关院校的会展、文旅、管理类专业。具体院校信息因参赛规则未公开。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>怎么联系团队？</summary>
+      <div class="answer">
+        <p>反馈建议或发现 bug，请通过 GitHub Issue：<a href="https://github.com/2711944586/hz/issues" target="_blank">github.com/2711944586/hz/issues</a>。</p>
+        <p>有合作或学术交流意向，请联系王璐（主理人）。</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- 关于网站 -->
+  <div class="faq-section">
+    <div class="eyebrow">Website</div>
+    <h2 style="margin-bottom: 24px;">关于这个网站</h2>
+
+    <details class="faq-item">
+      <summary>为什么不做成移动 App？</summary>
+      <div class="answer">
+        <p>三个原因：</p>
+        <ul>
+          <li>评委、主办方等用户分散，下载 App 门槛高</li>
+          <li>网站本身已支持 PWA，可"添加到主屏"实现 App 体验</li>
+          <li>专门为手机设计了 <a href="mobile.html">现场扫码版</a>，无需安装</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>网站可以离线访问吗？</summary>
+      <div class="answer">
+        <p>可以。网站采用 PWA 技术，配置了 Service Worker 离线缓存。首次访问后，后续访问可在<b>无网络环境下查看</b>所有页面与图表（除了在线 PDF 嵌入需要网络）。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>网站怎么部署？</summary>
+      <div class="answer">
+        <p>使用 <b>GitHub Pages + GitHub Actions</b>。每次 push 到 main 分支会自动触发部署，1-2 分钟后访问最新版本。访问地址：<a href="https://2711944586.github.io/hz/">2711944586.github.io/hz</a>。</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>页面看起来错乱了怎么办？</summary>
+      <div class="answer">
+        <p>可能是浏览器缓存了旧版。解决方案：</p>
+        <ul>
+          <li>强制刷新：<code>Ctrl + Shift + R</code> （Windows）/ <code>Cmd + Shift + R</code> （Mac）</li>
+          <li>清除 Service Worker：F12 打开开发者工具 → Application → Service Workers → Unregister</li>
+          <li>无痕模式打开</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <div class="divider thick"></div>
+
+  <section class="section" style="text-align: center;">
+    <p style="color: var(--ink-3); font-size: 14px; margin-bottom: 20px;">没找到你的问题？</p>
+    <a class="btn btn-primary" href="https://github.com/2711944586/hz/issues" target="_blank">在 GitHub 提问</a>
+    <a class="btn btn-secondary" href="reading-paths.html">查看阅读路径</a>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+</body>
+</html>

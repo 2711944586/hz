@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>第一部分 · 会展发展情况 · 中国制博会调研</title>
+<meta name="description" content="行业背景 · 项目基础 · 第二十三届运行情况 · 综合价值。读懂展会的真实坐标。">
+<meta property="og:title" content="第一部分 · 会展发展情况">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<script src="assets/js/echarts.min.js?v=2026060501"></script>
+<style>
+  .force-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    transition: all .2s;
+    position: relative;
+  }
+  .force-card:hover {
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+    box-shadow: var(--shadow-sm);
+  }
+  .force-card .label {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+  }
+  .force-card .icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .force-card h3 { font-size: 18px; margin: 8px 0 10px; }
+  .force-card p { font-size: 14px; line-height: 1.7; color: var(--ink-3); }
+  .force-card .source {
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px dashed var(--line-1);
+    font-size: 12px; color: var(--ink-4);
+  }
+
+  .stage-block {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stage-block::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0; width: 4px;
+  }
+  .stage-block.s1::before { background: linear-gradient(180deg, #1E40AF, #3B82F6); }
+  .stage-block.s2::before { background: linear-gradient(180deg, #92400E, #F59E0B); }
+  .stage-block.s3::before { background: linear-gradient(180deg, #065F46, #10B981); }
+  .stage-block .stage-num {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 4px;
+  }
+  .stage-block h3 { font-size: 22px; margin-bottom: 6px; }
+  .stage-block .years {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+  }
+  .stage-block .keywords {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    margin-top: 14px;
+  }
+  .stage-block .keywords span {
+    padding: 4px 10px; background: var(--bg-soft); border: 1px solid var(--line-1);
+    border-radius: 999px; font-size: 12px; color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
+      <span>Part One</span>
+      <span>· Industry & Project</span>
+    </div>
+    <h1>四股力量交汇<br/>读懂展会的真实坐标</h1>
+    <p class="lede" style="margin-top: 24px;">理解中国制博会，不能只看它是一个 9 万㎡的展览。它是<b>会展业高质量发展、制造业智能化升级、东北全面振兴、沈阳建设国家先进制造业基地</b>四股力量在一个项目上的交汇。这一部分从行业背景、项目基础、本届运行情况、综合价值四个维度展开，呈现项目所处的真实坐标。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- ================= 一、行业背景 ================= -->
+  <section class="section">
+    <div class="eyebrow">Industry Context</div>
+    <h2>一、行业发展背景</h2>
+    <p class="lede">会展业从规模恢复转向质量提升，制造业智能化升级催生装备类展会的新需求；东北振兴与沈阳建设先进制造业基地为本展会注入战略意义。</p>
+
+    <h3 style="margin: 32px 0 18px; font-size: 16px; color: var(--ink-3); font-weight: 600;">影响展会的四股力量</h3>
+
+    <div class="grid-2">
+      <div class="force-card">
+        <div class="icon" style="background: rgba(30, 64, 175, 0.12); color: var(--primary);">📈</div>
+        <span class="label">Force 01 · 行业趋势</span>
+        <h3>会展业从规模恢复转向质量提升</h3>
+        <p>近年国内经贸类展会数量与展览面积稳步发展，<b>大型专业展会、产业链型展会的作用更加突出</b>。判断展会成败不再只看规模，而要看是否促成有效贸易、技术交流、产业链接、品牌传播和区域经济带动。</p>
+        <div class="source">资料 · 中国贸促会会展业发展报告</div>
+      </div>
+
+      <div class="force-card">
+        <div class="icon" style="background: rgba(245, 158, 11, 0.14); color: var(--accent);">🤖</div>
+        <span class="label">Force 02 · 产业升级</span>
+        <h3>制造业智能化升级带来新需求</h3>
+        <p>制造业从传统制造向<b>智能制造、绿色制造、服务型制造</b>转型。工业机器人、工业互联网、AI、数字孪生不断进入生产场景，企业对设备更新、工艺改造、数字化转型的需求持续增强；装备类展会承担技术扩散、需求对接和产业资源集聚的功能。</p>
+        <div class="source">政策 · 《中国制造 2025》《"十四五"现代服务业发展规划》</div>
+      </div>
+
+      <div class="force-card">
+        <div class="icon" style="background: rgba(16, 185, 129, 0.14); color: var(--ok);">🏗️</div>
+        <span class="label">Force 03 · 区域战略</span>
+        <h3>东北全面振兴战略持续推进</h3>
+        <p>装备制造业是东北的传统优势产业，也是新质生产力培育的重要基础。沈阳的机床、机器人、通用设备、航空装备、汽车零部件、能源装备等产业资源较为集中。展会的发展不是孤立的会展行为，而是<b>产业发展、城市发展和区域振兴共同作用的结果</b>。</p>
+        <div class="source">政策 · 《关于全面振兴东北地区等老工业基地的若干意见》</div>
+      </div>
+
+      <div class="force-card">
+        <div class="icon" style="background: rgba(139, 92, 246, 0.12); color: var(--plum);">🏙️</div>
+        <span class="label">Force 04 · 城市基地</span>
+        <h3>沈阳建设国家先进制造业基地</h3>
+        <p>沈阳承担国家先进制造业基地建设任务，对外展示城市产业形象的窗口需求强烈。中国制博会在沈阳举办，既符合城市产业基础，也能服务东北地区产业转型升级，与城市的招商引资、人才引进、品牌传播深度联动。</p>
+        <div class="source">规划 · 沈阳市先进制造业发展规划</div>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top: 32px;">
+      <strong>判断</strong> · 把中国制博会看作一个"展览"是不够的——它是产业、城市、区域三个尺度政策意图的承载体。这也意味着评判展会的标尺，不能只用"展位数"和"成交额"，必须扩展到产业服务、城市品牌、区域协同三个维度。
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= 二、项目基础 ================= -->
+  <section class="section">
+    <div class="eyebrow">Project Foundation</div>
+    <h2>二、项目基本情况</h2>
+    <p class="lede">中国国际装备制造业博览会长期在沈阳举办，是装备制造业领域具有较高知名度和持续性的专业展会。</p>
+
+    <table class="tbl" style="margin-top: 28px;">
+      <thead><tr><th>维度</th><th>主要内容</th><th>调研判断</th></tr></thead>
+      <tbody>
+        <tr><td><b>展会名称</b></td><td>中国国际装备制造业博览会</td><td>真实展览项目，符合调研对象要求</td></tr>
+        <tr><td><b>举办地</b></td><td>沈阳国际展览中心</td><td>与沈阳装备制造产业基础和东北振兴战略强关联</td></tr>
+        <tr><td><b>展会届次</b></td><td>第二十三届</td><td>项目持续性强，品牌积累稳定</td></tr>
+        <tr><td><b>展会主题</b></td><td>智能新装备 · 新质生产力</td><td>契合智能制造与产业升级方向</td></tr>
+        <tr><td><b>项目属性</b></td><td>国家级大型经贸展览活动 · 装备制造业专业展会</td><td>具备产业服务、经贸撮合和城市会展带动功能</td></tr>
+        <tr><td><b>主要功能</b></td><td>产品展示、经贸撮合、技术交流、招商对接、产业组织</td><td>非单一展销活动，是综合产业平台</td></tr>
+        <tr><td><b>覆盖产业链</b></td><td>上游零部件/材料/刀具/基础件 + 中游机床/自动化/机器人 + 下游应用场景</td><td>具备全产业链组织能力</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin: 36px 0 18px; font-size: 16px; color: var(--ink-3); font-weight: 600;">三阶段功能演进</h3>
+
+    <div class="grid-3">
+      <div class="stage-block s1">
+        <div class="stage-num">Stage 01 · 1999-2010</div>
+        <h3>规模扩张阶段</h3>
+        <div class="years">第 1 - 10 届</div>
+        <p style="font-size: 14px; color: var(--ink-3); line-height: 1.7;">主要解决"<b style="color: var(--ink-1);">有没有</b>"的问题，重点是吸引企业参展、扩充展位规模、建立基础品牌识别度。</p>
+        <div class="keywords">
+          <span>办展惯性</span>
+          <span>规模优先</span>
+          <span>品牌雏形</span>
+        </div>
+      </div>
+
+      <div class="stage-block s2">
+        <div class="stage-num">Stage 02 · 2011-2020</div>
+        <h3>产业深化阶段</h3>
+        <div class="years">第 11 - 20 届</div>
+        <p style="font-size: 14px; color: var(--ink-3); line-height: 1.7;">主要解决"<b style="color: var(--ink-1);">专不专</b>"的问题，重点是构建机床、机器人、自动化、专用设备等专业展区，提升专业化程度。</p>
+        <div class="keywords">
+          <span>专业分区</span>
+          <span>同期论坛</span>
+          <span>产业链组织</span>
+        </div>
+      </div>
+
+      <div class="stage-block s3">
+        <div class="stage-num">Stage 03 · 2021-至今</div>
+        <h3>平台升级阶段</h3>
+        <div class="years">第 21 届起 · 当前</div>
+        <p style="font-size: 14px; color: var(--ink-3); line-height: 1.7;">主要解决"<b style="color: var(--ink-1);">强不强</b>"的问题，重点是从展示型展会向<b>智能制造产业链服务平台</b>转型，强调数字化、国际化和产业链协同。</p>
+        <div class="keywords">
+          <span>数字化云展</span>
+          <span>新质生产力</span>
+          <span>平台服务</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= 三、第二十三届运行情况 ================= -->
+  <section class="section">
+    <div class="eyebrow">23rd Edition</div>
+    <h2>三、第二十三届运行情况</h2>
+    <p class="lede">第二十三届展会于 2025 年 9 月在沈阳启幕。从展览规模、展区结构、参展主体、线上线下结合四个角度看，已具备大型专业展会的全部特征。</p>
+
+    <h3 style="margin: 32px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">关键运营指标</h3>
+
+    <div class="stat-grid on-light">
+      <div class="stat">
+        <div class="stat-label">Exhibition Area</div>
+        <div class="stat-value">9<span class="stat-unit">万㎡</span></div>
+        <div class="stat-desc">达大型专业展会规模</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Exhibitors</div>
+        <div class="stat-value">912<span class="stat-unit">家</span></div>
+        <div class="stat-desc">海内外厂商集聚</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Booths</div>
+        <div class="stat-value">3,056</div>
+        <div class="stat-desc">12 个专业展区</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Day-1 Intent</div>
+        <div class="stat-value">15.8<span class="stat-unit">亿</span></div>
+        <div class="stat-desc">开幕日意向成交</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 32px;">
+      <div class="card lead-blue">
+        <h3>展览规模评估</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">9 万㎡展览面积达到大型专业展会规模；3056 个展位说明展会能够承载较为丰富的产品类别和企业展示需求；912 家参展企业意味着项目具有一定产业覆盖面；开幕当日 15.8 亿元意向成交额则说明展会不仅有展示价值，也具有较明显的<b>交易撮合功能</b>。</p>
+      </div>
+      <div class="card lead-amber">
+        <h3>展区结构特征</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">12 个专业展区既包含传统装备制造基础板块，也突出智能化、自动化、机器人等新兴方向，反映出中国制博会正在<b>从传统装备展示向智能制造解决方案展示转型</b>。工业机器人、工业自动化和工业互联网相关内容的加入，使展会更符合制造业数字化转型需求。</p>
+      </div>
+    </div>
+
+    <h3 style="margin: 36px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">展区构成可视化</h3>
+
+    <div class="card" style="padding: 16px;">
+      <p class="sub" style="padding: 12px 12px 0;">图F2 · 12 个专业展区按主题与产业链定位划分（基于产业链结构推算）</p>
+      <div id="chart-f2" class="chart tall"></div>
+    </div>
+
+    <h3 style="margin: 36px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">三阶段功能演进可视化</h3>
+
+    <div class="card" style="padding: 16px;">
+      <p class="sub" style="padding: 12px 12px 0;">图F4 · 1999-2025 年三阶段演进与关键里程碑</p>
+      <div id="chart-f4" class="chart"></div>
+    </div>
+
+    <div class="callout info" style="margin-top: 28px;">
+      <strong>参展主体特征</strong> · 头部企业的参与提升技术层级，地方展团和行业协会的参与扩大产业链覆盖。<b>本届展会同时具备这两类参展主体</b>，但仍需通过精准观众组织把数量优势转化为质量合作。
+    </div>
+
+    <h3 style="margin: 36px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">线上云展拓展服务边界</h3>
+
+    <div class="card lead-violet">
+      <p style="color: var(--ink-3); font-size: 14px; line-height: 1.8;">本届展会采用线下与线上云展相结合的形式，体现会展数字化趋势。线上云展突破线下展期和场馆空间限制，可帮助未到场的观众获取展商信息，也能为参展企业提供持续展示窗口。</p>
+      <p style="color: var(--ink-3); font-size: 14px; line-height: 1.8; margin-top: 14px;">但线上云展的价值不应停留在"<b style="color: var(--ink-1);">把展商资料搬到线上</b>"。更高水平的数字会展应包括展前预约、需求发布、智能推荐、会议排期、名片交换、线索管理、展后回访、数据分析等完整功能。中国制博会已经具备线上云展基础，下一步关键在于从"<b style="color: var(--ink-1);">线上展示</b>"升级为"<b style="color: var(--ink-1);">线上撮合</b>"和"<b style="color: var(--ink-1);">数据运营</b>"——这正是第三部分建议方案的重要切入点。</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ================= 四、综合价值 ================= -->
+  <section class="section">
+    <div class="eyebrow">Comprehensive Value</div>
+    <h2>四、展会发展成效与综合价值</h2>
+    <p class="lede">五个维度综合评分（基于公开数据与调研判断）：规模集聚 88 分、产业服务 82 分、经贸撮合 78 分、城市带动 74 分、数字拓展 62 分。</p>
+
+    <div class="card" style="padding: 16px; margin-top: 28px;">
+      <p class="sub" style="padding: 12px 12px 0;">图F3 · 五大成效维度评分</p>
+      <div id="chart-f3" class="chart"></div>
+    </div>
+
+    <h3 style="margin: 36px 0 18px; font-size: 16px; color: var(--ink-3); font-weight: 600;">三类核心价值剖析</h3>
+
+    <div class="grid-3">
+      <div class="card lead-blue">
+        <span class="tag">价值一</span>
+        <h3 style="margin-top: 8px;">服务产业链协同</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">装备制造业链条长、专业分工细、设备采购决策周期长，企业之间信息不对称较为明显。展会通过集中展示与集中交流，<b>为供应商、采购商、系统集成商和服务机构提供面对面沟通平台</b>。</p>
+        <div class="card-foot">核心：高密度连接</div>
+      </div>
+
+      <div class="card lead-amber">
+        <span class="tag warn">价值二</span>
+        <h3 style="margin-top: 8px;">促进城市经济与品牌</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">大型专业展会带动酒店、餐饮、交通、文旅、商务服务等关联消费，对外展示沈阳作为<b>先进制造业基地</b>和东北重要中心城市的产业形象，推动城市从"老工业基地"向"先进制造业创新城市"形象转变。</p>
+        <div class="card-foot">核心：城市品牌外溢</div>
+      </div>
+
+      <div class="card lead-green">
+        <span class="tag success">价值三</span>
+        <h3 style="margin-top: 8px;">推动平台属性养成</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">展会已不再只是单纯的设备展示场景，而是逐步具备<b>产业服务平台属性</b>。聚合政府部门、行业协会、龙头企业、中小企业、采购商、媒体、金融机构和科研机构，形成产业信息交换和资源链接场域。</p>
+        <div class="card-foot">核心：平台化雏形</div>
+      </div>
+    </div>
+
+    <h3 style="margin: 36px 0 18px; font-size: 16px; color: var(--ink-3); font-weight: 600;">表 4 · 五维度成效与提升方向</h3>
+
+    <table class="tbl">
+      <thead><tr><th>成效维度</th><th>具体表现</th><th>提升方向</th></tr></thead>
+      <tbody>
+        <tr><td><b>规模集聚</b></td><td>面积、展位、参展企业规模较大</td><td>从规模优势转向质量与匹配效率</td></tr>
+        <tr><td><b>产业服务</b></td><td>覆盖装备制造多个关键领域</td><td>强化产业链供需对接与解决方案展示</td></tr>
+        <tr><td><b>经贸撮合</b></td><td>形成较高意向成交额</td><td>建立展后线索跟踪和成交转化机制</td></tr>
+        <tr><td><b>城市带动</b></td><td>展示沈阳制造业形象，带动会展消费</td><td>增强城市产业品牌与文旅商务联动</td></tr>
+        <tr><td><b>数字拓展</b></td><td>采用线上云展形式</td><td>从信息展示升级为智能推荐与数据运营</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="divider thick"></div>
+
+  <section class="section">
+    <div class="eyebrow">Looking Ahead</div>
+    <h2>本部分小结</h2>
+
+    <div class="quote">
+      项目当前面临的不是"做不做大"的问题，而是<b>"做得专不专、转化深不深、服务远不远"</b>的问题。
+    </div>
+
+    <p style="color: var(--ink-2); font-size: 15px; line-height: 1.85; margin-top: 16px;">从规模指标看，第二十三届展会已经走完"规模扩张"与"产业深化"两个阶段；从行业趋势看，会展业正在从规模恢复转向质量提升；从产业升级看，制造业向新质生产力跃迁带来的需求只多不少。这些信号共同指向：<b style="color: var(--ink-1);">项目正进入"平台升级"阶段，下一步的关键不再是"展什么、展多少"，而是"如何把规模优势转化为产业链服务能力"</b>。</p>
+
+    <div class="callout info" style="margin-top: 28px;">
+      <strong>下一步</strong> · 把展会面临的具体挑战定义为"问题"，按"影响 × 紧迫性"双维度评估——前往 <a href="problems.html">第二部分 · 存在问题</a> 看九大结构性矛盾。
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/charts.js?v=202606010130"></script>
+<script>
+  renderChart('chart-f2', 'F2');
+  renderChart('chart-f3', 'F3');
+  renderChart('chart-f4', 'F4');
+</script>
+</body>
+</html>

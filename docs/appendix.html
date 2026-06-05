@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>附录工具 · 中国制博会调研</title>
+<meta name="description" content="附录 A 在线问卷可填写、附录 B 访谈提纲、附录 C 现场观察表。">
+<meta property="og:title" content="附录工具 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<script src="assets/js/echarts.min.js?v=2026060501"></script>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Research Tools</div>
+    <h1>调研工具<br/>问卷 · 访谈 · 观察</h1>
+    <p class="lede" style="margin-top: 24px;">附录 A 在线问卷可现场扫码填写，本地保存并导出 CSV；附录 B 是参展商访谈提纲；附录 C 是现场观察记录表。所有图表与 Word 报告附录中的图保持一致。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- 附录 A 在线问卷 -->
+  <section class="section">
+    <div class="eyebrow">Appendix A</div>
+    <h2>专业观众调查问卷</h2>
+    <p class="lede">填写约需 5 分钟，提交后可在浏览器中导出 CSV，便于团队整理。</p>
+
+    <div class="card">
+      <form id="survey-form">
+
+        <div class="q-block">
+          <div class="q-title">1. 您的身份类型</div>
+          <label><input type="radio" name="q1" value="采购"> 采购负责人</label>
+          <label><input type="radio" name="q1" value="技术"> 技术负责人</label>
+          <label><input type="radio" name="q1" value="管理"> 企业管理者</label>
+          <label><input type="radio" name="q1" value="销售"> 销售/渠道</label>
+          <label><input type="radio" name="q1" value="科研"> 科研/高校</label>
+          <label><input type="radio" name="q1" value="学生"> 学生</label>
+          <label><input type="radio" name="q1" value="其他"> 其他</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">2. 您所在企业的性质</div>
+          <label><input type="radio" name="q2" value="国企"> 国企</label>
+          <label><input type="radio" name="q2" value="民企"> 民企</label>
+          <label><input type="radio" name="q2" value="外企"> 外企</label>
+          <label><input type="radio" name="q2" value="科研院所"> 科研院所</label>
+          <label><input type="radio" name="q2" value="高校"> 高校</label>
+          <label><input type="radio" name="q2" value="其他"> 其他</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">3. 您关注的展区（可多选）</div>
+          <label><input type="checkbox" name="q3" value="机床"> 机床工具</label>
+          <label><input type="checkbox" name="q3" value="自动化"> 工业自动化/工业机器人</label>
+          <label><input type="checkbox" name="q3" value="软件"> 工业软件与互联网</label>
+          <label><input type="checkbox" name="q3" value="节能"> 节能环保装备</label>
+          <label><input type="checkbox" name="q3" value="国际"> 国际展区</label>
+          <label><input type="checkbox" name="q3" value="航空"> 航空航天与高端装备</label>
+          <label><input type="checkbox" name="q3" value="其他"> 其他</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">4. 您本次参观主要目的（可多选）</div>
+          <label><input type="checkbox" name="q4" value="采购"> 采购设备</label>
+          <label><input type="checkbox" name="q4" value="技术"> 了解技术</label>
+          <label><input type="checkbox" name="q4" value="供应商"> 寻找供应商</label>
+          <label><input type="checkbox" name="q4" value="论坛"> 参加论坛</label>
+          <label><input type="checkbox" name="q4" value="市场"> 考察市场</label>
+          <label><input type="checkbox" name="q4" value="学习"> 学习交流</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">5. 您未来 12 个月是否有装备采购计划</div>
+          <label><input type="radio" name="q5" value="明确"> 已明确预算</label>
+          <label><input type="radio" name="q5" value="评估"> 正在评估</label>
+          <label><input type="radio" name="q5" value="待定"> 待定</label>
+          <label><input type="radio" name="q5" value="无"> 暂无</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">6. 您对以下方面的满意度（1=很不满意，5=很满意）</div>
+          <div id="likert-list"></div>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">7. 您是否使用过本届展会的数字化服务</div>
+          <label><input type="checkbox" name="q7" value="云展"> 线上云展</label>
+          <label><input type="checkbox" name="q7" value="导览"> 数字导览</label>
+          <label><input type="checkbox" name="q7" value="预约"> 预约洽谈</label>
+          <label><input type="checkbox" name="q7" value="名片"> 电子名片</label>
+          <label><input type="checkbox" name="q7" value="未用"> 均未使用</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">8. 您是否愿意推荐同行参观（NPS 0-10）</div>
+          <input type="range" name="q8" min="0" max="10" value="7" oninput="this.nextElementSibling.value=this.value" />
+          <output style="display:inline-block; padding: 2px 10px; background: var(--bg-soft); border-radius: 6px; margin-left: 8px;">7</output>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">9. 您认为展会最需要改进的方面（不超过 3 项）</div>
+          <label><input type="checkbox" name="q9" value="展商质量"> 展商质量</label>
+          <label><input type="checkbox" name="q9" value="观众组织"> 观众组织</label>
+          <label><input type="checkbox" name="q9" value="导览服务"> 导览服务</label>
+          <label><input type="checkbox" name="q9" value="数字平台"> 数字平台</label>
+          <label><input type="checkbox" name="q9" value="活动内容"> 活动内容</label>
+          <label><input type="checkbox" name="q9" value="餐饮交通"> 餐饮交通</label>
+          <label><input type="checkbox" name="q9" value="展后服务"> 展后服务</label>
+        </div>
+
+        <div class="q-block">
+          <div class="q-title">10. 其他建议</div>
+          <textarea name="q10" placeholder="可以填写您对展会的具体建议……"></textarea>
+        </div>
+
+        <div style="margin-top:24px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn-primary" onclick="saveResponse()">提交并保存到本地</button>
+          <button type="button" class="btn btn-accent" onclick="exportCSV()">导出 CSV</button>
+          <span id="save-tip" style="margin-left:12px; color:var(--ok); font-size:13px;"></span>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 附录 B -->
+  <section class="section">
+    <div class="eyebrow">Appendix B</div>
+    <h2>参展商深度访谈提纲</h2>
+    <p class="lede">半结构化访谈，建议每场 30-45 分钟，覆盖龙头/中小/首次参展三类至少各 8 家。</p>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>① 暖场与企业基本情况</h3>
+        <ol style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>请介绍贵公司主营业务和典型客户</li>
+          <li>这是贵公司第几次参加中国制博会，本届展位面积与人员配置如何</li>
+          <li>本届展品的主要亮点是什么</li>
+        </ol>
+      </div>
+      <div class="card lead-blue">
+        <h3>② 参展目标与预期</h3>
+        <ol start="4" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>本届主要参展目标是什么，请按重要性排序</li>
+          <li>对有效线索数量、意向成交额是否有预期，与上一届相比是否调整</li>
+        </ol>
+      </div>
+      <div class="card lead-amber">
+        <h3>③ 现场效果评价</h3>
+        <ol start="6" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>本届现场客流的数量、专业度和决策层级如何</li>
+          <li>目标客户匹配度与洽谈深度是否符合预期</li>
+          <li>新产品发布反响如何，与往届相比变化</li>
+        </ol>
+      </div>
+      <div class="card lead-amber">
+        <h3>④ 主办方服务体验</h3>
+        <ol start="9" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>招商沟通、报名注册、布撤展三个环节，最满意与最希望改进的各一项</li>
+          <li>现场服务整体如何</li>
+          <li>对宣传推广的评价</li>
+          <li>对数字平台的使用感受</li>
+        </ol>
+      </div>
+      <div class="card lead-green">
+        <h3>⑤ 展后转化与复展意愿</h3>
+        <ol start="13" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>展期内沟通的客户预计多久能转化为有效订单</li>
+          <li>希望主办方提供怎样的展后服务</li>
+          <li>下一届是否计划继续参展，展位面积或形式是否调整</li>
+        </ol>
+      </div>
+      <div class="card lead-green">
+        <h3>⑥ 升级建议</h3>
+        <ol start="16" style="line-height:1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li>对展会战略定位的看法，是否赞同"北方智能制造产业链服务平台"</li>
+          <li>对国际化与产学研合作的期待</li>
+          <li>对绿色低碳会展的态度与建议</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 附录 C -->
+  <section class="section">
+    <div class="eyebrow">Appendix C</div>
+    <h2>现场观察记录表</h2>
+    <p class="lede">建议至少 2 名观察员、覆盖 4 天展期、每天分上下午两段。</p>
+
+    <div class="card" style="margin-top: 24px;">
+      <h4>C-1 观察基本信息</h4>
+      <table class="tbl" style="margin-top: 12px;">
+        <tr><td><b>观察日期</b></td><td>____ 年 ____ 月 ____ 日（星期 ____）</td></tr>
+        <tr><td><b>观察员</b></td><td>____________</td></tr>
+        <tr><td><b>天气</b></td><td>____________</td></tr>
+        <tr><td><b>覆盖展区</b></td><td>____________</td></tr>
+        <tr><td><b>观察时段</b></td><td>□ 上午 09:00-12:00 □ 下午 13:00-17:00</td></tr>
+        <tr><td><b>方式</b></td><td>□ 定点 □ 动线 □ 跟随</td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h4>C-2 现场动线与人流</h4>
+      <table class="tbl" style="margin-top: 12px;">
+        <thead><tr><th>时段</th><th>排队</th><th>密度</th><th>热门展区</th><th>冷门展区</th><th>拥堵点</th></tr></thead>
+        <tbody>
+          <tr><td>09-10</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>10-11</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>11-12</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>13-14</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>14-15</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+          <tr><td>15-16</td><td></td><td>疏/中/密</td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h4>C-3 现场服务与数字工具</h4>
+      <table class="tbl" style="margin-top: 12px;">
+        <thead><tr><th>项目</th><th>评分 (1-5)</th><th>观察记录</th></tr></thead>
+        <tbody>
+          <tr><td>导览牌清晰度</td><td></td><td></td></tr>
+          <tr><td>咨询台响应时间</td><td></td><td></td></tr>
+          <tr><td>志愿者专业度</td><td></td><td></td></tr>
+          <tr><td>餐饮排队时长</td><td></td><td></td></tr>
+          <tr><td>休息区使用率</td><td></td><td></td></tr>
+          <tr><td>商务洽谈区使用率</td><td></td><td></td></tr>
+          <tr><td>云展/数字工具使用</td><td></td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script>
+  // Likert 满意度
+  const likertItems = [
+    '展前邀请与信息推送', '注册流程', '现场导览', '展商质量',
+    '专业观众密度', '同期活动', '洽谈环境', '餐饮交通',
+    '线上云展', '展后跟进'
+  ];
+  const ll = document.getElementById('likert-list');
+  ll.innerHTML = likertItems.map((it, i) => `
+    <div style="display:flex; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line-1);">
+      <div style="flex:1;">${it}</div>
+      <div class="likert">
+        ${[1,2,3,4,5].map(v => `<label><input type="radio" name="q6_${i}" value="${v}"><span>${v}</span></label>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  function collect() {
+    const f = document.getElementById('survey-form');
+    const data = { _ts: new Date().toISOString() };
+    new FormData(f).forEach((v, k) => {
+      if (data[k]) data[k] = [].concat(data[k], v);
+      else data[k] = v;
+    });
+    return data;
+  }
+
+  function saveResponse() {
+    const list = JSON.parse(localStorage.getItem('survey_list') || '[]');
+    list.push(collect());
+    localStorage.setItem('survey_list', JSON.stringify(list));
+    document.getElementById('save-tip').innerText = '已保存到本地，共 ' + list.length + ' 条';
+  }
+
+  function exportCSV() {
+    const list = JSON.parse(localStorage.getItem('survey_list') || '[]');
+    if (!list.length) { alert('暂无问卷记录，先点击"提交并保存到本地"。'); return; }
+    const keys = Array.from(new Set(list.flatMap(r => Object.keys(r))));
+    const csv = [keys.join(',')].concat(list.map(r => keys.map(k => {
+      const v = r[k] == null ? '' : (Array.isArray(r[k]) ? r[k].join('|') : r[k]);
+      return '"' + String(v).replace(/"/g, '""') + '"';
+    }).join(','))).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'survey_export.csv'; a.click();
+    URL.revokeObjectURL(url);
+  }
+  window.saveResponse = saveResponse;
+  window.exportCSV = exportCSV;
+</script>
+</body>
+</html>

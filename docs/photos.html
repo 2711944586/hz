@@ -1,71 +1,244 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>现场照片 · 中国制博会调研</title>
-  <meta name="description" content="第二十三届中国国际装备制造业博览会现场图片资料，呈现展会规模、展品、观众交流和现场运营场景。">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260602">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>现场照片 · 中国制博会调研</title>
+<meta name="description" content="展馆 / 展区 / 洽谈 / 调研工作 / 沈阳工业文旅延伸 五个分组照片墙。">
+<meta property="og:title" content="现场照片 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=2026060501" />
+<style>
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .photo {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    position: relative;
+    transition: all .2s;
+  }
+  .photo:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in oklab, var(--primary) 25%, var(--line-1));
+  }
+  .photo .ph-img {
+    aspect-ratio: 16/10;
+    background-size: cover;
+    background-position: center;
+  }
+  .photo .ph-meta { padding: 14px 18px 18px; }
+  .photo .ph-meta h3 { font-size: 15px; margin-bottom: 4px; }
+  .photo .ph-meta p { font-size: 12px; color: var(--ink-4); margin: 0; font-family: var(--font-en); }
+  .photo .ph-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: rgba(255,255,255,0.95); color: var(--primary);
+    padding: 3px 12px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .real-photo-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    gap: 16px;
+  }
+  .real-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--line-1);
+    background: var(--bg-soft);
+    min-height: 240px;
+  }
+  .real-photo.featured {
+    grid-row: span 2;
+    min-height: 500px;
+  }
+  .real-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+    transition: transform .3s ease;
+  }
+  .real-photo:hover img { transform: scale(1.035); }
+  .real-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 48%, rgba(6, 11, 20, .78));
+  }
+  .real-photo figcaption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    z-index: 1;
+    color: #fff;
+  }
+  .real-photo figcaption b {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.35;
+  }
+  .real-photo figcaption span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, .76);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  @media (max-width: 920px) {
+    .real-photo-grid { grid-template-columns: 1fr; }
+    .real-photo, .real-photo.featured { min-height: 260px; grid-row: auto; }
+  }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="inner">
-      <a class="brand" href="index.html"><span class="brand-mark">制</span><span>中国制博会调研</span></a>
-      <nav class="nav">
-        <a href="index.html">首页</a>
-        <a href="report.html">报告内容</a>
-        <a href="charts.html">图表</a>
-        <a href="photos.html">照片</a>
-        <a href="data.html">数据口径</a>
-        <a href="download.html">完整报告</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="page-hero">
-    <div class="hero-inner">
-      <span class="pill">现场图片</span>
-      <h1>以现场场景补强报告叙事</h1>
-      <p>图片资料用于呈现展会规模、装备展品、观众交流、商务洽谈和现场动线，并按研究主题组织，便于公开浏览。</p>
+<section class="hero gradient photo-hero photo-page-hero">
+  <div class="inner narrow">
+    <div class="eyebrow">Photo Wall</div>
+    <h1>现场照片<br/>展会与调研记录</h1>
+    <p class="lede" style="margin-top: 24px;">本节优先展示真实现场图，补强展会规模、装备展品、机器人演示、观众交流和商务洽谈的现场感；主题占位图保留为后续团队实拍替换位。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <section class="section">
+    <div class="callout info">
+      <strong>图片口径</strong> · 页面包含真实现场图与主题占位图两类素材。真实现场图用于呈现展会氛围与研究证据；占位图用于固定版面与拍摄清单，后续可由团队自有实拍逐张替换。
     </div>
   </section>
 
-  <main class="container">
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <span class="pill">照片墙</span>
-          <h2>现场公开图片资料</h2>
-        </div>
-        <p>照片不单独承担结论，而是与报告中的规模分析、展区观察、专业观众组织和服务体验分析共同使用。</p>
-      </div>
-      <div class="figure-grid" data-photos></div>
-    </section>
-
-    <section class="section">
-      <div class="band">
-        <div class="section-head">
-          <div>
-            <span class="pill">图片入文方式</span>
-            <h2>图片与正文的对应关系</h2>
-          </div>
-          <p>完整报告在“现场图片资料”部分集中收录图片，同时在发展情况、问题诊断和优化建议中引用相应场景，使图片成为研究证据的一部分。</p>
-        </div>
-        <div class="grid three">
-          <article class="card"><h3>规模感</h3><p>全景与人流图片对应展览面积、观众规模、动线组织和现场服务承载能力。</p></article>
-          <article class="card"><h3>产业感</h3><p>机器人、智能装备、高端设备图片对应展区内容和产业链服务平台定位。</p></article>
-          <article class="card"><h3>交易感</h3><p>洽谈、参观、交流图片对应专业观众组织、供需匹配和展后转化机制。</p></article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>第二十三届中国国际装备制造业博览会调研报告</div>
-      <div class="footer-links"><a href="report.html">报告内容</a><a href="charts.html">图表</a><a href="download.html">完整报告</a></div>
+  <section class="section">
+    <div class="eyebrow">Real Photos</div>
+    <h2>真实现场图</h2>
+    <p class="lede">展品展示、机器人互动、专业观众交流、展区洽谈和现场动线，是判断专业观众组织、现场服务体验和展后转化机制的重要参照。</p>
+    <div class="real-photo-grid" style="margin-top: 26px;">
+      <figure class="real-photo featured">
+        <img src="assets/img/figure-01.jpg" alt="展会现场全景" loading="lazy">
+        <figcaption><b>展会现场全景</b><span>展台尺度、主视觉、观众流动与现场运营氛围。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-45.jpg" alt="智能装备展区" loading="lazy">
+        <figcaption><b>智能装备展区</b><span>智能装备、演示区与专业观众互动。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-46.jpg" alt="机器人现场演示" loading="lazy">
+        <figcaption><b>机器人现场演示</b><span>机器人展品强化展会智能制造识别度。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-47.jpg" alt="专业观众交流" loading="lazy">
+        <figcaption><b>专业观众交流</b><span>技术咨询、采购沟通与需求采集场景。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-48.jpg" alt="重点装备展示" loading="lazy">
+        <figcaption><b>重点装备展示</b><span>高端装备与应用场景构成展区内容厚度。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-49.jpg" alt="展区商务洽谈" loading="lazy">
+        <figcaption><b>展区商务洽谈</b><span>供需对接、商务洽谈和线索沉淀。</span></figcaption>
+      </figure>
+      <figure class="real-photo">
+        <img src="assets/img/figure-50.jpg" alt="现场参观动线" loading="lazy">
+        <figcaption><b>现场参观动线</b><span>标识、通行、展台停留与服务体验。</span></figcaption>
+      </figure>
     </div>
-  </footer>
-  <script src="assets/js/main.js?v=20260602"></script>
+  </section>
+
+  <section class="section">
+    <div class="callout warn">
+      <strong>主题占位图</strong> · 以下 18 张占位图保留 16:10 比例和分类标签，作为正式拍摄清单：展馆入口、专业展区、同期活动、调研工作、沈阳工业文旅延伸。后续替换为团队自有照片时无需调整页面版式。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Group 01</div>
+    <h2>展馆与入口</h2>
+    <div class="photo-grid" id="grp-venue" style="margin-top: 24px;"></div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Group 02</div>
+    <h2>主要展区与展品</h2>
+    <div class="photo-grid" id="grp-zone" style="margin-top: 24px;"></div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Group 03</div>
+    <h2>洽谈与同期活动</h2>
+    <div class="photo-grid" id="grp-event" style="margin-top: 24px;"></div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Group 04</div>
+    <h2>调研工作记录</h2>
+    <div class="photo-grid" id="grp-research" style="margin-top: 24px;"></div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Group 05</div>
+    <h2>沈阳工业文旅延伸</h2>
+    <div class="photo-grid" id="grp-shenyang" style="margin-top: 24px;"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="callout info">
+      <strong>照片使用与版权</strong> · 公开来源图片仅用于调研作品展示与学习研究；正式提交版本如使用媒体或展会官方图片，应在报告脚注中标注来源。团队自有实拍替换时，人物近景需征得当事人同意。
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script>
+  const groups = {
+    venue: ['venue-exterior', 'venue-entrance', 'venue-banner'],
+    zone: ['zone-machine-tool', 'zone-robot', 'zone-software', 'zone-green', 'zone-international', 'zone-tourism'],
+    event: ['event-business', 'event-forum', 'event-launch'],
+    research: ['research-observe', 'research-survey', 'research-interview'],
+    shenyang: ['shenyang-museum', 'shenyang-factory', 'shenyang-univ']
+  };
+
+  fetch('assets/photos/index.json').then(r => r.json()).then(photos => {
+    const map = {};
+    photos.forEach(p => map[p.id] = p);
+    Object.entries(groups).forEach(([key, ids]) => {
+      const grid = document.getElementById('grp-' + key);
+      grid.innerHTML = ids.map(id => {
+        const p = map[id];
+        if (!p) return '';
+        return `
+          <article class="photo">
+            <a href="assets/photos/${id}.png" target="_blank">
+              <span class="ph-tag">${p.tag}</span>
+              <div class="ph-img" style="background-image: url('assets/photos/${id}.png');"></div>
+            </a>
+            <div class="ph-meta">
+              <h3>${p.label}</h3>
+              <p>${p.en}</p>
+            </div>
+          </article>
+        `;
+      }).join('');
+    });
+  });
+</script>
 </body>
 </html>

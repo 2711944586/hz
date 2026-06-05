@@ -1,0 +1,146 @@
+[
+  {
+    "id": "venue-exterior",
+    "label": "展馆外景",
+    "en": "Venue Exterior",
+    "tag": "外景",
+    "accent": "#1E40AF",
+    "icon": "building"
+  },
+  {
+    "id": "venue-entrance",
+    "label": "主入口签到",
+    "en": "Main Entrance & Check-in",
+    "tag": "入场",
+    "accent": "#3B82F6",
+    "icon": "gate"
+  },
+  {
+    "id": "venue-banner",
+    "label": "展会主视觉",
+    "en": "Theme: Smart Equipment, New Productivity",
+    "tag": "主题",
+    "accent": "#0F1F4F",
+    "icon": "banner"
+  },
+  {
+    "id": "zone-machine-tool",
+    "label": "工业母机展区",
+    "en": "Machine Tool Zone",
+    "tag": "机床",
+    "accent": "#1E40AF",
+    "icon": "gear"
+  },
+  {
+    "id": "zone-robot",
+    "label": "机器人现场演示",
+    "en": "Robotics Live Demo",
+    "tag": "机器人",
+    "accent": "#F59E0B",
+    "icon": "robot"
+  },
+  {
+    "id": "zone-software",
+    "label": "工业互联网",
+    "en": "Industrial Internet",
+    "tag": "智能软件",
+    "accent": "#8B5CF6",
+    "icon": "circuit"
+  },
+  {
+    "id": "zone-green",
+    "label": "绿色装备",
+    "en": "Green & Energy-saving Equipment",
+    "tag": "绿色装备",
+    "accent": "#10B981",
+    "icon": "leaf"
+  },
+  {
+    "id": "zone-international",
+    "label": "国际展团",
+    "en": "International Pavilion",
+    "tag": "国际",
+    "accent": "#06B6D4",
+    "icon": "globe"
+  },
+  {
+    "id": "zone-tourism",
+    "label": "工业文旅",
+    "en": "Industrial Tourism",
+    "tag": "文旅",
+    "accent": "#EC4899",
+    "icon": "star"
+  },
+  {
+    "id": "event-business",
+    "label": "商务洽谈区",
+    "en": "Business Negotiation Area",
+    "tag": "洽谈",
+    "accent": "#1E40AF",
+    "icon": "handshake"
+  },
+  {
+    "id": "event-forum",
+    "label": "智能制造论坛",
+    "en": "Smart Manufacturing Forum",
+    "tag": "论坛",
+    "accent": "#F59E0B",
+    "icon": "mic"
+  },
+  {
+    "id": "event-launch",
+    "label": "新品发布",
+    "en": "Product Launch",
+    "tag": "发布",
+    "accent": "#EF4444",
+    "icon": "rocket"
+  },
+  {
+    "id": "research-observe",
+    "label": "动线观察",
+    "en": "On-site Observation",
+    "tag": "观察",
+    "accent": "#3B82F6",
+    "icon": "eye"
+  },
+  {
+    "id": "research-survey",
+    "label": "问卷收集",
+    "en": "Survey Collection",
+    "tag": "问卷",
+    "accent": "#10B981",
+    "icon": "clipboard"
+  },
+  {
+    "id": "research-interview",
+    "label": "展商访谈",
+    "en": "Exhibitor Interview",
+    "tag": "访谈",
+    "accent": "#8B5CF6",
+    "icon": "chat"
+  },
+  {
+    "id": "shenyang-museum",
+    "label": "中国工业博物馆",
+    "en": "China Industrial Museum",
+    "tag": "文化",
+    "accent": "#92400E",
+    "icon": "museum"
+  },
+  {
+    "id": "shenyang-factory",
+    "label": "沈阳机床",
+    "en": "Shenyang Machine Tool",
+    "tag": "工厂",
+    "accent": "#1E40AF",
+    "icon": "factory"
+  },
+  {
+    "id": "shenyang-univ",
+    "label": "产学研对接",
+    "en": "Industry-University Collaboration",
+    "tag": "高校",
+    "accent": "#10B981",
+    "icon": "academy"
+  }
+]

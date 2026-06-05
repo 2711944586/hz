@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>图表画廊 · 中国制博会调研</title>
+<meta name="description" content="20 张可视化图表合集，高清下载与交互查看。">
+<meta property="og:title" content="图表画廊 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 18px;
+  }
+  .gallery .item {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    transition: all .25s;
+  }
+  .gallery .item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+  }
+  .gallery .item .thumb { background: var(--bg-soft); padding: 14px; }
+  .gallery .item .thumb img {
+    width: 100%; aspect-ratio: 16/10; object-fit: cover;
+    border-radius: var(--r-sm);
+    background: var(--bg-elev);
+  }
+  .gallery .item .meta { padding: 16px 20px 20px; }
+  .gallery .item .meta .id {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .gallery .item .meta h3 { font-size: 16px; margin-bottom: 4px; }
+  .gallery .item .meta p { color: var(--ink-3); font-size: 13px; line-height: 1.6; }
+  .gallery .item .actions {
+    display: flex; gap: 12px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--line-1);
+    font-size: 13px;
+  }
+  .gallery .item .actions a {
+    color: var(--ink-3);
+    transition: color .2s;
+  }
+  .gallery .item .actions a:hover { color: var(--primary); }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Charts Gallery</div>
+    <h1>20 张可视化图表</h1>
+    <p class="lede" style="margin-top: 24px;">所有图表与 Word 报告同源，1600×1000 高清 PNG。可直接下载用于答辩、海报与幻灯片，或点击交互版本查看完整数据。</p>
+  </div>
+</section>
+
+<div class="container wide">
+  <section class="section">
+    <div class="gallery" id="gallery"></div>
+  </section>
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script>
+  const items = [
+    { id: 'F1',  title: '规模演进信息图',          desc: '面积/企业/意向成交三十年趋势' },
+    { id: 'F2',  title: '12 个专业展区构成',        desc: '玫瑰图，按主题与产业链定位划分' },
+    { id: 'F3',  title: '发展五大成效评分',         desc: '横向条形 + 五维评分' },
+    { id: 'F4',  title: '功能阶段演进',             desc: '阶段甘特 + 关键节点' },
+    { id: 'F5',  title: '九大问题影响×紧迫性',      desc: '背靠背条形评估' },
+    { id: 'F6',  title: '问题—建议桑基图',          desc: '9 类问题映射 11 项建议' },
+    { id: 'F7',  title: '影响×可行性矩阵',          desc: '建议优先级散点矩阵' },
+    { id: 'F8',  title: '数字化三阶段闭环',         desc: '展前-展中-展后旭日图' },
+    { id: 'F9',  title: '五阶段实施甘特图',         desc: '单届筹办周期可视化' },
+    { id: 'F10', title: '评估指标体系树',           desc: '6 类×20 余项指标' },
+    { id: 'F11', title: '价值主张四象限',           desc: '对参展商/观众/政府/高校/公众' },
+    { id: 'F12', title: '传播渠道适配热力图',       desc: '受众×渠道匹配度' },
+    { id: 'F13', title: '沈阳产业链辐射网络',       desc: '中国制造业重点区域辐射' },
+    { id: 'F14', title: 'SWOT 战略分析',           desc: '优势/劣势/机会/威胁四象限' },
+    { id: 'F15', title: '同类展会对比',             desc: 'vs CIIF / CIMT / CHTF' },
+    { id: 'F16', title: '调研方法论流程',           desc: '六阶段定量+定性' },
+    { id: 'F17', title: '经济乘数效应分解',         desc: '直接/间接/诱发树图' },
+    { id: 'F18', title: '满意度模拟分布',           desc: '示例堆叠条形图' },
+    { id: 'F19', title: '核心 KPI 仪表盘',         desc: '六个关键指标当前值/目标值' },
+    { id: 'F20', title: '工业文旅联动路线',        desc: '展馆-工厂-高校-文化场所' },
+  ];
+  const g = document.getElementById('gallery');
+  g.innerHTML = items.map(it => `
+    <article class="item">
+      <a href="charts/chart.html?id=${it.id}" target="_blank" class="thumb">
+        <img src="assets/img/${it.id}.png" alt="${it.title}" loading="lazy">
+      </a>
+      <div class="meta">
+        <div class="id">${it.id}</div>
+        <h3>${it.title}</h3>
+        <p>${it.desc}</p>
+      </div>
+      <div class="actions">
+        <a href="assets/img/${it.id}.png" download>⬇️ 下载 PNG</a>
+        <a href="charts/chart.html?id=${it.id}" target="_blank">↗ 交互查看</a>
+      </div>
+    </article>
+  `).join('');
+</script>
+</body>
+</html>

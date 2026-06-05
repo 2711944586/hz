@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PDF 阅读 · 中国制博会调研</title>
+<meta name="description" content="完整调研报告 PDF 在线阅读，含调研报告版与合订本版。">
+<meta property="og:title" content="PDF 阅读 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<style>
+  .pdf-frame {
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    border: none;
+    border-radius: var(--r-md);
+    background: #525659;
+  }
+  .tab-row {
+    display: flex; gap: 6px;
+    padding: 6px;
+    background: var(--bg-soft);
+    border-radius: var(--r-md);
+    margin-bottom: 18px;
+    width: fit-content;
+  }
+  .tab-row button {
+    padding: 9px 18px; border: none;
+    background: transparent;
+    color: var(--ink-3);
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all .2s;
+  }
+  .tab-row button.active {
+    background: var(--bg-elev);
+    color: var(--ink-1);
+    box-shadow: var(--shadow-xs);
+  }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner">
+    <div class="eyebrow">PDF Reader</div>
+    <h1>完整调研报告<br/>在线阅读</h1>
+    <p class="lede" style="margin-top: 24px;">两个版本：调研报告（约 60 页，2 MB）与合订本（约 75 页，2.6 MB，含在线扩展与二维码）。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <section class="section">
+    <div class="card" style="padding: 18px;">
+      <div class="tab-row">
+        <button data-pdf="assets/report.pdf" class="active">📄 调研报告</button>
+        <button data-pdf="assets/report-combined.pdf">📚 合订本</button>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 240px;" id="pdf-info">
+          <h3 style="margin-bottom: 2px;">第二十三届中国国际装备制造业博览会调研报告</h3>
+          <p style="margin: 0; color: var(--ink-4); font-size: 13px;">约 60 页 · 21 张表 · 20 张图 · 7 个附录</p>
+        </div>
+        <a class="btn btn-secondary" id="btn-open" href="assets/report.pdf" target="_blank">📖 新窗口</a>
+        <a class="btn btn-primary" id="btn-download" href="assets/report.pdf" download>⬇️ 下载</a>
+      </div>
+      <iframe class="pdf-frame" id="pdf-frame" src="assets/report.pdf" title="调研报告 PDF"></iframe>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-2">
+      <div class="card lead-blue">
+        <span class="tag">调研报告</span>
+        <h3 style="margin-top:8px;">单本版</h3>
+        <ul style="line-height: 1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li><b>规格</b>：约 60 页 · 1.99 MB</li>
+          <li><b>结构</b>：摘要 → 目录 → 三段主体 → 第四部分延伸 → 第五部分案例 → 图表合集 → 七个附录</li>
+          <li><b>对应</b>：日常阅读、答辩存档、纸质打印</li>
+        </ul>
+      </div>
+      <div class="card lead-amber">
+        <span class="tag warn">合订本</span>
+        <h3 style="margin-top:8px;">完整版</h3>
+        <ul style="line-height: 1.85; padding-left: 18px; color: var(--ink-2); font-size: 14px;">
+          <li><b>规格</b>：约 75 页 · 2.22 MB</li>
+          <li><b>额外</b>：封面 + 使用说明 + 报告摘要 + 结论展望 + 数据透明度 + 图表索引 + 二维码导航 + 版本记录</li>
+          <li><b>对应</b>：评委一书读完、提交存档、推广扩散</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout info">
+      <strong>移动端阅读</strong> · iOS 用 Safari 或 PDF Expert，Android 用 WPS 或福昕阅读器；如果在线卡顿，建议下载后离线查看。
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script>
+  document.querySelectorAll('.tab-row button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-row button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const url = btn.getAttribute('data-pdf');
+      document.getElementById('pdf-frame').src = url;
+      document.getElementById('btn-open').href = url;
+      document.getElementById('btn-download').href = url;
+      const info = document.getElementById('pdf-info');
+      if (url.includes('combined')) {
+        info.innerHTML = '<h3 style="margin-bottom: 2px;">合订本</h3><p style="margin: 0; color: var(--ink-4); font-size: 13px;">约 75 页 · 含在线扩展与二维码导航</p>';
+      } else {
+        info.innerHTML = '<h3 style="margin-bottom: 2px;">第二十三届中国国际装备制造业博览会调研报告</h3><p style="margin: 0; color: var(--ink-4); font-size: 13px;">约 60 页 · 21 张表 · 20 张图 · 7 个附录</p>';
+      }
+    });
+  });
+</script>
+</body>
+</html>

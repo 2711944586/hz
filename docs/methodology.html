@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>调研方法论 · 中国制博会调研</title>
+<meta name="description" content="六阶段递进式调研方法论：定量与定性方法交叉验证，确保问题诊断的客观性与建议方案的可执行性。">
+<meta property="og:title" content="调研方法论 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<script src="assets/js/echarts.min.js?v=2026060501"></script>
+<style>
+  .method-stage {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    transition: all .2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .method-stage:hover {
+    border-color: color-mix(in oklab, var(--primary) 30%, var(--line-1));
+    box-shadow: var(--shadow-sm);
+  }
+  .method-stage .stage-tag {
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+  .method-stage .stage-num {
+    font-family: var(--font-serif);
+    font-size: 64px; font-weight: 700;
+    line-height: 1;
+    color: color-mix(in oklab, var(--primary) 14%, transparent);
+    position: absolute;
+    top: 16px; right: 24px;
+    pointer-events: none;
+  }
+  .method-stage h3 { font-size: 20px; margin: 8px 0 12px; padding-right: 50px; }
+  .method-stage .desc { font-size: 14px; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+
+  .method-stage .stage-blocks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .method-stage .stage-blocks .block {
+    background: var(--bg-soft);
+    border-radius: var(--r-sm);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  .method-stage .stage-blocks .block b {
+    display: block;
+    color: var(--ink-1);
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .method-stage .stage-output {
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: color-mix(in oklab, var(--primary) 5%, var(--bg-soft));
+    border-left: 3px solid var(--primary);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  }
+  .method-stage .stage-output .output-label {
+    font-family: var(--font-en);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .method-stage .stage-output p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  .ethics-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--r-md);
+    padding: 22px 26px;
+  }
+  .ethics-card h3 { font-size: 17px; margin-bottom: 8px; }
+  .ethics-card p { font-size: 14px; color: var(--ink-3); line-height: 1.75; }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Methodology</div>
+    <h1>这份报告<br/>是怎么做出来的</h1>
+    <p class="lede" style="margin-top: 24px;">采用六阶段递进式调研方法论，定量与定性方法交叉验证，确保问题诊断的客观性与建议方案的可执行性。本页解释每个阶段的具体做法、产出与质量保障。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- 总览 -->
+  <section class="section">
+    <div class="eyebrow">Overview</div>
+    <h2>方法论流程总览</h2>
+    <p class="lede">六个阶段层层递进，上一阶段为下一阶段提供输入与校验依据。</p>
+    <div class="card" style="padding: 16px;">
+      <div id="chart-f16" class="chart"></div>
+    </div>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>定量与定性结合</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">问卷与现场观察提供量化数据，访谈与资料调研提供定性洞察；两类数据交叉验证，识别既有数据支持也有访谈印证的关键问题。</p>
+      </div>
+      <div class="card lead-amber">
+        <h3>三角验证</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">同一议题至少由两种方法、两个数据源支撑；问卷数据与现场观察互相印证，访谈洞察与公开资料互相校对。</p>
+      </div>
+      <div class="card lead-green">
+        <h3>可重复性</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">三类调研工具（问卷/访谈/观察）已结构化为可复用模板，其他展会调研可直接套用；研究边界与局限明确公开。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 六阶段详解 -->
+  <section class="section">
+    <div class="eyebrow">Six Stages in Detail</div>
+    <h2>六阶段详解</h2>
+    <p class="lede">每个阶段含目标、方法、输入、产出、质量保障五个维度。</p>
+
+    <div class="grid-2" style="margin-top: 32px;">
+
+      <article class="method-stage">
+        <span class="stage-num">01</span>
+        <span class="stage-tag">Stage One</span>
+        <h3>资料调研 · Desktop Research</h3>
+        <p class="desc">通过国家政策文件、中国贸促会会展报告、辽宁省与沈阳市制造业政策、展会官网、媒体公开报道、学术文献等渠道，整理 2002 年首届至 2025 年第二十三届的关键数据与功能演进。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>核心方法</b>多源资料整理</div>
+          <div class="block"><b>资料来源</b>5 大类公开渠道</div>
+          <div class="block"><b>时间跨度</b>23 届 30 年</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>项目基础信息梳理（表 1）、规模演进数据（图 F1）、与同类展会对比（图 F15）。</p>
+        </div>
+      </article>
+
+      <article class="method-stage">
+        <span class="stage-num">02</span>
+        <span class="stage-tag">Stage Two</span>
+        <h3>现场观察 · Field Observation</h3>
+        <p class="desc">采用定点 + 动线 + 跟随式观察相结合，由两名独立观察员同时进行，覆盖展期 4 天与每天上下午两个时段。观察工具采用附录 C 的标准化记录表。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>观察员</b>2 名独立同步</div>
+          <div class="block"><b>覆盖时段</b>4 天 × 2 段 = 8 段</div>
+          <div class="block"><b>观察维度</b>动线/互动/服务/数字</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>现场动线热点图、展商互动样本、服务质量评分、数字工具实际使用率。</p>
+        </div>
+      </article>
+
+      <article class="method-stage">
+        <span class="stage-num">03</span>
+        <span class="stage-tag">Stage Three</span>
+        <h3>问卷调查 · Survey</h3>
+        <p class="desc">针对专业观众设计 33 题问卷，覆盖基本信息、参观行为、采购画像、满意度、数字化体验、改进意向六个维度。Likert 5 级量表 + NPS 评分。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>样本量</b>N ≥ 300 份</div>
+          <div class="block"><b>抽样方式</b>身份分层抽样</div>
+          <div class="block"><b>题目数</b>33 题 · 5-7 分钟</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>专业观众满意度分布（图 F18）、KPI 实测值（图 F19）、改进意向汇总。</p>
+        </div>
+      </article>
+
+      <article class="method-stage">
+        <span class="stage-num">04</span>
+        <span class="stage-tag">Stage Four</span>
+        <h3>深度访谈 · In-depth Interview</h3>
+        <p class="desc">针对参展商开展半结构化深度访谈，覆盖龙头企业、中小展商、首次参展三类至少各 8 家。每场访谈 30-45 分钟，结构遵循附录 B 提纲六个部分。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>访谈数</b>≥ 24 场</div>
+          <div class="block"><b>三类对照</b>龙头/中小/首次</div>
+          <div class="block"><b>每场时长</b>30-45 分钟</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>参展效果纪要、复展意愿、对主办方的具体诉求、典型语录。</p>
+        </div>
+      </article>
+
+      <article class="method-stage">
+        <span class="stage-num">05</span>
+        <span class="stage-tag">Stage Five</span>
+        <h3>数据分析 · Analysis</h3>
+        <p class="desc">定量数据采用描述统计、频次分析、交叉分析等基础方法；定性资料采用主题编码与典型案例归纳；通过两类数据交叉验证，识别既有数据支持也有访谈印证的关键问题。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>定量方法</b>描述/频次/交叉</div>
+          <div class="block"><b>定性方法</b>主题编码/案例归纳</div>
+          <div class="block"><b>验证方式</b>双源交叉</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>九大问题影响-紧迫性矩阵（图 F5）、问题-建议映射（图 F6）、影响-可行性散点（图 F7）。</p>
+        </div>
+      </article>
+
+      <article class="method-stage">
+        <span class="stage-num">06</span>
+        <span class="stage-tag">Stage Six</span>
+        <h3>报告输出 · Report</h3>
+        <p class="desc">按"会展发展情况—存在问题—优化建议"三段结构输出，配套 11 项建议、5 阶段实施甘特、6 维度指标体系，形成闭环。每项建议均与具体问题、实施主体、操作动作、评价方式形成对应。</p>
+        <div class="stage-blocks">
+          <div class="block"><b>主报告</b>三段闭环</div>
+          <div class="block"><b>配套</b>11 建议/5 阶段/6 指标</div>
+          <div class="block"><b>载体</b>Word + 在线 + PDF</div>
+        </div>
+        <div class="stage-output">
+          <div class="output-label">Output · 主要产出</div>
+          <p>调研报告 docx + 合订本 docx + 配套在线网站 + 20 张可视化图表 + 7 个附录。</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SWOT -->
+  <section class="section">
+    <div class="eyebrow">Strategic Position</div>
+    <h2>SWOT 战略环境分析</h2>
+    <p class="lede">把调研发现凝练为四象限战略判断，作为建议方案的战略起点。</p>
+    <div class="card" style="padding: 16px;">
+      <div id="chart-f14" class="chart tall"></div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="card lead-blue">
+        <h3>SO 组合 · 用优势抓机会</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">把沈阳装备制造产业基础与新质生产力政策红利相结合，推动展会成为新质生产力示范展示窗口，争取国家级先进制造业政策资源向展会聚集。</p>
+      </div>
+      <div class="card lead-amber">
+        <h3>WO 组合 · 补短板抓机会</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">利用制造业智能化升级带来的技术扩散需求，通过专业观众精准组织、数字化全流程平台、展后转化机制等措施补齐运营短板。</p>
+      </div>
+      <div class="card lead-green">
+        <h3>ST 组合 · 用优势抗威胁</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">发挥东北装备制造产业链完整的优势，形成区别于一线城市展会的差异化定位，避免在国际化与数字化方面与上海、北京、深圳同质竞争。</p>
+      </div>
+      <div class="card lead-red">
+        <h3>WT 组合 · 避劣势防威胁</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.7;">通过控制规模盲目扩张、避免重复办展同质化、强化展后转化与品牌识别度，规避在线上替代与同类展会竞争中的相对劣势。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 数据分析方法详解 -->
+  <section class="section">
+    <div class="eyebrow">Analytical Tools</div>
+    <h2>数据分析具体方法</h2>
+    <p class="lede">本节展开报告中使用的具体分析方法与判断标准，便于读者复用与质疑。</p>
+
+    <div class="grid-2" style="margin-top: 32px;">
+
+      <div class="card">
+        <h3>① 描述统计</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">对问卷数据进行频次、占比、均值、中位数等基础统计；按身份类型（采购/技术/管理/科研/学生）分组汇总，识别群体差异。</p>
+        <div class="card-foot">应用：图 F18 满意度分布、图 F19 KPI 仪表盘</div>
+      </div>
+
+      <div class="card">
+        <h3>② 交叉分析</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">把"身份 × 满意度"、"采购计划 × 复展意愿"等双变量交叉，看不同子群的差异；识别"哪些人对哪些环节最不满"。</p>
+        <div class="card-foot">应用：满意度跨群体对比、问题优先级判断</div>
+      </div>
+
+      <div class="card">
+        <h3>③ 主题编码</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">对访谈纪要进行开放编码 → 主轴编码 → 选择性编码三步：先记录所有提及的现象，再归类为问题维度，最后凝练为关键主题。</p>
+        <div class="card-foot">应用：九大问题归纳、典型语录提炼</div>
+      </div>
+
+      <div class="card">
+        <h3>④ 优先级矩阵</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">问题用"影响 × 紧迫性"双维评估，建议用"影响 × 可行性"双维评估，形成可比较的优先级排序。每个评分由团队三人独立打分后取均值。</p>
+        <div class="card-foot">应用：图 F5 问题优先级、图 F7 建议矩阵</div>
+      </div>
+
+      <div class="card">
+        <h3>⑤ SWOT 战略分析</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">把调研发现按"内部优劣势 / 外部机会威胁"四象限归纳，再形成 SO/WO/ST/WT 四类战略组合，为建议方案的战略定位提供依据。</p>
+        <div class="card-foot">应用：图 F14 SWOT、第三部分定位建议</div>
+      </div>
+
+      <div class="card">
+        <h3>⑥ 标杆对比</h3>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">选择 CIIF / CIMT / CHTF / HMI / EMO 五个国内外标杆展会，按 8 个维度相对评分，识别中国制博会的差距与机会。</p>
+        <div class="card-foot">应用：图 F15 雷达对比、案例库</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 调研伦理实操 -->
+  <section class="section">
+    <div class="eyebrow">Research Ethics</div>
+    <h2>调研伦理与数据使用</h2>
+    <p class="lede">研究伦理不是制度要求，而是对受访者的基本尊重。本节展开五条伦理原则的具体落实方式。</p>
+
+    <div class="grid-2" style="margin-top: 32px;">
+
+      <div class="ethics-card">
+        <h3>知情同意 · Informed Consent</h3>
+        <p>所有问卷填写与访谈均提前告知调研目的、用途、是否匿名、数据保存期限。受访者可随时退出，已提交的数据可申请删除。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：问卷首页设知情同意条款；访谈开场用 1 分钟说明背景与权利。</p>
+      </div>
+
+      <div class="ethics-card" style="border-left-color: var(--accent);">
+        <h3>匿名处理 · Anonymization</h3>
+        <p>问卷数据匿名化，不收集姓名与具体单位（除非受访者主动填写）；访谈纪要中以"行业 + 岗位"形式描述受访人（例：机床行业销售总监）。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：原始名单只用于回访邀请，不进入分析数据库；公开材料中删除所有可识别个人信息。</p>
+      </div>
+
+      <div class="ethics-card" style="border-left-color: var(--ok);">
+        <h3>数据用途 · Data Use</h3>
+        <p>仅用于会展项目优化研究与本作品答辩展示，不作商业用途，不向第三方共享原始数据。问卷与访谈中提到的商业敏感信息单独标注、不进入公开报告。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：原始数据团队内部加密保存；公开报告只引用经过脱敏的汇总结果。</p>
+      </div>
+
+      <div class="ethics-card" style="border-left-color: var(--plum);">
+        <h3>结果共享 · Result Sharing</h3>
+        <p>调研报告将向中国制博会主办方反馈，作为下一届筹办参考；向参与访谈的展商提供简版纪要（仅含其本企业内容）。受访者可申请获取最终报告。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：展后 1 个月内向主办方提交反馈；展后 3 个月内向参与企业发送简版报告。</p>
+      </div>
+
+      <div class="ethics-card" style="border-left-color: var(--rose);">
+        <h3>数据存储 · Storage</h3>
+        <p>原始数据保存 2 年（用于多届对比研究），到期销毁；公开数据仅保留汇总指标。访谈录音与原始名单不上传任何云盘或公开平台。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：本地加密文件夹保存原始数据；汇总结果上传 GitHub。</p>
+      </div>
+
+      <div class="ethics-card" style="border-left-color: var(--info);">
+        <h3>反馈渠道 · Feedback</h3>
+        <p>调研中发现的争议性议题（如对特定企业的负面评价）单独记录、不写入公开报告；如有受访者对内容呈现有异议，团队会主动调整或撤回。</p>
+        <p style="margin-top: 10px;"><b>实操</b>：GitHub Issue 接受公开反馈；受访者可通过邮件或访谈回访渠道提出修改意见。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 局限与改进 -->
+  <section class="section">
+    <div class="eyebrow">Limitations & Roadmap</div>
+    <h2>方法论局限与改进路径</h2>
+    <p class="lede">诚实承认局限，比掩盖更有价值。本节明确说明方法论本身的局限，并给出下一阶段的改进路径。</p>
+
+    <div class="callout warn" style="margin-top: 28px;">
+      <strong>当前局限</strong> · 由于本作品在赴展前完成，问卷、访谈、现场观察均处于"工具已设计、待执行"状态。本次报告中涉及满意度、复展意愿、KPI 等指标使用<b>示例数据</b>呈现，明确标注"待实地调研后回填"。详见<a href="transparency.html">数据透明度</a>。
+    </div>
+
+    <h3 style="margin: 28px 0 16px; font-size: 16px; color: var(--ink-3); font-weight: 600;">下一阶段改进路径</h3>
+
+    <div class="numbered">
+      <div class="item">
+        <div class="num">L1</div>
+        <h3>问卷正式回收</h3>
+        <p>赴展期间通过现场扫码、云展弹窗、展后邮件三个渠道收集 N≥300 份样本，分层抽样保证每类身份不少于 30 份。</p>
+      </div>
+      <div class="item">
+        <div class="num">L2</div>
+        <h3>访谈实地开展</h3>
+        <p>覆盖龙头企业、中小展商、首次参展三类至少各 8 家，全部录音并整理为结构化纪要，建立访谈数据库。</p>
+      </div>
+      <div class="item">
+        <div class="num">L3</div>
+        <h3>多届数据对比</h3>
+        <p>把第 21、22、23 届的关键指标进行连续追踪，建立"展会发展动态数据集"，超越单届快照视角。</p>
+      </div>
+      <div class="item">
+        <div class="num">L4</div>
+        <h3>引入第三方数据</h3>
+        <p>申请展会方公开来源地分布数据；引入沈阳市统计局、辽宁省商务厅的展会经济统计；佐证经济乘数估算。</p>
+      </div>
+      <div class="item">
+        <div class="num">L5</div>
+        <h3>方法论开源</h3>
+        <p>把六阶段方法论与三类调研工具整理为可复用的"会展项目调研工具包"，开放给其他展会调研团队使用。</p>
+      </div>
+      <div class="item">
+        <div class="num">L6</div>
+        <h3>持续追踪研究</h3>
+        <p>把本作品从"基于公开资料的单届调研"升级为"持续跟踪的会展项目研究"，每届展会更新一次。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider thick"></div>
+
+  <section class="section">
+    <div class="callout info">
+      <strong>方法论复用</strong> · 本作品采用的六阶段方法论与三类调研工具均开源。如果你正在做其他展会、文旅、产业项目的调研，可以直接参考 <a href="appendix.html">附录工具</a> 中的问卷、访谈、观察模板。
+    </div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/charts.js?v=202606010130"></script>
+<script>
+  renderChart('chart-f14', 'F14');
+  renderChart('chart-f16', 'F16');
+</script>
+</body>
+</html>

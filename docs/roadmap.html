@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>产品蓝图 · 中国制博会调研</title>
+<meta name="description" content="把建议方案具象化为产品蓝图：数字化平台、现场服务、展后运营三条产品线。">
+<meta property="og:title" content="产品蓝图 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<style>
+  .feature {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-md);
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: all .15s;
+  }
+  .feature:hover {
+    border-color: color-mix(in oklab, var(--primary) 25%, var(--line-1));
+  }
+  .feature .ico {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    background: color-mix(in oklab, var(--primary) 12%, transparent);
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .feature .body { flex: 1; }
+  .feature .body h4 { font-size: 15px; margin-bottom: 4px; }
+  .feature .body p { font-size: 13px; color: var(--ink-3); line-height: 1.6; margin: 0; }
+  .feature .meta {
+    font-family: var(--font-en);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-top: 6px;
+  }
+
+  .product-line {
+    border-radius: var(--r-lg);
+    padding: 28px;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+  .product-line h3 { color: #fff; font-size: 22px; margin-bottom: 8px; }
+  .product-line .pl-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 999px;
+    font-family: var(--font-en);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .product-line p { color: rgba(255,255,255,.85); font-size: 14px; line-height: 1.7; }
+  .product-line .feature-list { margin-top: 20px; }
+  .product-line .feature {
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.18);
+  }
+  .product-line .feature h4, .product-line .feature .body p { color: #fff; }
+  .product-line .feature .body p { color: rgba(255,255,255,.78); }
+  .product-line .feature .meta { color: rgba(255,255,255,.55); }
+  .product-line .feature .ico { background: rgba(255,255,255,.18); color: #fff; }
+
+  .product-line.line-1 { background: linear-gradient(135deg, #0F1F4F, #1E40AF); }
+  .product-line.line-2 { background: linear-gradient(135deg, #92400E, #F59E0B); }
+  .product-line.line-3 { background: linear-gradient(135deg, #065F46, #10B981); }
+
+  .release-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .release-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-1);
+    border-radius: var(--r-md);
+    padding: 22px;
+  }
+  .release-card .v {
+    font-family: var(--font-serif);
+    font-size: 32px; font-weight: 700;
+    color: var(--primary);
+    line-height: 1; margin-bottom: 8px;
+  }
+  .release-card h4 { font-size: 15px; margin-bottom: 6px; }
+  .release-card p { font-size: 13px; color: var(--ink-3); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="meta" style="display: flex; gap: 12px; font-family: var(--font-en); font-size: 12px; color: var(--ink-4); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px;">
+      <span>Product Roadmap</span>
+      <span>· 三条产品线</span>
+    </div>
+    <h1>把建议方案<br/>变成可发版的产品</h1>
+    <p class="lede" style="margin-top: 24px;">这一页是<b>第三部分建议方案的具象化产品蓝图</b>。把"专业观众组织""数字化全流程""展后运营"三个核心工程拆解成 30+ 项可发布功能，按"展前 / 展中 / 展后"三个时间节点组织，并给出三个版本的发布节奏。给主办方做执行参考。</p>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- 产品线一：展前数字化 -->
+  <div class="product-line line-1">
+    <span class="pl-tag">Product Line 01</span>
+    <h3>展前精准组织系统</h3>
+    <p>解决"<b style="color: #fff;">谁来、看什么、见谁</b>"的问题。从观众注册、需求采集到智能推荐与展前预约，把"现场偶遇式"匹配前置到展前。</p>
+
+    <div class="feature-list">
+      <div class="feature">
+        <div class="ico">F1</div>
+        <div class="body">
+          <h4>结构化注册问卷</h4>
+          <p>在基础联系方式之外采集采购需求、预算周期、决策角色、关注行业、希望对接企业类型；强制必填，形成观众画像。</p>
+          <div class="meta">优先级 P0 · 周期 4 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F2</div>
+        <div class="body">
+          <h4>展商目标客户画像采集</h4>
+          <p>展商端表单：希望对接的行业、客户规模、采购阶段、区域市场、合作模式；与观众画像形成双向映射。</p>
+          <div class="meta">优先级 P0 · 周期 3 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F3</div>
+        <div class="body">
+          <h4>智能推荐引擎</h4>
+          <p>基于观众画像和展商画像，自动生成"推荐展商"和"推荐观众"双向列表；提供展前邀请和预约入口。</p>
+          <div class="meta">优先级 P0 · 周期 6 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F4</div>
+        <div class="body">
+          <h4>展前预约洽谈系统</h4>
+          <p>观众可预约展商时段，展商可邀请重点客户；预约成功后双方收到时段确认邮件与现场地点提醒。</p>
+          <div class="meta">优先级 P0 · 周期 4 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F5</div>
+        <div class="body">
+          <h4>展前供需发布墙</h4>
+          <p>采购方发布需求帖，展商可主动认领；类似"工业版需求集市"，缩短匹配链条。</p>
+          <div class="meta">优先级 P1 · 周期 3 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F6</div>
+        <div class="body">
+          <h4>重点采购商邀请名单</h4>
+          <p>由招商团队定向维护的 VIP 名单，对应专属展前服务、机场接送、闭门洽谈、专车考察。</p>
+          <div class="meta">优先级 P0 · 持续运营</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 产品线二：展中现场服务 -->
+  <div class="product-line line-2">
+    <span class="pl-tag">Product Line 02</span>
+    <h3>展中现场服务系统</h3>
+    <p>解决"<b style="color: #fff;">怎么找、怎么约、怎么谈</b>"的问题。把展前数据用起来，让现场效率最大化。</p>
+
+    <div class="feature-list">
+      <div class="feature">
+        <div class="ico">F7</div>
+        <div class="body">
+          <h4>数字导览与主题路线</h4>
+          <p>根据观众兴趣自动生成"半日 / 一日观展路线"+ 展位地图；扫码即得，减少无效行走。</p>
+          <div class="meta">优先级 P0 · 周期 4 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F8</div>
+        <div class="body">
+          <h4>电子名片与扫码留资</h4>
+          <p>展商扫一下观众证件，自动留存名片信息与意向标签；告别纸质名片杂乱、丢失。</p>
+          <div class="meta">优先级 P0 · 周期 3 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F9</div>
+        <div class="body">
+          <h4>洽谈线索记录工具</h4>
+          <p>展商现场记录洽谈意向、需求标签、复访时间；展后自动同步到 CRM 或主办方提供的简版后台。</p>
+          <div class="meta">优先级 P0 · 周期 4 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F10</div>
+        <div class="body">
+          <h4>主题洽谈区调度</h4>
+          <p>专业洽谈区按行业划分（机床 / 机器人 / 自动化 / 国际），开放预约时段，避免临时找不到位置。</p>
+          <div class="meta">优先级 P1 · 现场执行</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F11</div>
+        <div class="body">
+          <h4>活动链条联动展区</h4>
+          <p>论坛主题与对应展区在同一动线；论坛结束直接引流到展区现场，避免活动孤立。</p>
+          <div class="meta">优先级 P1 · 协同设计</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F12</div>
+        <div class="body">
+          <h4>志愿者智能调度</h4>
+          <p>志愿者按位置 / 语种分布；高峰时段自动调派；统一培训手册回答常见展区与活动问题。</p>
+          <div class="meta">优先级 P2 · 周期 2 周</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 产品线三：展后转化 -->
+  <div class="product-line line-3">
+    <span class="pl-tag">Product Line 03</span>
+    <h3>展后持续运营系统</h3>
+    <p>解决"<b style="color: #fff;">怎么跟、怎么评、怎么转化</b>"的问题。把展会从"4 天活动"变成"全年滚动的产业服务"。</p>
+
+    <div class="feature-list">
+      <div class="feature">
+        <div class="ico">F13</div>
+        <div class="body">
+          <h4>展后线索回访工具</h4>
+          <p>展会结束后 1 周自动给展商推送当届客户名单与意向标签，引导回访。</p>
+          <div class="meta">优先级 P0 · 周期 2 周</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F14</div>
+        <div class="body">
+          <h4>1/3/6 月跟踪台账</h4>
+          <p>主办方维护意向项目台账，按时间节点回访展商与采购方；形成成交转化漏斗。</p>
+          <div class="meta">优先级 P0 · 持续</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F15</div>
+        <div class="body">
+          <h4>参展效果报告</h4>
+          <p>向参展商交付简版报告：展位访客数、洽谈数、新增线索数、对比往届，提升复展决策依据。</p>
+          <div class="meta">优先级 P0 · 展后 1 月内</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F16</div>
+        <div class="body">
+          <h4>电子展厅长期运营</h4>
+          <p>展期结束后云展不下线，持续 12 个月开放，配合展商发布更新。借鉴 EMO 做法。</p>
+          <div class="meta">优先级 P1 · 持续</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F17</div>
+        <div class="body">
+          <h4>满意度连续追踪</h4>
+          <p>NPS / 复展意愿 / 改进建议在每届都收集，形成多届对比数据。借鉴 EMO "参展前 vs 参展后" 模式。</p>
+          <div class="meta">优先级 P1 · 每届</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="ico">F18</div>
+        <div class="body">
+          <h4>数据看板与下一届招商支撑</h4>
+          <p>主办方内部看板展示真实成交数据；招商时用历史数据说服新展商，形成"招商 → 数据 → 复展"飞轮。</p>
+          <div class="meta">优先级 P1 · 周期 6 周</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 版本节奏 -->
+  <section class="section">
+    <div class="eyebrow">Release Plan</div>
+    <h2>三个版本的发布节奏</h2>
+    <p class="lede">不必一次性追求复杂功能。建议分三届展会逐步上线，每一届都让展商、观众、主办方看到"<b>升级感</b>"。</p>
+
+    <div class="release-grid" style="margin-top: 32px;">
+      <div class="release-card">
+        <div class="v">v1.0</div>
+        <h4>第二十四届 · 基础数字化</h4>
+        <p>F1 / F2 / F4 / F7 / F8 / F13 / F15 — 完成<b>基础注册结构化、电子名片、展前预约、展后报告</b>四件套。让"扫码留资"成为现场标配。</p>
+      </div>
+      <div class="release-card">
+        <div class="v">v2.0</div>
+        <h4>第二十五届 · 智能撮合</h4>
+        <p>F3 / F5 / F9 / F11 / F14 / F16 — 上线<b>智能推荐、需求发布墙、洽谈线索记录、活动链条联动、长期电子展厅</b>。让"匹配"成为主办方核心能力。</p>
+      </div>
+      <div class="release-card">
+        <div class="v">v3.0</div>
+        <h4>第二十六届 · 平台化运营</h4>
+        <p>F6 / F10 / F12 / F17 / F18 — 完成<b>VIP 客户运营、主题洽谈区调度、多届满意度追踪、数据看板</b>。让"产业服务平台"名实相副。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider thick"></div>
+
+  <section class="section">
+    <div class="callout info">
+      <strong>设计原则</strong> · 1）每个功能都有明确"解决谁的什么问题"；2）每个功能都有"完成标志"和"评估指标"；3）功能与功能之间形成数据闭环，避免孤立模块；4）优先 P0 高优先级功能，避免一次性堆功能造成现场失败。
+    </div>
+  </section>
+
+  <section class="section" style="text-align: center; margin-top: 48px;">
+    <a class="btn btn-primary" href="solutions.html">← 回到第三部分</a>
+    <a class="btn btn-secondary" href="cases.html">看标杆案例怎么做</a>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=202606010130"></script>
+<script src="assets/js/search.js?v=202606010130"></script>
+</body>
+</html>
