@@ -10,7 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<script src="assets/js/echarts.min.js?v=2026060502"></script>
 <style>
   .policy {
     background: var(--bg-elev);
@@ -242,6 +243,40 @@
 
   <!-- 展会的政策定位 -->
   <section class="section">
+    <div class="eyebrow">Industrial Radius</div>
+    <h2>产业链辐射与经济乘数</h2>
+    <p class="lede">战略上下文不只来自政策文件，也来自展会对产业链和城市服务业的真实拉动。这里把 F13 与 F17 放在背景页，展示中国制博会为什么能成为沈阳产业名片。</p>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>沈阳产业链辐射网络</h3>
+            <p>图 F13 · 以沈阳为核心，向东北、京津冀、长三角、珠三角、成渝等区域辐射。</p>
+          </div>
+          <span class="tag">F13</span>
+        </div>
+        <div id="chart-f13" class="chart tall"></div>
+        <div class="panel-note">读图结论：展会价值不局限于沈阳本地。沈阳的装备制造基础为展会提供内容底盘，而展会又把外部采购、技术、投资和传播资源带回城市。</div>
+      </div>
+
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>展会经济乘数效应</h3>
+            <p>图 F17 · 展会直接价值向住宿、餐饮、交通、文旅、商务服务等外层扩散。</p>
+          </div>
+          <span class="tag success">F17</span>
+        </div>
+        <div id="chart-f17" class="chart tall"></div>
+        <div class="panel-note">行动含义：把工业展会与工厂参访、工业博物馆、高校实验室、城市文旅线路联动起来，可以把一次展期流量转化为城市综合收益。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
     <div class="eyebrow">Policy Position</div>
     <h2>展会的政策定位</h2>
     <p class="lede">把展会放在政策语境中看，它实际承担三类功能。这三类功能也是本报告建议方案的逻辑起点。</p>
@@ -275,7 +310,12 @@
 
 </div>
 
-<script src="assets/js/common.js?v=202606010130"></script>
-<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/charts.js?v=2026060502"></script>
+<script>
+  renderChart('chart-f13', 'F13');
+  renderChart('chart-f17', 'F17');
+</script>
 </body>
 </html>

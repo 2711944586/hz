@@ -10,7 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<script src="assets/js/echarts.min.js?v=2026060502"></script>
 </head>
 <body>
 
@@ -52,6 +53,38 @@
         <div class="stat-label">Day-1 Intent</div>
         <div class="stat-value">15.8<span class="stat-unit">亿</span></div>
         <div class="stat-desc">开幕日意向成交</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">Executive Dashboard</div>
+    <h2>摘要交互看板</h2>
+    <p class="lede">摘要页保留两个最适合快速汇报的交互图：一张回答"项目为什么值得研究"，一张回答"下一届最该先改哪里"。</p>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>规模演进与关键节点</h3>
+            <p>图 F1 · 从长期趋势看项目积累与平台升级窗口。</p>
+          </div>
+          <span class="tag">F1</span>
+        </div>
+        <div id="chart-f1" class="chart tall"></div>
+        <div class="panel-note">读图结论：规模、企业数量、成交意向共同说明中国制博会已经具备大型专业展会基础；后续升级重点不再是单纯做大，而是提升匹配效率与服务深度。</div>
+      </div>
+
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>九大问题优先级</h3>
+            <p>图 F5 · 影响程度与改进紧迫性双维排序。</p>
+          </div>
+          <span class="tag danger">F5</span>
+        </div>
+        <div id="chart-f5" class="chart tall"></div>
+        <div class="panel-note">行动含义：专业观众组织、数字化闭环、展后转化机制是优先级最高的三类问题，建议作为下一届筹办的核心工程。</div>
       </div>
     </div>
   </section>
@@ -118,6 +151,35 @@
   </section>
 
   <section class="section">
+    <div class="eyebrow">What This Means</div>
+    <h2>摘要结论拆解</h2>
+    <p class="lede">把摘要页中的核心判断拆成四个可执行的阅读结论，便于评委、主办方和团队成员快速对齐。</p>
+
+    <div class="insight-grid" style="margin-top: 28px;">
+      <article class="insight-card">
+        <div class="kicker">Meaning 01</div>
+        <h3>研究对象成立</h3>
+        <p>9 万平方米、912 家参展企业、3056 个展位和较高成交意向，说明项目具备大型专业展会的研究价值，不是小型活动案例。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">Meaning 02</div>
+        <h3>升级逻辑明确</h3>
+        <p>展会已经拥有规模基础，下一阶段的关键是从"展示空间"升级为"产业链服务平台"，用数据和服务提升转化。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">Meaning 03</div>
+        <h3>问题不是否定</h3>
+        <p>九类问题是平台升级过程中的结构性矛盾，提出它们是为了找到下一届筹办中最值得投入资源的突破口。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">Meaning 04</div>
+        <h3>建议可落地</h3>
+        <p>11 项建议被拆成路线图、产品功能、指标体系和组织保障，避免停留在"加强""提升"这类空泛表达。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="callout info">
       <strong>下一步</strong> · 查看完整报告内容请进入 <a href="overview.html">第一部分</a>、<a href="problems.html">第二部分</a>、<a href="solutions.html">第三部分</a>，配套数据可视化请看 <a href="dashboard.html">数据看板</a>，调研工具请看 <a href="appendix.html">附录</a>。
     </div>
@@ -125,7 +187,12 @@
 
 </div>
 
-<script src="assets/js/common.js?v=202606010130"></script>
-<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/charts.js?v=2026060502"></script>
+<script>
+  renderChart('chart-f1', 'F1');
+  renderChart('chart-f5', 'F5');
+</script>
 </body>
 </html>

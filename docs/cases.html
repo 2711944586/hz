@@ -10,7 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<script src="assets/js/echarts.min.js?v=2026060502"></script>
 </head>
 <body>
 
@@ -120,11 +121,52 @@
       <article class="card" style="background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 6%, var(--bg-elev)), color-mix(in oklab, var(--accent) 6%, var(--bg-elev))); border-style: dashed;">
         <h3>横向对比看板</h3>
         <p class="sub">基于八个维度的相对评分（0-5），辅助判断中国制博会的提升方向。</p>
-        <div style="text-align: center; margin-top: 24px;">
-          <a class="btn btn-primary" href="dashboard.html">前往数据看板看雷达对比</a>
-        </div>
+        <p style="color: var(--ink-3); font-size: 14px; line-height: 1.75;">本页不再把雷达图藏到数据看板里，而是直接放在案例页中阅读：对比不是为了排名，而是为了识别"中国制博会最值得补的能力"。</p>
       </article>
 
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="eyebrow">Benchmark Radar</div>
+    <h2>同类展会综合对比</h2>
+    <p class="lede">F15 以八个维度对中国制博会与 CIIF / CIMT / CHTF 等标杆展会作相对比较，帮助判断哪些做法值得借鉴、哪些能力需要补课。</p>
+
+    <div class="chart-panel" style="margin-top: 28px;">
+      <div class="panel-head">
+        <div>
+          <h3>与国内同类展会对比雷达</h3>
+          <p>图 F15 · 基于公开资料的相对评分，不作为精确测量。</p>
+        </div>
+        <span class="tag">F15</span>
+      </div>
+      <div id="chart-f15" class="chart tall"></div>
+      <div class="panel-note">读图结论：中国制博会的产业基础和区域特色突出，但在国际化、数字化运营、品牌话题制造和展后数据服务方面仍有提升空间。这也是本报告第三部分建议的来源之一。</div>
+    </div>
+
+    <div class="insight-grid" style="margin-top: 22px;">
+      <article class="insight-card">
+        <div class="kicker">From CIIF</div>
+        <h3>主题矩阵与奖项机制</h3>
+        <p>上海工博会的启示是：专业展之间要形成矩阵，评选、发布、论坛要成为稳定话题发生器，而不是临时活动。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">From CIMT</div>
+        <h3>垂直专业深度</h3>
+        <p>北京机床展的启示是：装备类展会需要行业协会与龙头企业共同定义专业边界，避免展区内容泛化。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">From CHTF</div>
+        <h3>科技成果转化</h3>
+        <p>深圳高交会的启示是：高校、科研院所和企业需求可以被组织成独立转化板块，而不是只作为观展人群存在。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">From HMI / EMO</div>
+        <h3>国际组织与展后运营</h3>
+        <p>国际标杆的启示是：伙伴国、媒体日、用户故事、电子展厅和满意度追踪，会让展会从短期活动变成长期品牌资产。</p>
+      </article>
     </div>
   </section>
 
@@ -150,7 +192,11 @@
 
 </div>
 
-<script src="assets/js/common.js?v=202606010130"></script>
-<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/charts.js?v=2026060502"></script>
+<script>
+  renderChart('chart-f15', 'F15');
+</script>
 </body>
 </html>

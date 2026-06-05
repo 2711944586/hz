@@ -1,80 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>图表 · 中国制博会调研</title>
-  <meta name="description" content="第二十三届中国国际装备制造业博览会调研报告图表库，按规模、观众、成交、传播、治理和路线图分组。">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260602">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>图表总览 · 中国制博会调研</title>
+<meta name="description" content="第二十三届中国制博会调研报告图表库，按规模、观众、成交、传播、治理和路线图分组。">
+<meta property="og:title" content="图表总览 · 中国制博会调研">
+<meta property="og:type" content="article">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1E40AF">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<style>
+  .figure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .figure-card {
+    padding: 14px;
+    overflow: hidden;
+  }
+  .figure-card img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    border-radius: var(--r-sm);
+    background: var(--bg-soft);
+    border: 1px solid var(--line-1);
+  }
+  .figure-card h3 {
+    font-size: 15px;
+    margin: 12px 4px 4px;
+  }
+  .figure-card p {
+    color: var(--ink-4);
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0 4px 4px;
+  }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="inner">
-      <a class="brand" href="index.html"><span class="brand-mark">制</span><span>中国制博会调研</span></a>
-      <nav class="nav">
-        <a href="index.html">首页</a>
-        <a href="report.html">报告内容</a>
-        <a href="charts.html">图表</a>
-        <a href="photos.html">照片</a>
-        <a href="data.html">数据口径</a>
-        <a href="download.html">完整报告</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="page-hero">
-    <div class="hero-inner">
-      <span class="pill">图表库</span>
-      <h1>44 张图表支撑公开版报告</h1>
-      <p>图表按规模与结构、观众与采购、成交与转化、国际化与传播、问题诊断与治理、路线图与执行六组呈现，便于快速阅读报告结论。</p>
+<section class="hero minimal">
+  <div class="inner narrow">
+    <div class="eyebrow">Figure Atlas</div>
+    <h1>44 张支撑图表<br/>按研究问题分组阅读</h1>
+    <p class="lede" style="margin-top: 24px;">本页展示完整报告中的 44 张静态支撑图表。交互版 20 张核心图已经分配到摘要、发展、问题、建议、背景、案例、路线图、附录与结论页面；本页作为静态图谱，帮助读者快速浏览全部图表证据。</p>
+  </div>
+</section>
+
+<div class="container wide">
+
+  <section class="section">
+    <div class="eyebrow">Groups</div>
+    <h2>六类图表分组</h2>
+    <p class="lede">每组图表都对应报告正文中的一类问题：规模、观众、交易、传播、治理、执行。读图时建议先看组名，再看单图标题。</p>
+
+    <div class="grid-3" style="margin-top: 28px;">
+      <article class="card lead-blue"><h3>规模与结构</h3><p class="sub">展示面积、展位配置、参展主体、产业链覆盖和展区组织。</p></article>
+      <article class="card lead-green"><h3>观众与采购</h3><p class="sub">线下观众、专业观众、采购商组织、云展触达和匹配路径。</p></article>
+      <article class="card lead-amber"><h3>成交与转化</h3><p class="sub">意向成交、开幕日签约、对接活动、展后台账和企业效果报告。</p></article>
+      <article class="card lead-violet"><h3>国际化与传播</h3><p class="sub">国际资源、境外采购、媒体分层、城市品牌和工业文旅联动。</p></article>
+      <article class="card lead-red"><h3>问题诊断与治理</h3><p class="sub">定位表达、数字闭环、现场服务、转化风险和保障机制。</p></article>
+      <article class="card"><h3>路线图与执行</h3><p class="sub">三届升级、年度传播、任务分解、指标采集和城市协同。</p></article>
     </div>
   </section>
 
-  <main class="container">
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <span class="pill">总览</span>
-          <h2>图表分组</h2>
-        </div>
-        <p>每张图均对应报告正文分析，用于把指标、判断和建议放到同一阅读路径中。</p>
-      </div>
-      <div class="grid three">
-        <article class="card"><h3>规模与结构</h3><p>展示面积、展位、参展主体、产业链覆盖和展区配置。</p></article>
-        <article class="card"><h3>观众与采购</h3><p>线下观众、专业观众、采购商组织、云展触达和匹配路径。</p></article>
-        <article class="card"><h3>成交与转化</h3><p>意向成交、开幕日签约、对接活动、展后台账和企业效果报告。</p></article>
-        <article class="card"><h3>国际化与传播</h3><p>国际资源、境外采购、媒体分层、城市品牌和工业文旅联动。</p></article>
-        <article class="card"><h3>问题诊断与治理</h3><p>定位表达、数字闭环、现场服务、转化风险和保障机制。</p></article>
-        <article class="card"><h3>路线图与执行</h3><p>三届升级、年度传播、任务分解、指标采集和城市协同。</p></article>
-      </div>
-    </section>
+  <div class="divider"></div>
 
-    <section class="section">
-      <div class="section-head">
-        <div>
-          <span class="pill">重点图表</span>
-          <h2>六类图表的阅读重点</h2>
-        </div>
-        <p>图表库不只展示图片，还围绕规模、客群、交易、传播、治理和执行给出阅读提示，避免只停留在图片浏览。</p>
-      </div>
-      <div class="data-strip">
-        <div><b>8</b><span>规模与结构图表</span></div>
-        <div><b>7</b><span>观众与采购图表</span></div>
-        <div><b>7</b><span>成交与转化图表</span></div>
-        <div><b>7</b><span>国际化与传播图表</span></div>
-        <div><b>15</b><span>治理与执行图表</span></div>
-      </div>
-    </section>
+  <section class="section">
+    <div class="eyebrow">Interactive Map</div>
+    <h2>20 张交互图分布位置</h2>
+    <p class="lede">为回应"图表不要集中在一页"的阅读需求，核心交互图已按内容语义分散到各个页面。</p>
 
-    <div data-figure-groups></div>
-  </main>
+    <table class="tbl" style="margin-top: 24px;">
+      <thead><tr><th>页面</th><th>交互图</th><th>为什么放在这里</th></tr></thead>
+      <tbody>
+        <tr><td><a href="summary.html">摘要</a></td><td>F1 / F5</td><td>快速说明项目规模与优先问题。</td></tr>
+        <tr><td><a href="overview.html">第一部分</a></td><td>F2 / F3 / F4</td><td>解释展区构成、发展成效与阶段演进。</td></tr>
+        <tr><td><a href="problems.html">第二部分</a></td><td>F5</td><td>问题优先级与逐条诊断直接对应。</td></tr>
+        <tr><td><a href="solutions.html">第三部分</a></td><td>F6 / F7 / F8 / F11 / F12</td><td>问题映射、建议优先级、数字闭环、价值主张、传播矩阵。</td></tr>
+        <tr><td><a href="context.html">战略上下文</a></td><td>F13 / F17</td><td>展示产业链辐射与城市经济乘数。</td></tr>
+        <tr><td><a href="cases.html">案例库</a></td><td>F15</td><td>同类展会对比与标杆启示同页阅读。</td></tr>
+        <tr><td><a href="methodology.html">方法论</a></td><td>F14 / F16</td><td>说明 SWOT 和六阶段调研流程。</td></tr>
+        <tr><td><a href="roadmap.html">产品蓝图</a></td><td>F9 / F10</td><td>实施节奏与指标体系属于路线图核心。</td></tr>
+        <tr><td><a href="appendix.html">附录工具</a></td><td>F18</td><td>展示问卷回收后的满意度呈现方式。</td></tr>
+        <tr><td><a href="conclusion.html">结论</a></td><td>F19 / F20</td><td>用 KPI 与工业文旅路线收束全报告。</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>第二十三届中国国际装备制造业博览会调研报告</div>
-      <div class="footer-links"><a href="report.html">报告内容</a><a href="photos.html">照片</a><a href="download.html">完整报告</a></div>
-    </div>
-  </footer>
-  <script src="assets/js/main.js?v=20260602"></script>
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="eyebrow">Static Figures</div>
+    <h2>完整静态图谱</h2>
+    <p class="lede">以下图表来自完整报告，可点击打开高清图片。静态图用于补充正文细节，交互图用于浏览器阅读和答辩演示。</p>
+    <div id="figure-groups"></div>
+  </section>
+
+</div>
+
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script>
+  const groups = [
+    { title: '规模与结构', theme: '展览面积、展位配置、参展结构和展区组织', files: ['figure-02.png','figure-03.png','figure-04.png','figure-05.png','figure-06.png','figure-07.png','figure-08.png','figure-09.png'], captions: ['核心规模指标总览','展位与企业配置','专业展区结构','参展主体构成','境外及合作企业占比','产业链覆盖范围','展区功能分布','展会容量与承载效率'] },
+    { title: '观众与采购', theme: '专业观众、采购商、云展触达和客群组织', files: ['figure-10.png','figure-11.png','figure-12.png','figure-13.png','figure-14.png','figure-15.png','figure-16.png'], captions: ['线下观众结构','专业观众占比','采购商组织路径','海外采购团增长','云展触达规模','客群来源层级','供需匹配转化链路'] },
+    { title: '成交与转化', theme: '意向成交、开幕日表现、对接活动和展后转化', files: ['figure-17.png','figure-18.png','figure-19.png','figure-20.png','figure-21.png','figure-22.png','figure-23.png'], captions: ['累计意向成交','开幕日成交贡献','采购对接会贡献','成交密度测算','展后跟踪台账','重点项目转化路径','企业效果报告框架'] },
+    { title: '国际化与传播', theme: '国际展商、境外采购、媒体传播和城市品牌', files: ['figure-24.png','figure-25.png','figure-26.png','figure-27.png','figure-28.png','figure-29.png','figure-30.png'], captions: ['国际资源链接','境外展位面积占比','国家及地区参与','传播触点矩阵','城市产业形象','媒体分层触达','工业文旅联动'] },
+    { title: '问题诊断与治理', theme: '定位表达、服务体验、数字闭环和风险治理', files: ['figure-31.png','figure-32.png','figure-33.png','figure-34.png','figure-35.png','figure-36.png','figure-37.png'], captions: ['问题诊断矩阵','专业观众组织短板','数字服务闭环','现场服务体验','传播分层不足','展后转化风险','保障机制清单'] },
+    { title: '路线图与执行', theme: '三届升级路线、年度传播节奏和执行矩阵', files: ['figure-38.png','figure-39.png','figure-40.png','figure-41.png','figure-42.png','figure-43.png','figure-44.png'], captions: ['平台定位路线','三届升级节奏','全年传播安排','重点任务分解','指标采集机制','城市资源协同','综合执行矩阵'] }
+  ];
+  let seq = 1;
+  document.getElementById('figure-groups').innerHTML = groups.map(group => {
+    const cards = group.files.map((file, idx) => {
+      const n = String(seq++).padStart(2, '0');
+      return `<article class="card figure-card"><a href="assets/img/${file}" target="_blank"><img src="assets/img/${file}" alt="${group.captions[idx]}" loading="lazy"></a><h3>${n} ${group.captions[idx]}</h3><p>${group.theme}</p></article>`;
+    }).join('');
+    return `<section class="section"><div class="eyebrow">${group.title}</div><h2>${group.title}图表</h2><p class="lede">${group.theme}</p><div class="figure-grid" style="margin-top: 24px;">${cards}</div></section>`;
+  }).join('');
+</script>
 </body>
 </html>

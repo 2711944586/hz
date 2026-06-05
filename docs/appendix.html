@@ -10,8 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
-<script src="assets/js/echarts.min.js?v=2026060501"></script>
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<script src="assets/js/echarts.min.js?v=2026060502"></script>
 </head>
 <body>
 
@@ -132,6 +132,44 @@
 
   <div class="divider"></div>
 
+  <section class="section">
+    <div class="eyebrow">Survey Output</div>
+    <h2>问卷回收后的结果呈现</h2>
+    <p class="lede">附录 A 不只是一个填写入口。问卷正式回收后，满意度、NPS、复展意愿、数字工具使用率等数据会回填到报告图表中。下图使用示例数据展示回填后的可视化形态。</p>
+
+    <div class="chart-panel" style="margin-top: 28px;">
+      <div class="panel-head">
+        <div>
+          <h3>专业观众满意度模拟分布</h3>
+          <p>图 F18 · 示例数据，真实分布以正式问卷调研结果为准。</p>
+        </div>
+        <span class="tag warn">F18</span>
+      </div>
+      <div id="chart-f18" class="chart tall"></div>
+      <div class="panel-note">使用方式：问卷导出的 CSV 可按题号映射到图表字段，替换示例百分比；如果某个维度低于 3 分占比明显偏高，就需要回到问题诊断页追踪具体原因。</div>
+    </div>
+
+    <div class="insight-grid" style="margin-top: 22px;">
+      <article class="insight-card">
+        <div class="kicker">Step 01</div>
+        <h3>导出原始 CSV</h3>
+        <p>现场扫码填写后点击"导出 CSV"，团队可按时间、身份、关注展区、采购计划进行分组清洗。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">Step 02</div>
+        <h3>计算满意度分布</h3>
+        <p>把 Likert 1-5 分转换为百分比分布，重点看"不满意/一般"集中在哪些服务环节。</p>
+      </article>
+      <article class="insight-card">
+        <div class="kicker">Step 03</div>
+        <h3>回填 KPI 与问题页</h3>
+        <p>NPS、复展意愿、数字工具使用率等指标回填到 F19，开放题高频词回填到问题诊断。</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- 附录 B -->
   <section class="section">
     <div class="eyebrow">Appendix B</div>
@@ -244,9 +282,12 @@
 
 </div>
 
-<script src="assets/js/common.js?v=202606010130"></script>
-<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/charts.js?v=2026060502"></script>
 <script>
+  renderChart('chart-f18', 'F18');
+
   // Likert 满意度
   const likertItems = [
     '展前邀请与信息推送', '注册流程', '现场导览', '展商质量',

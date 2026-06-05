@@ -10,7 +10,8 @@
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E40AF">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/css/style.css?v=202606010130" />
+<link rel="stylesheet" href="assets/css/style.css?v=2026060502" />
+<script src="assets/js/echarts.min.js?v=2026060502"></script>
 <style>
   .feature {
     background: var(--bg-elev);
@@ -294,6 +295,40 @@
 
   <div class="divider"></div>
 
+  <section class="section">
+    <div class="eyebrow">Implementation View</div>
+    <h2>实施节奏与指标体系</h2>
+    <p class="lede">路线图页直接承载 F9 和 F10：前者回答"什么时候做"，后者回答"做到什么程度算有效"。</p>
+
+    <div class="grid-2" style="margin-top: 28px;">
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>五阶段实施甘特</h3>
+            <p>图 F9 · 从展前 9 个月到展后 6 个月的闭环周期。</p>
+          </div>
+          <span class="tag">F9</span>
+        </div>
+        <div id="chart-f9" class="chart tall"></div>
+        <div class="panel-note">读图结论：数字化、专业观众组织和传播矩阵都必须提前启动；展后跟踪不是附加动作，而是完整筹办周期的一部分。</div>
+      </div>
+
+      <div class="chart-panel">
+        <div class="panel-head">
+          <div>
+            <h3>效果评估指标体系</h3>
+            <p>图 F10 · 规模、质量、匹配、转化、满意、传播六类指标。</p>
+          </div>
+          <span class="tag success">F10</span>
+        </div>
+        <div id="chart-f10" class="chart tall"></div>
+        <div class="panel-note">行动含义：下一届不应只复盘展览面积和成交额，还要追踪专业观众质量、预约洽谈数、线索转化率、复展意愿和传播触达。</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- 版本节奏 -->
   <section class="section">
     <div class="eyebrow">Release Plan</div>
@@ -327,6 +362,24 @@
     </div>
   </section>
 
+  <section class="section">
+    <div class="eyebrow">Ownership</div>
+    <h2>功能落地责任表</h2>
+    <p class="lede">把产品功能分配到具体工作组，避免"平台升级"停留在口号里。</p>
+
+    <table class="tbl" style="margin-top: 24px;">
+      <thead><tr><th>工作组</th><th>负责功能</th><th>交付物</th><th>关键验收指标</th></tr></thead>
+      <tbody>
+        <tr><td><b>专业观众组</b></td><td>F1 / F4 / F6</td><td>观众画像字段、重点采购商名单、预约洽谈排期</td><td>重点采购商到场率、预约洽谈完成率</td></tr>
+        <tr><td><b>招商招展组</b></td><td>F2 / F5</td><td>展商目标客户画像、展前供需发布墙</td><td>展商资料完整率、需求认领数量</td></tr>
+        <tr><td><b>数字平台组</b></td><td>F3 / F7 / F8 / F9 / F18</td><td>推荐引擎、导览路线、电子名片、线索后台、数据看板</td><td>平台活跃率、扫码留资数、线索记录完整率</td></tr>
+        <tr><td><b>现场运营组</b></td><td>F10 / F11 / F12</td><td>主题洽谈区、论坛展区联动、志愿者调度表</td><td>洽谈区使用率、服务响应时长、活动引流人数</td></tr>
+        <tr><td><b>展后复盘组</b></td><td>F13 / F14 / F15 / F17</td><td>回访台账、1/3/6 月跟踪、参展效果报告、满意度追踪</td><td>有效回访率、成交转化率、复展意愿</td></tr>
+        <tr><td><b>云展运营组</b></td><td>F16</td><td>12 个月电子展厅更新计划</td><td>展后访问量、展商更新次数、线上询盘数</td></tr>
+      </tbody>
+    </table>
+  </section>
+
   <section class="section" style="text-align: center; margin-top: 48px;">
     <a class="btn btn-primary" href="solutions.html">← 回到第三部分</a>
     <a class="btn btn-secondary" href="cases.html">看标杆案例怎么做</a>
@@ -334,7 +387,12 @@
 
 </div>
 
-<script src="assets/js/common.js?v=202606010130"></script>
-<script src="assets/js/search.js?v=202606010130"></script>
+<script src="assets/js/common.js?v=2026060502"></script>
+<script src="assets/js/search.js?v=2026060502"></script>
+<script src="assets/js/charts.js?v=2026060502"></script>
+<script>
+  renderChart('chart-f9', 'F9');
+  renderChart('chart-f10', 'F10');
+</script>
 </body>
 </html>
